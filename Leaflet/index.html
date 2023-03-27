@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Festival Map</title>
+    <link rel="stylesheet" href="/leaflet.css" />
+	
+	<! -- ExtraMakers -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+	<link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
+	
+    <script src="/leaflet.js"></script>
+	<! -- Full Screen -->
+	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+	
+	<! -- ExtraMakers -->
+	<script src="js/leaflet.extra-markers.min.js"></script>
+	
+	<! -- Markercluster https://github.com/Leaflet/Leaflet.markercluster -->
+	<script src="js/leaflet.markercluster.js"></script>
+	<link rel="stylesheet" href="css/MarkerCluster.css">
+	<link rel="stylesheet" href="css/MarkerCluster.Default.css">
+	
+	<!-- Load jQuery and PapaParse to read data from a CSV file -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+	
+</head>
+<body>
+    <!-- <div id="map" style="height: 800px;"></div> -->
+    <div id="map" style="height: 100vh;"></div>
+    <script>
+		
+		/////////////////
+		// MAP //
+		var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: '© OpenStreetMap'
+		});
+		
+		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+			layers: [osm, food, institute, art]
+        }).addTo(map);
+		
+		/////////////////
+		// ICON //
+		var bngIcon = L.icon({
+			iconUrl: 'images/bng.png',
+			iconSize: [50, 50],
+			// shadowSize:   [100, 100], // size of the shadow
+			iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+			//shadowAnchor: [4, 62],  // the same for the shadow
+			popupAnchor: [0, -38]
+		});
+		
+
+		
+		//////////////////////
+		// Marker Cluster 1 //
+		var markerclustershow = L.markerClusterGroup();
+		
+		/////////////////
+		// marker //
+
+		// Creates a red marker with the coffee icon
+		var fireMarker = L.ExtraMarkers.icon({
+			shape: 'circle',
+			icon: 'fa-solid fa-fire',
+			markerColor: 'red',
+			prefix: 'fa'
+		})
+		
+		var coffeMarker = L.ExtraMarkers.icon({
+			shape: 'circle',
+			icon: 'fa-coffee',
+			markerColor: 'orange',
+			prefix: 'fa'
+		});
+		
+		var restaurantMarker = L.ExtraMarkers.icon({
+			shape: 'circle',
+			icon: 'fa-utensils ',
+			markerColor: 'orange',
+			prefix: 'fa'
+		});
+		
+		var artMarker = L.ExtraMarkers.icon({
+			shape: 'penta',
+			markerColor: 'violet',
+			prefix: 'fa',
+			icon: 'fa-spinner',
+			iconColor: '#fff',
+			iconRotate: 0,
+			extraClasses: 'fa-spin',
+			number: '',
+			svg: true
+		});
+		
+		var artInstitute = L.ExtraMarkers.icon({
+			shape: 'square',
+			markerColor: 'green-dark',
+			prefix: 'icon',
+			icon: 'fas fa-school',
+			iconColor: '#fff',
+			iconRotate: 0,
+			extraClasses: '',
+			number: '',
+			svg: false
+		});
+
+		//// Create Markers ///
+		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);
+		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map);
+
+		var restaurant1 = L.marker([13.738499264414234, 99.91441176863576], {icon: restaurantMarker}).addTo(map).bindPopup("ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ");
+			restaurant2 = L.marker([13.745020301425022, 99.91714710317994], {icon: coffeMarker}).addTo(map).bindPopup("บ้านคุณทวด กาแฟสด");
+			institute1 = L.marker([13.73840521574008, 99.91674592338283], {icon: artInstitute}).addTo(map).bindPopup("Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ");
+			art1 = L.marker([13.741348304933565, 99.91366504425268], {icon: artMarker}).addTo(map).bindPopup("Art1");
+		
+		//// Group on marker cluster show ////
+		//markerclustershow.addLayer(marker_baannorg);
+		markerclustershow.addLayer(restaurant1);
+		markerclustershow.addLayer(restaurant2);
+		markerclustershow.addLayer(institute1);
+		markerclustershow.addLayer(art1);
+		
+		//// Group on group too bar ////
+		var food = L.layerGroup([restaurant1, restaurant2]);
+		var institute = L.layerGroup([institute1]);
+		var art = L.layerGroup([art1]);
+		
+		
+		/////////////////
+		// Full Screen //
+		// or, add to an existing map:
+		map.addControl(new L.Control.Fullscreen());
+		
+		//map.isFullscreen() // Is the map fullscreen?
+		//map.toggleFullscreen() // Either go fullscreen, or cancel the existing fullscreen.
+
+		// `fullscreenchange` Event that's fired when entering or exiting fullscreen.
+		map.on('fullscreenchange', function () {
+			if (map.isFullscreen()) {
+				console.log('entered fullscreen');
+			} else {
+				console.log('exited fullscreen');
+			}
+		});
+		
+		///////////////////
+		// Group Cluster //
+		var streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2VyYXBvbCIsImEiOiJjbGZuM2FjM2QwaGZoM3BtbW83bXhuY3R5In0.pxWdDSBQ3o4ZQx-QC7g-_w', {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+
+		var baseMaps = {
+			"OpenStreetMap": osm,
+			"Mapbox Streets": streets
+		};
+
+		var overlayMaps = {
+			"Food": food,
+			"Art": art,
+			"Institute": institute
+		};
+		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+		var baseMaps = {
+			//"<span style='color: gray'>Grayscale</span>": grayscale(1),
+			"Streets": streets
+		};
+		var satellite = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2VyYXBvbCIsImEiOiJjbGZuM2FjM2QwaGZoM3BtbW83bXhuY3R5In0.pxWdDSBQ3o4ZQx-QC7g-_w', {id: 'MapID', tileSize: 512, zoomOffset: -1, attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+
+		layerControl.addBaseLayer(satellite, "Satellite");
+		//layerControl.addOverlay(food, "Food");
+		//layerControl.addOverlay(art, "Art");
+		
+		// Read markers data from data.csv
+		$.get('csv/fire.csv', function(csvString) {
+
+		// Use PapaParse to convert string to array of objects
+		var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+
+		// For each row in data, create a marker and add it to the map
+		// For each row, columns `Latitude`, `Longitude`, and `Title` are required
+		for (var i in data) {
+		  var row = data[i];
+
+		  var firepos = L.marker([row.latitude, row.longitude], {
+			opacity: 0.5,
+			icon: fireMarker
+		  }).bindPopup(row.brightness);
+		  
+		  firepos.addTo(map);
+		  markerclustershow.addLayer(firepos);
+		}
+
+		});
+		
+		//////////////////////
+		// Marker Cluster 2 //
+		map.addLayer(markerclustershow);
+				
+    </script>
+</body>
+</html>
