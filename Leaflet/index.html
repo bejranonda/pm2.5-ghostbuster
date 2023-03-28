@@ -26,10 +26,15 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 	
+	<!-- Sidebar -->
+	<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
+	<script src="js/L.Control.Sidebar.js"></script>
+	
 </head>
 <body>
     <!-- <div id="map" style="height: 800px;"></div> -->
     <div id="map" style="height: 100vh;"></div>
+	<div id="sidebar"><h3>Welcome to</h3><h2 style="color:blue;">alternative interdisciplinary art program</h2><h1>Baan Noorg</h1><p>We open for Artists, Curators, researchers from all artistic disciplines to apply for Artist in Residence Program. Baan Noorg Collaborative Arts and Culture is a not for profit, artist run initiative, established in 2011, in a Tai Yuan (ไทยวน) civilization town of Ratchaburi province, Thailand. Its independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development. The program invites artists from around the world to develop work within the “International Residency Program” in a community, communally used and remodeled space for a period of 3 weeks -3 months.</p><img src="images/bng.png" alt="Baan Noorg"></div>
     <script>
 		
 		/////////////////
@@ -39,11 +44,19 @@
 			attribution: '© OpenStreetMap'
 		});
 		
+		// var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 15);
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            // attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+			// layers: [osm, food, institute, art]
+        // }).addTo(map);
+
 		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-			layers: [osm, food, institute, art]
+			layers: [osm]
         }).addTo(map);
+		
+
 		
 		/////////////////
 		// ICON //
@@ -99,7 +112,7 @@
 			svg: true
 		});
 		
-		var artInstitute = L.ExtraMarkers.icon({
+		var placeMarker = L.ExtraMarkers.icon({
 			shape: 'square',
 			markerColor: 'green-dark',
 			prefix: 'icon',
@@ -112,25 +125,72 @@
 		});
 
 		//// Create Markers ///
-		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);
-		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map);
+		var markerlist = [
+		  {
+			lat: 13.74126268827169,
+			lng: 99.91452984269866,
+			icon: bngIcon,
+			content: '<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">'
+		  },
+		  {
+			lat: 13.738499264414234,
+			lng: 99.91441176863576,
+			icon: restaurantMarker,
+			content: '<h2>ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ</h2><p>ป๋าหรั่ง</p>'
+		  },
+		  {
+			lat: 13.745020301425022,
+			lng: 99.91714710317994,
+			icon: coffeMarker,
+			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>Marker 2 content</p>'
+		  },
+		  {
+			lat: 13.73840521574008,
+			lng: 99.91674592338283,
+			icon: placeMarker,
+			content: '<h2>Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ</h2><p>Marker 3 content</p>'
+		  },
+		  {
+			lat: 13.741348304933565,
+			lng: 99.91366504425268,
+			icon: artMarker,
+			content: '<h2>Art1</h2><p>Marker 4 content</p>'
+		  }
+		];
+		
+		
+		// Add markers
+		markerlist.forEach(function(markerlist) {
+		  L.marker([markerlist.lat, markerlist.lng], { icon: markerlist.icon })
+			// .bindPopup(markerlist.content)
+			.addTo(map)
+			.on('click', function() {
+			  sidebar.setContent(markerlist.content);
+			  sidebar.show();
+			});
+		});
 
-		var restaurant1 = L.marker([13.738499264414234, 99.91441176863576], {icon: restaurantMarker}).addTo(map).bindPopup("ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ");
-			restaurant2 = L.marker([13.745020301425022, 99.91714710317994], {icon: coffeMarker}).addTo(map).bindPopup("บ้านคุณทวด กาแฟสด");
-			institute1 = L.marker([13.73840521574008, 99.91674592338283], {icon: artInstitute}).addTo(map).bindPopup("Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ");
-			art1 = L.marker([13.741348304933565, 99.91366504425268], {icon: artMarker}).addTo(map).bindPopup("Art1");
+
+
+		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
+		// var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).bindPopup("<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p>");
+
+		// var restaurant1 = L.marker([13.738499264414234, 99.91441176863576], {icon: restaurantMarker}).addTo(map).bindPopup("ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ");
+			// restaurant2 = L.marker([13.745020301425022, 99.91714710317994], {icon: coffeMarker}).addTo(map).bindPopup("บ้านคุณทวด กาแฟสด");
+			// institute1 = L.marker([13.73840521574008, 99.91674592338283], {icon: artInstitute}).addTo(map).bindPopup("Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ");
+			// art1 = L.marker([13.741348304933565, 99.91366504425268], {icon: artMarker}).addTo(map).bindPopup("Art1");
 		
-		//// Group on marker cluster show ////
-		//markerclustershow.addLayer(marker_baannorg);
-		markerclustershow.addLayer(restaurant1);
-		markerclustershow.addLayer(restaurant2);
-		markerclustershow.addLayer(institute1);
-		markerclustershow.addLayer(art1);
+		// //// Group on marker cluster show ////
+		// //markerclustershow.addLayer(marker_baannorg);
+		// markerclustershow.addLayer(restaurant1);
+		// markerclustershow.addLayer(restaurant2);
+		// markerclustershow.addLayer(institute1);
+		// markerclustershow.addLayer(art1);
 		
-		//// Group on group too bar ////
-		var food = L.layerGroup([restaurant1, restaurant2]);
-		var institute = L.layerGroup([institute1]);
-		var art = L.layerGroup([art1]);
+		// //// Group on group too bar ////
+		// var food = L.layerGroup([restaurant1, restaurant2]);
+		// var institute = L.layerGroup([institute1]);
+		// var art = L.layerGroup([art1]);
 		
 		
 		/////////////////
@@ -159,19 +219,20 @@
 			"Mapbox Streets": streets
 		};
 
-		var overlayMaps = {
-			"Food": food,
-			"Art": art,
-			"Institute": institute
-		};
-		var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+		// var overlayMaps = {
+			// "Food": food,
+			// "Art": art,
+			// "Institute": institute
+		// };
+		
+		// var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 		var baseMaps = {
 			//"<span style='color: gray'>Grayscale</span>": grayscale(1),
 			"Streets": streets
 		};
 		var satellite = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2VyYXBvbCIsImEiOiJjbGZuM2FjM2QwaGZoM3BtbW83bXhuY3R5In0.pxWdDSBQ3o4ZQx-QC7g-_w', {id: 'MapID', tileSize: 512, zoomOffset: -1, attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
 
-		layerControl.addBaseLayer(satellite, "Satellite");
+		// layerControl.addBaseLayer(satellite, "Satellite");
 		//layerControl.addOverlay(food, "Food");
 		//layerControl.addOverlay(art, "Art");
 		
@@ -200,6 +261,27 @@
 		//////////////////////
 		// Marker Cluster 2 //
 		map.addLayer(markerclustershow);
+		
+
+		//////////////////////
+		// Sidebar //
+		var sidebar = L.control.sidebar('sidebar',{
+			closeButton: true,
+			position: 'left',
+			autoPan: true,
+			responsive: true,
+		}).addTo(map);
+        map.addControl(sidebar);
+		
+		// Time to show at the begining
+        setTimeout(function () {
+            sidebar.show();
+        }, 500);
+		
+        map.on('click', function () {
+            sidebar.hide();
+        })
+
 				
     </script>
 </body>
