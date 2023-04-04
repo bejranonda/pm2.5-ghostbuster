@@ -81,7 +81,7 @@ def create_geojson_file():
         print("Start create_geojson_file")
         # get data from InfluxDB
         end_time = datetime.utcnow()
-        start_time = end_time - timedelta(hours=24)
+        start_time = end_time - timedelta(hours=12)
         start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         end_time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         query = 'SELECT * FROM "air_quality" WHERE time >= $start_time AND time <= $end_time'
@@ -91,14 +91,13 @@ def create_geojson_file():
         # create GeoJSON features from data
         count = 0
         features = []
-        for device_id in data.keys():
-            print("device_id")
-            print(device_id)
-            for point in data[device_id]:
+        for key in data.keys():
+            print("key")
+            for point in data[key]:
                 feature = geojson.Feature(
                     geometry=geojson.Point((point["longitude"], point["latitude"])),
                     properties={
-                        "device_id": device_id,
+                        "device_id": point["device_id"],
                         "pm25": point["pm25"],
                         # "time": point["time"].isoformat()
                         "time": datetime.strptime(point["time"], '%Y-%m-%dT%H:%M:%SZ').isoformat()
@@ -106,7 +105,7 @@ def create_geojson_file():
                 )
                 features.append(feature)
                 count += 1
-                print(point["pm25"])
+                print(point["device_id"], " : ", point["pm25"])
         
         # create GeoJSON FeatureCollection and save to file
         feature_collection = geojson.FeatureCollection(features)

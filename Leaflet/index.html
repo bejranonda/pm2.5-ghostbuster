@@ -4,12 +4,17 @@
     <meta charset="utf-8" />
     <title>Festival Map</title>
     <link rel="stylesheet" href="/leaflet.css" />
+    <script src="/leaflet.js"></script>
+	
+	<! -- Customized -->
+	<link rel="stylesheet" href="css/customize.css" />
+	
 	
 	<! -- ExtraMakers -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 	<link rel="stylesheet" href="css/leaflet.extra-markers.min.css">
 	
-    <script src="/leaflet.js"></script>
+
 	<! -- Full Screen -->
 	<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 	<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
@@ -30,6 +35,14 @@
 	<link rel="stylesheet" href="css/L.Control.Sidebar.css" />
 	<script src="js/L.Control.Sidebar.js"></script>
 	
+	<!-- subgroup -->
+	<script src="js/leaflet.featuregroup.subgroup.js"></script>
+	
+	<!-- heatmap -->	
+	<script src="js/leaflet-heat.js"></script>
+	
+	<!-- d3 color scale -->	
+	<script src="js/d3.v7.min.js"></script>
 </head>
 <body>
     <!-- <div id="map" style="height: 800px;"></div> -->
@@ -58,7 +71,46 @@
 		
 
 		
+		
+		//////////////////////
+		// Marker Cluster 1 //
+		//var markerclustershow = L.markerClusterGroup(),
+		
+		//////////////////////
+		// Subgroup //
+		group_nonart = L.markerClusterGroup(), // Could be any other Layer Group type.
+		group_art = L.markerClusterGroup(), // Could be any other Layer Group type.
+		group_environment = L.markerClusterGroup(), // Could be any other Layer Group type.
+		// This is where the magic happens!
+		subgroup_art = L.featureGroup.subGroup(group_art),
+		subgroup_restaurant = L.featureGroup.subGroup(group_nonart),
+		subgroup_coffe = L.featureGroup.subGroup(group_nonart),
+		subgroup_place = L.featureGroup.subGroup(group_nonart),
+		subgroup_fire = L.featureGroup.subGroup(group_environment),
+		subgroup_fireheatmap = L.featureGroup.subGroup(group_environment),
+		control = L.control.layers(null, null, { collapsed: false });
+		
+		control.addOverlay(subgroup_art, 'Art points');
+		control.addOverlay(subgroup_restaurant, 'Restaurants');
+		control.addOverlay(subgroup_coffe, 'Coffe shops');
+		control.addOverlay(subgroup_place, 'Places');
+		control.addOverlay(subgroup_fire, 'Fire spots with intensity (1 day)');
+		control.addOverlay(subgroup_fireheatmap, 'Fire impact area (1 day)');
+		control.addTo(map);
+
+		group_nonart.addTo(map);
+		group_art.addTo(map);
+		subgroup_art.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_restaurant.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_coffe.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_place.addTo(map); // Adding to map now adds all child layers into the parent group.
+
+
+
+		
 		/////////////////
+		// marker //
+
 		// ICON //
 		var bngIcon = L.icon({
 			iconUrl: 'images/bng.png',
@@ -69,15 +121,13 @@
 			popupAnchor: [0, -38]
 		});
 		
-
+		const fireIcon = L.divIcon({
+			html: '<i class="fa fa-fire" style="color: red"></i>',
+			//fa-solid fa-fire 
+			iconSize: [20, 20],
+			className: 'myDivIcon'
+		});
 		
-		//////////////////////
-		// Marker Cluster 1 //
-		var markerclustershow = L.markerClusterGroup();
-		
-		/////////////////
-		// marker //
-
 		// Creates a red marker with the coffee icon
 		var fireMarker = L.ExtraMarkers.icon({
 			shape: 'circle',
@@ -109,50 +159,55 @@
 			iconRotate: 0,
 			extraClasses: 'fa-spin',
 			number: '',
-			svg: true
+			// svg: true
 		});
 		
 		var placeMarker = L.ExtraMarkers.icon({
 			shape: 'square',
-			markerColor: 'green-dark',
+			markerColor: 'brown',
 			prefix: 'icon',
-			icon: 'fas fa-school',
+			icon: 'fa fa-building',
 			iconColor: '#fff',
 			iconRotate: 0,
 			extraClasses: '',
 			number: '',
-			svg: false
+			// svg: true
 		});
 
 		//// Create Markers ///
 		var markerlist = [
-		  {
-			lat: 13.74126268827169,
-			lng: 99.91452984269866,
-			icon: bngIcon,
-			content: '<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">'
-		  },
+		  // {
+			// lat: 13.74126268827169,
+			// lng: 99.91452984269866,
+			// group: subgroup_restaurant,
+			// icon: bngIcon,
+			// content: '<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">'
+		  // },
 		  {
 			lat: 13.738499264414234,
 			lng: 99.91441176863576,
+			group: subgroup_restaurant,
 			icon: restaurantMarker,
 			content: '<h2>ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ</h2><p>ป๋าหรั่ง</p>'
 		  },
 		  {
 			lat: 13.745020301425022,
 			lng: 99.91714710317994,
+			group: subgroup_coffe,
 			icon: coffeMarker,
 			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>Marker 2 content</p>'
 		  },
 		  {
 			lat: 13.73840521574008,
 			lng: 99.91674592338283,
+			group: subgroup_place,
 			icon: placeMarker,
 			content: '<h2>Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ</h2><p>Marker 3 content</p>'
 		  },
 		  {
 			lat: 13.741348304933565,
 			lng: 99.91366504425268,
+			group: subgroup_art,
 			icon: artMarker,
 			content: '<h2>Art1</h2><p>Marker 4 content</p>'
 		  }
@@ -161,19 +216,23 @@
 		
 		// Add markers
 		markerlist.forEach(function(markerlist) {
-		  L.marker([markerlist.lat, markerlist.lng], { icon: markerlist.icon })
+			L.marker([markerlist.lat, markerlist.lng], { icon: markerlist.icon })
 			// .bindPopup(markerlist.content)
 			.addTo(map)
 			.on('click', function() {
 			  sidebar.setContent(markerlist.content);
 			  sidebar.show();
-			});
+			}).addTo(markerlist.group);
+			//marker.addTo(markerlist.icon == quarterCount ? group1 : i < quarterCount * 2 ? group2 : i < quarterCount * 3 ? group3 : group4);
 		});
 
 
 
 		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
-		// var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).bindPopup("<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p>");
+		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).on('click', function() {
+			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
+			  sidebar.show();
+		  })
 
 		// var restaurant1 = L.marker([13.738499264414234, 99.91441176863576], {icon: restaurantMarker}).addTo(map).bindPopup("ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ");
 			// restaurant2 = L.marker([13.745020301425022, 99.91714710317994], {icon: coffeMarker}).addTo(map).bindPopup("บ้านคุณทวด กาแฟสด");
@@ -236,32 +295,43 @@
 		//layerControl.addOverlay(food, "Food");
 		//layerControl.addOverlay(art, "Art");
 		
+		data_array= []; //create data for heatmap before filling 
+		
 		// Read markers data from data.csv
 		$.get('csv/fire.csv', function(csvString) {
 
 		// Use PapaParse to convert string to array of objects
 		var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+		
 
 		// For each row in data, create a marker and add it to the map
 		// For each row, columns `Latitude`, `Longitude`, and `Title` are required
 		for (var i in data) {
-		  var row = data[i];
+			var row = data[i];
 
-		  var firepos = L.marker([row.latitude, row.longitude], {
+			var firepos = L.marker([row.latitude, row.longitude], {
 			opacity: 0.5,
-			icon: fireMarker
-		  }).bindPopup(row.brightness);
-		  
-		  firepos.addTo(map);
-		  markerclustershow.addLayer(firepos);
+			icon: fireIcon
+			//icon: fireMarker
+			}).bindPopup(row.brightness.toFixed(0));
+			// }).bindPopup("Test");
+			firepos.addTo(map);
+			subgroup_fire.addLayer(firepos);
+			//firepos.addTo(subgroup_fire);
+			// markerclustershow.addLayer(firepos);
+			data_array[i] = [row.latitude, row.longitude, row.brightness]; // if values are marked as string in the object else:
+			//  data_array[i] = [data[i].lat,data[i].lon,data[i].val];
 		}
 
 		});
 		
-		//////////////////////
-		// Marker Cluster 2 //
-		map.addLayer(markerclustershow);
+		// console.log(data_array);
 		
+	
+		//////////////////////
+		// Add Subgroup 2 //		
+		subgroup_fire.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_fireheatmap.addTo(map); // Adding to map now adds all child layers into the parent group.
 
 		//////////////////////
 		// Sidebar //
@@ -282,7 +352,54 @@
             sidebar.hide();
         })
 
+		///////////////
+		// Display GeoJSON of PM2.5
+		///////////////
+		// add GeoJSON layer
+        var geojsonLayer = L.geoJSON(null, {
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng, {
+					fillColor: pm25colorScale(feature.properties.pm25),
+					fillOpacity: 0.8,
+					color: '#000000',
+					weight: 0.5
+				});
+            },
+            onEachFeature: function(feature, layer) {
+                layer.bindPopup("Device ID: " + feature.properties.device_id + "<br>" +
+                                "PM2.5: " + feature.properties.pm25 + "<br>" +
+                                "Time: " + feature.properties.time);
+            }
+        }).addTo(map);
+
+
+		// create a color scale using d3
+		var pm25colorScale = d3.scaleLinear()
+			.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5])
+			.range(["#00FF00", "#FFFF00", "#FFA500", "#FF0000", "#800080"]);
+	
+        // load GeoJSON data from file
+        fetch("gj/pm25gps.geojson")
+            .then(response => response.json())
+            .then(data => {
+                geojsonLayer.addData(data);
+                map.fitBounds(geojsonLayer.getBounds());
+            });
+			
+		//////////////////////
+		// Heatmap //
+		var heatmap = L.heatLayer(data_array,{
+		  radius: 15,
+		  blur: 25, 
+		  maxZoom: 6
+		});
+		//addTo(map).addTo(subgroup_fireheatmap);
+		//console.log(heatmap);
+		heatmap.addTo(map);
 				
+
+
     </script>
 </body>
+
 </html>
