@@ -88,6 +88,7 @@
 		subgroup_place = L.featureGroup.subGroup(group_nonart),
 		subgroup_fire = L.featureGroup.subGroup(group_environment),
 		subgroup_fireheatmap = L.featureGroup.subGroup(group_environment),
+		subgroup_pm25point = L.featureGroup.subGroup(group_environment),
 		control = L.control.layers(null, null, { collapsed: false });
 		
 		control.addOverlay(subgroup_art, 'Art points');
@@ -96,6 +97,7 @@
 		control.addOverlay(subgroup_place, 'Places');
 		control.addOverlay(subgroup_fire, 'Fire spots with intensity (1 day)');
 		control.addOverlay(subgroup_fireheatmap, 'Fire impact area (1 day)');
+		control.addOverlay(subgroup_pm25point, 'Live PM2.5');
 		control.addTo(map);
 
 		group_nonart.addTo(map);
@@ -384,8 +386,11 @@
             .then(data => {
                 geojsonLayer.addData(data);
                 map.fitBounds(geojsonLayer.getBounds());
+				subgroup_pm25point.addLayer(geojsonLayer); // Add geojsonLayer to subgroup_environment
+				group_environment.addTo(map); // Add group_environment to map			
             });
-			
+		//subgroup_pm25point.addTo(map)
+		
 		//////////////////////
 		// Heatmap //
 		var heatmap = L.heatLayer(data_array,{
