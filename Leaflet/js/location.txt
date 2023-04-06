@@ -1,0 +1,127 @@
+/*!
+ Location of the interesting point
+ in Non-Human Project with Baan Noorg
+ Mod^Chai
+ */
+ 
+ 		//// Create Markers ///
+		var markerlist = [
+		  {
+			lat: 13.738499264414234,
+			lng: 99.91441176863576,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ</h2><p>ป๋าหรั่ง</p>'
+		  },
+		  {
+			lat: 13.73840521574008,
+			lng: 99.91674592338283,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>Wat Nong Pho Community School</h2></h3>โรงเรียนชุมชนวัดหนองโพ</h3><p>Marker 3 content</p>'
+		  },
+		  {
+			lat: 13.741348304933565,
+			lng: 99.91366504425268,
+			group: subgroup_art,
+			icon: artMarker,
+			content: '<h2>Art1</h2><p>Marker 4 content</p>'
+		  },
+		  {
+			lat: 13.738683869595425, 
+			lng: 99.91533643577199,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>จุดตรวจ ป้อมยาม หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.739445982113027, 
+			lng: 99.91588308526767,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>Chit Wetchaphan Pharmacy</h2><h3>จิตเวชภัณฑ์ขายยา</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740627173552992, 
+			lng: 99.91596916888057,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>เภสัชกรสว่างจิต</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.73652174296916,
+			lng: 99.91885081306123,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>Nong Pho Wittaya School</h2><h3>โรงเรียนหนองโพวิทยา</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.737224420332044,
+			lng: 99.91321952655278,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>7-Eleven สาขา ชุมชนหนองโพ (17831)</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.740062043116694, 
+			lng: 99.91691997073384,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>7-Eleven สาขา หนองโพ (07690)</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.73990253965249,
+			lng: 99.91543902655296,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>Saifon milk & icecream</h2><h3>ร้านสายฝน</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740469104510453, 
+			lng: 99.91553078793181,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>The clinic\'s doctors Thada</h2><h3>คลีนิคมหาสนุก หมอธาดา</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740622873556685, 
+			lng: 99.91711095724244,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ร้านหูกวาง</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.74029918288717, 
+			lng: 99.91682845353587,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ครัวต้นหอม หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.74449546482519, 
+			lng: 99.91951391932471,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ร้านเตาดินจิ้มจุ่ม หนองโพ หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.744931307575762, 
+			lng: 99.91726358422562,
+			group: subgroup_coffe,
+			icon: coffeMarker,
+			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.744654886285547, 
+			lng: 99.91960232886035,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>MINIMUM</h2><p>content</p>'
+		  }
+		];
+		
+		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
+		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).on('click', function() {
+			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
+			  sidebar.show();
+		  })

@@ -43,6 +43,11 @@
 	
 	<!-- d3 color scale -->	
 	<script src="js/d3.v7.min.js"></script>
+	
+	<!-- GPS Location -->	
+	<link rel="stylesheet" href="css/L.Control.Locate.min.css" />
+	<script src="js/L.Control.Locate.min.js" charset="utf-8"></script>
+
 </head>
 <body>
     <!-- <div id="map" style="height: 800px;"></div> -->
@@ -53,7 +58,7 @@
 		/////////////////
 		// MAP //
 		var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 19,
+			maxZoom: 21,
 			attribution: '© OpenStreetMap'
 		});
 		
@@ -63,7 +68,7 @@
 			// layers: [osm, food, institute, art]
         // }).addTo(map);
 
-		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 15);
+		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 17);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
 			layers: [osm]
@@ -90,6 +95,7 @@
 		subgroup_art = L.featureGroup.subGroup(mcg),
 		subgroup_restaurant = L.featureGroup.subGroup(mcg),
 		subgroup_coffe = L.featureGroup.subGroup(mcg),
+		subgroup_shop = L.featureGroup.subGroup(mcg),
 		subgroup_place = L.featureGroup.subGroup(mcg),
 		subgroup_fire = L.featureGroup.subGroup(mcg),
 		subgroup_fireheatmap = L.featureGroup.subGroup(mcg),
@@ -114,8 +120,9 @@
 		control.addOverlay(subgroup_restaurant, 'Restaurants');
 		control.addOverlay(subgroup_coffe, 'Coffe shops');
 		control.addOverlay(subgroup_place, 'Places');
-		control.addOverlay(subgroup_fire, 'Fire spots with intensity (1 day)');
-		control.addOverlay(subgroup_fireheatmap, 'Fire impact area (1 day)');
+		control.addOverlay(subgroup_shop, 'Shops');
+		control.addOverlay(subgroup_fire, 'Live Fire spots (1 day)');
+		control.addOverlay(subgroup_fireheatmap, 'Live Fire impact area (1 day)');
 		control.addOverlay(subgroup_pm25point, 'Live PM2.5');
 		// control.addTo(map);
 
@@ -125,6 +132,7 @@
 		subgroup_restaurant.addTo(map); // Adding to map now adds all child layers into the parent group.
 		subgroup_coffe.addTo(map); // Adding to map now adds all child layers into the parent group.
 		subgroup_place.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_shop.addTo(map); // Adding to map now adds all child layers into the parent group.
 
 
 
@@ -184,26 +192,31 @@
 		});
 		
 		var placeMarker = L.ExtraMarkers.icon({
-			shape: 'square',
-			markerColor: 'brown',
+			shape: 'circle',
+			markerColor: 'black',
 			prefix: 'icon',
 			icon: 'fa fa-building',
 			iconColor: '#fff',
 			iconRotate: 0,
 			extraClasses: '',
-			number: '',
+			number: ''
+			// svg: true
+		});
+		
+		var shopMarker = L.ExtraMarkers.icon({
+			shape: 'square',
+			markerColor: 'blue',
+			prefix: 'icon',
+			icon: 'fa fa-shopping-bag',
+			iconColor: '#fff',
+			iconRotate: 0,
+			extraClasses: '',
+			number: ''
 			// svg: true
 		});
 
 		//// Create Markers ///
 		var markerlist = [
-		  // {
-			// lat: 13.74126268827169,
-			// lng: 99.91452984269866,
-			// group: subgroup_restaurant,
-			// icon: bngIcon,
-			// content: '<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">'
-		  // },
 		  {
 			lat: 13.738499264414234,
 			lng: 99.91441176863576,
@@ -212,18 +225,11 @@
 			content: '<h2>ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ</h2><p>ป๋าหรั่ง</p>'
 		  },
 		  {
-			lat: 13.745020301425022,
-			lng: 99.91714710317994,
-			group: subgroup_coffe,
-			icon: coffeMarker,
-			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>Marker 2 content</p>'
-		  },
-		  {
 			lat: 13.73840521574008,
 			lng: 99.91674592338283,
 			group: subgroup_place,
 			icon: placeMarker,
-			content: '<h2>Wat Nong Pho Community School โรงเรียนชุมชนวัดหนองโพ</h2><p>Marker 3 content</p>'
+			content: '<h2>Wat Nong Pho Community School</h2></h3>โรงเรียนชุมชนวัดหนองโพ</h3><p>Marker 3 content</p>'
 		  },
 		  {
 			lat: 13.741348304933565,
@@ -231,9 +237,105 @@
 			group: subgroup_art,
 			icon: artMarker,
 			content: '<h2>Art1</h2><p>Marker 4 content</p>'
+		  },
+		  {
+			lat: 13.738683869595425, 
+			lng: 99.91533643577199,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>จุดตรวจ ป้อมยาม หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.739445982113027, 
+			lng: 99.91588308526767,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>Chit Wetchaphan Pharmacy</h2><h3>จิตเวชภัณฑ์ขายยา</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740627173552992, 
+			lng: 99.91596916888057,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>เภสัชกรสว่างจิต</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.73652174296916,
+			lng: 99.91885081306123,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>Nong Pho Wittaya School</h2><h3>โรงเรียนหนองโพวิทยา</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.737224420332044,
+			lng: 99.91321952655278,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>7-Eleven สาขา ชุมชนหนองโพ (17831)</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.740062043116694, 
+			lng: 99.91691997073384,
+			group: subgroup_shop,
+			icon: shopMarker,
+			content: '<h2>7-Eleven สาขา หนองโพ (07690)</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.73990253965249,
+			lng: 99.91543902655296,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>Saifon milk & icecream</h2><h3>ร้านสายฝน</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740469104510453, 
+			lng: 99.91553078793181,
+			group: subgroup_place,
+			icon: placeMarker,
+			content: '<h2>The clinic\'s doctors Thada</h2><h3>คลีนิคมหาสนุก หมอธาดา</h3><p>content</p>'
+		  },
+		  {
+			lat: 13.740622873556685, 
+			lng: 99.91711095724244,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ร้านหูกวาง</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.74029918288717, 
+			lng: 99.91682845353587,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ครัวต้นหอม หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.74449546482519, 
+			lng: 99.91951391932471,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>ร้านเตาดินจิ้มจุ่ม หนองโพ หนองโพ</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.744931307575762, 
+			lng: 99.91726358422562,
+			group: subgroup_coffe,
+			icon: coffeMarker,
+			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>content</p>'
+		  },
+		  {
+			lat: 13.744654886285547, 
+			lng: 99.91960232886035,
+			group: subgroup_restaurant,
+			icon: restaurantMarker,
+			content: '<h2>MINIMUM</h2><p>content</p>'
 		  }
 		];
 		
+		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
+		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).on('click', function() {
+			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
+			  sidebar.show();
+		  })
 		
 		// Add markers
 		markerlist.forEach(function(markerlist) {
@@ -247,13 +349,6 @@
 			//marker.addTo(markerlist.icon == quarterCount ? group1 : i < quarterCount * 2 ? group2 : i < quarterCount * 3 ? group3 : group4);
 		});
 
-
-
-		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
-		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).on('click', function() {
-			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
-			  sidebar.show();
-		  })
 
 		// var restaurant1 = L.marker([13.738499264414234, 99.91441176863576], {icon: restaurantMarker}).addTo(map).bindPopup("ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ");
 			// restaurant2 = L.marker([13.745020301425022, 99.91714710317994], {icon: coffeMarker}).addTo(map).bindPopup("บ้านคุณทวด กาแฟสด");
@@ -406,7 +501,7 @@
 		// create a color scale using d3
 		var pm25colorScale = d3.scaleLinear()
 			.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5])
-			.range(["#00FF00", "#FFFF00", "#FFA500", "#FF0000", "#800080"]);
+			.range(["#00FF00", "#84ff00", "#FFFF00", "#FF0000", "#800080"]);
 	
         // load GeoJSON data from file
         fetch("gj/pm25gps.geojson")
@@ -440,6 +535,19 @@
 		// document.getElementById("remove").addEventListener("click", function () {
 		  // map.removeLayer(mcg);
 		// });
+		
+		//////////////////////
+		// GPS current locaiton //
+		var lc = L.control
+		  .locate({
+			position: "topright",
+			strings: {
+			  title: "Show me where I am, yo!"
+			}
+		  })
+		  .addTo(map);
+		  
+		  
     </script>
 </body>
 
