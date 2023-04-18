@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 
 // URL to download the CSV file
-const url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/36e83b24f187cfcde5b0b4d1cdcd1330/VIIRS_SNPP_NRT/96,5,105,20/1'; // only Thailand
+const url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/36e83b24f187cfcde5b0b4d1cdcd1330/VIIRS_SNPP_NRT/96,5,105,20/2'; // only Thailand
 //const url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/36e83b24f187cfcde5b0b4d1cdcd1330/VIIRS_SNPP_NRT/80,-15,120,30/1'; // around Thailand
 //const url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/36e83b24f187cfcde5b0b4d1cdcd1330/VIIRS_SNPP_NRT/world/1/'; // World
 //5.622578509277092, 96.0039365735059
@@ -34,6 +34,7 @@ function downloadCSV() {
     });
     res.on('end', () => {
       const { headers, data: coordinates } = extractCoordinates(data);
+	  console.log(`Found ${coordinates.length} points`);
       const csv = [headers.join(',')].concat(coordinates.map(c => c.join(','))).join('\n');
       fs.writeFile(newFilename, csv, err => {
         if (err) {
@@ -48,6 +49,6 @@ function downloadCSV() {
   });
 }
 
-// Download the CSV file every 15 minutes
-setInterval(downloadCSV, 15 * 60 * 1000);
+// Download the CSV file every 5 minutes
+setInterval(downloadCSV, 5 * 60 * 1000);
 //setInterval(downloadCSV, 10 * 1000);

@@ -52,30 +52,38 @@
 <body>
     <!-- <div id="map" style="height: 800px;"></div> -->
     <div id="map" style="height: 100vh;"></div>
-	<div id="sidebar"><h3>Welcome to</h3><h2 style="color:blue;">alternative interdisciplinary art program</h2><h1>Baan Noorg</h1><p>We open for Artists, Curators, researchers from all artistic disciplines to apply for Artist in Residence Program. Baan Noorg Collaborative Arts and Culture is a not for profit, artist run initiative, established in 2011, in a Tai Yuan (ไทยวน) civilization town of Ratchaburi province, Thailand. Its independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development. The program invites artists from around the world to develop work within the “International Residency Program” in a community, communally used and remodeled space for a period of 3 weeks -3 months.</p><img src="images/bng.png" alt="Baan Noorg"></div>
+	
+	<div id="sidebar">
+	<h3 style="color:red;">Current number of fire spots around Thailand: </h3><h2 style="color:red;"><span id="firespot"></span> !</h2>
+	<p></p>
+	<h3>Welcome to</h3><h2 style="color:blue;">Baan Noorg</h2><h1>Baan Noorg</h1><p>Baan Noorg Collaborative Arts and Culture is a not for profit, artist run initiative, established in 2011, in a Tai Yuan (ไทยวน) civilization town of Ratchaburi province, Thailand. Its independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development.</p><img src="images/bng.png" alt="Baan Noorg">
+	</div>
+	
     <script>
 		
 		/////////////////
 		// MAP //
-		var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			maxZoom: 21,
-			attribution: '© OpenStreetMap'
-		});
 		
-		// var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 15);
+		// OSM
+		// var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			// maxZoom: 21,
+			// attribution: '© OpenStreetMap'
+		// });
+		
+
+		// var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 17);
         // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             // attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-			// layers: [osm, food, institute, art]
+			// layers: [osm]
         // }).addTo(map);
+		
 
+		// ESRI
 		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 17);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-			layers: [osm]
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png', {
+            attribution: 'Info by <a href="http://baannoorg.org/" target="_blank">Baan Noorg</a>. Base Map of <a href="http://www.esri.com/software/arcgis/arcgisonline/maps/maps-and-map-layers" target="_blank">Esri</a>. Map powered by Leaflet'
         }).addTo(map);
-		
-
-		
+		map.attributionControl.setPrefix('Baannoorg biennial 2023')
 		
 		//////////////////////
 		// Marker Cluster 1 //
@@ -111,18 +119,19 @@
 		// markerClusterGroup.addLayer(subgroup_pm25point);
 		// markerClusterGroup.addTo(map);
 
-		control = L.control.layers(null, null, { collapsed: false }).addTo(map);
+		//control = L.control.layers(null, null, { collapsed: false }).addTo(map);
+		control = L.control.layers(null, null, { collapsed: true }).addTo(map);
 		
 		// control.addOverlay(group_art, 'Art Group');
 		// control.addOverlay(group_nonart, 'Non-Art Group');
 		
-		control.addOverlay(subgroup_art, 'Art points');
-		control.addOverlay(subgroup_restaurant, 'Restaurants');
-		control.addOverlay(subgroup_coffe, 'Coffe shops');
-		control.addOverlay(subgroup_place, 'Places');
-		control.addOverlay(subgroup_shop, 'Shops');
-		control.addOverlay(subgroup_fire, 'Live Fire spots (1 day)');
-		control.addOverlay(subgroup_fireheatmap, 'Live Fire impact area (1 day)');
+		control.addOverlay(subgroup_art, '<i class="fa fa-spinner"></i> Art');
+		control.addOverlay(subgroup_restaurant, '<i class="fa fa-utensils"></i> Restaurant');
+		control.addOverlay(subgroup_coffe, '<i class="fa fa-coffee"></i> Coffe');
+		control.addOverlay(subgroup_place, '<i class="fa fa-building"></i> Place');
+		control.addOverlay(subgroup_shop, '<i class="fa fa-shopping-bag"></i> Shop');
+		control.addOverlay(subgroup_fire, '<i class="fa fa-fire"></i> Live Fire spot (24h)');
+		control.addOverlay(subgroup_fireheatmap, '<i class="fa fa-fire"></i> Live Fire impact (24h)');
 		control.addOverlay(subgroup_pm25point, 'Live PM2.5');
 		// control.addTo(map);
 
@@ -424,7 +433,7 @@
 
 		// Use PapaParse to convert string to array of objects
 		var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-		
+		var dataCount = data.length;
 
 		// For each row in data, create a marker and add it to the map
 		// For each row, columns `Latitude`, `Longitude`, and `Title` are required
@@ -438,23 +447,23 @@
 			}).bindPopup(row.brightness.toFixed(0));
 			// }).bindPopup("Test");
 			// firepos.addTo(map);
+			
+			// Add to control layer
 			subgroup_fire.addLayer(firepos);
+			
 			//firepos.addTo(subgroup_fire);
 			// markerclustershow.addLayer(firepos);
 			data_array[i] = [row.latitude, row.longitude, row.brightness]; // if values are marked as string in the object else:
 			//  data_array[i] = [data[i].lat,data[i].lon,data[i].val];
 		}
-
+		
+		document.getElementById("firespot").innerHTML = dataCount;
 		});
 		
+		// Show the number of fire spots
 		// console.log(data_array);
 		
 	
-		//////////////////////
-		// Add Subgroup 2 //		
-		subgroup_fire.addTo(map); // Adding to map now adds all child layers into the parent group.
-		// subgroup_fireheatmap.addTo(map); // Adding to map now adds all child layers into the parent group.
-		mcg.addLayer(subgroup_fireheatmap);
 
 		//////////////////////
 		// Sidebar //
@@ -523,9 +532,16 @@
 		});
 		//addTo(map).addTo(subgroup_fireheatmap);
 		//console.log(heatmap);
-		// heatmap.addTo(map);
+		
+		
+		////////////////////////
+		// Add to control layer
+		heatmap.addTo(map);
+		mcg.addLayer(heatmap);
+		//heatmap.addTo(mcg);
 		subgroup_fireheatmap.addLayer(heatmap);
-
+		mcg.addLayer(subgroup_fireheatmap);
+		
 		
 		// Add remove cluster
 		// document.getElementById("add").addEventListener("click", function () {
@@ -536,13 +552,22 @@
 		  // map.removeLayer(mcg);
 		// });
 		
+		
+		//////////////////////
+		// Add Subgroup 2 //		
+		//subgroup_fire.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_fireheatmap.addTo(map); // Adding to map now adds all child layers into the parent group.
+		
+		
+
+
 		//////////////////////
 		// GPS current locaiton //
 		var lc = L.control
 		  .locate({
-			position: "topright",
+			position: "topleft",
 			strings: {
-			  title: "Show me where I am, yo!"
+			  title: "Show me where I am now!"
 			}
 		  })
 		  .addTo(map);

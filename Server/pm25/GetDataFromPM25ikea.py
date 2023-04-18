@@ -6,6 +6,10 @@ import os
 import geojson
 import time
 
+##### to start
+# pm2 start GetDataFromPM25ikea.py
+
+
 # MQTT settings
 MQTT_BROKER_ADDRESS = "mqtt.thalay.eu"
 MQTT_BROKER_PORT = 1883
@@ -81,7 +85,7 @@ def create_geojson_file():
         print("Start create_geojson_file")
         # get data from InfluxDB
         end_time = datetime.utcnow()
-        start_time = end_time - timedelta(hours=24)
+        start_time = end_time - timedelta(hours=72)
         start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         end_time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         query = 'SELECT * FROM "air_quality" WHERE time >= $start_time AND time <= $end_time'
