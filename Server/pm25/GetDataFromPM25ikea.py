@@ -85,7 +85,7 @@ def create_geojson_file():
         print("Start create_geojson_file")
         # get data from InfluxDB
         end_time = datetime.utcnow()
-        start_time = end_time - timedelta(hours=72)
+        start_time = end_time - timedelta(hours=168)
         start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         end_time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         query = 'SELECT * FROM "air_quality" WHERE time >= $start_time AND time <= $end_time'
@@ -126,6 +126,6 @@ while True:
     # try:
         print("Creating JSON: ")
         create_geojson_file()
-        time.sleep(900)  # Seconds / Standard 900 > 15 minutes
+        time.sleep(60)  # Seconds / Standard 900 > 15 minutes
     # except Exception as e:
         # print("Error Creating JSON: ", e)
