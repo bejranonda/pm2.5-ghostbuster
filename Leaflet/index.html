@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Festival Map</title>
+    <title>BaanNoorg Map</title>
     <link rel="stylesheet" href="/leaflet.css" />
     <script src="/leaflet.js"></script>
 	
@@ -56,11 +56,16 @@
 	<div id="sidebar">
 	<h3 style="color:red;">Current fire spots around Thailand since yesterday: </h3><h2 style="color:red;"><span id="firespot"></span> !</h2>
 	<p></p>
-	<h3>Welcome to</h3><h2 style="color:blue;">Baan Noorg</h2><p>Baan Noorg Collaborative Arts and Culture is a not for profit, artist run initiative, established in 2011, in a Tai Yuan (ไทยวน) civilization town of Ratchaburi province, Thailand. Its independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development.</p><img src="images/bng.png" alt="Baan Noorg">
+	<h1>PM2.5 เห็นและแบ่งปัน</h1>
+	<h3>Welcome to</h3><h2>Baan Noorg</h2><p>An independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development.</p>
+	<h2>บ้านนอก ความร่วมมือทางศิลปวัฒนธรรม</h2><p>ความร่วมมือระหว่างศิลปิน ผู้เชี่ยวชาญสาขาต่างๆ  กับชุมชนเพื่อส่งเสริมและสนับสนุนให้เกิดชุมชนทางปัญญา</p><img src="images/bng.png" alt="Baan Noorg">
 	</div>
 	
     <script>
 		
+		const DEFAULT_LAT = 13.7412626882716;
+		const DEFAULT_LON = 99.9145298426986;
+		const DEFAULT_ZOOM = 17;
 		/////////////////
 		// MAP //
 		
@@ -79,9 +84,18 @@
 		
 
 		// ESRI
-		var map = L.map('map').setView([13.74126268827169, 99.91452984269866], 17);
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png', {
-            attribution: 'Info by <a href="http://baannoorg.org/" target="_blank">Baan Noorg</a>. Base Map of <a href="http://www.esri.com/software/arcgis/arcgisonline/maps/maps-and-map-layers" target="_blank">Esri</a>. Map powered by Leaflet'
+		var map = L.map('map', {
+			}).setView([13.74126268827169, 99.91452984269866], 17);
+        L.tileLayer(
+		'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.png', {
+		maxZoom: 19,
+		maxNativeZoom: 22,
+		errorTileUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        attribution: 'Info by <a href="http://baannoorg.org/" target="_blank">Baan Noorg</a>. Base Map of <a href="http://www.esri.com/software/arcgis/arcgisonline/maps/maps-and-map-layers" target="_blank">Esri</a>. Map powered by Leaflet'
+		
+		//'https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //    attribution: 'Info by <a href="http://baannoorg.org/" target="_blank">Baan Noorg</a>. &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors. Map powered by Leaflet'
+				
         }).addTo(map);
 		map.attributionControl.setPrefix('Baannoorg biennial 2023')
 		
@@ -101,8 +115,8 @@
 		
 		// This is where the magic happens!
 		subgroup_art = L.featureGroup.subGroup(mcg),
-		subgroup_restaurant = L.featureGroup.subGroup(mcg),
-		subgroup_coffe = L.featureGroup.subGroup(mcg),
+		subgroup_fooddrink = L.featureGroup.subGroup(mcg),
+		//subgroup_coffe = L.featureGroup.subGroup(mcg),
 		subgroup_shop = L.featureGroup.subGroup(mcg),
 		subgroup_place = L.featureGroup.subGroup(mcg),
 		subgroup_fire = L.featureGroup.subGroup(mcg),
@@ -110,7 +124,7 @@
 		subgroup_pm25point = L.featureGroup.subGroup(mcg);
 		
 		mcg.addTo(map);
-		// subgroup_restaurant.addTo(group_nonart);
+		// subgroup_fooddrink.addTo(group_nonart);
 		// subgroup_coffe.addTo(group_nonart);
 		
 		// markerClusterGroup.addLayer(group_art);
@@ -126,8 +140,8 @@
 		// control.addOverlay(group_nonart, 'Non-Art Group');
 		
 		control.addOverlay(subgroup_art, '<i class="fa fa-spinner"></i> Art');
-		control.addOverlay(subgroup_restaurant, '<i class="fa fa-utensils"></i> Restaurant');
-		control.addOverlay(subgroup_coffe, '<i class="fa fa-coffee"></i> Coffe');
+		control.addOverlay(subgroup_fooddrink, '<i class="fa fa-utensils"></i> Food&Drink');
+		//control.addOverlay(subgroup_coffe, '<i class="fa fa-coffee"></i> Coffe');
 		control.addOverlay(subgroup_place, '<i class="fa fa-building"></i> Place');
 		control.addOverlay(subgroup_shop, '<i class="fa fa-shopping-bag"></i> Shop');
 		control.addOverlay(subgroup_fire, '<i class="fa fa-fire"></i> Live Fire spot (24h)');
@@ -138,8 +152,8 @@
 		// group_nonart.addTo(map);
 		// group_art.addTo(map);
 		subgroup_art.addTo(map); // Adding to map now adds all child layers into the parent group.
-		subgroup_restaurant.addTo(map); // Adding to map now adds all child layers into the parent group.
-		subgroup_coffe.addTo(map); // Adding to map now adds all child layers into the parent group.
+		subgroup_fooddrink.addTo(map); // Adding to map now adds all child layers into the parent group.
+		//subgroup_coffe.addTo(map); // Adding to map now adds all child layers into the parent group.
 		subgroup_place.addTo(map); // Adding to map now adds all child layers into the parent group.
 		subgroup_shop.addTo(map); // Adding to map now adds all child layers into the parent group.
 
@@ -229,7 +243,7 @@
 		  {
 			lat: 13.738499264414234,
 			lng: 99.91441176863576,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>ป๋าหรั่งหมูกะทะแอนด์ไมโลดิบ</h2><p>ป๋าหรั่ง</p>'
 		  },
@@ -292,7 +306,7 @@
 		  {
 			lat: 13.73990253965249,
 			lng: 99.91543902655296,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>Saifon milk & icecream</h2><h3>ร้านสายฝน</h3><p>content</p>'
 		  },
@@ -306,51 +320,53 @@
 		  {
 			lat: 13.740622873556685, 
 			lng: 99.91711095724244,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>ร้านหูกวาง</h2><p>content</p>'
 		  },
 		  {
 			lat: 13.74029918288717, 
 			lng: 99.91682845353587,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>ครัวต้นหอม หนองโพ</h2><p>content</p>'
 		  },
 		  {
 			lat: 13.74449546482519, 
 			lng: 99.91951391932471,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>ร้านเตาดินจิ้มจุ่ม หนองโพ หนองโพ</h2><p>content</p>'
 		  },
 		  {
 			lat: 13.744931307575762, 
 			lng: 99.91726358422562,
-			group: subgroup_coffe,
+			group: subgroup_fooddrink,
 			icon: coffeMarker,
 			content: '<h2>บ้านคุณทวด กาแฟสด</h2><p>content</p>'
 		  },
 		  {
 			lat: 13.744654886285547, 
 			lng: 99.91960232886035,
-			group: subgroup_restaurant,
+			group: subgroup_fooddrink,
 			icon: restaurantMarker,
 			content: '<h2>MINIMUM</h2><p>content</p>'
 		  }
 		];
-		
+		//console.log("marker_baannorg");
 		//var marker = L.marker([13.74126268827169, 99.91452984269866]).addTo(map);		
 		var marker_baannorg = L.marker([13.74126268827169, 99.91452984269866], {icon: bngIcon}).addTo(map).on('click', function() {
 			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
 			  sidebar.show();
 		  })
+		console.log("sidebar");
 		
 		// Add markers
 		markerlist.forEach(function(markerlist) {
 			L.marker([markerlist.lat, markerlist.lng], { icon: markerlist.icon })
 			// .bindPopup(markerlist.content)
 			.addTo(map)
+			// .getElement().classList.add('larger-icon')
 			.on('click', function() {
 			  sidebar.setContent(markerlist.content);
 			  sidebar.show();
@@ -508,10 +524,13 @@
 
 
 		// create a color scale using d3
+		//var pm25colorScale = d3.scaleLinear()
+			//.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5])
+			//.range(["#00FF00", "#84ff00", "#FFFF00", "#FF0000", "#800080"]);
 		var pm25colorScale = d3.scaleLinear()
-			.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5])
-			.range(["#00FF00", "#84ff00", "#FFFF00", "#FF0000", "#800080"]);
-	
+		.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5, 800])
+		.range(["#00FF00", "#84ff00", "#FFFF00", "#800080", "#A428B3", "#A428B3"]);
+		
         // load GeoJSON data from file
         fetch("gj/pm25gps.geojson")
             .then(response => response.json())
@@ -572,6 +591,35 @@
 		  })
 		  .addTo(map);
 		  
+		////////////////////////////////
+		// Specific Lat Long over URL //
+		function getUrlParameter(name) {
+		  name = name.replace(/[\[\]]/g, '\\$&');
+		  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			  results = regex.exec(window.location.href);
+		  if (!results) return null;
+		  if (!results[2]) return '';
+		  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
+		
+		// Get latitude and longitude from URL parameters or set default values
+		var lat = parseFloat(getUrlParameter('lat')) || DEFAULT_LAT;
+		var lon = parseFloat(getUrlParameter('lon')) || DEFAULT_LON;
+		var zoom_now = parseFloat(getUrlParameter('zoom')) || DEFAULT_ZOOM;
+
+		// Set default values for latitude and longitude if they are not found in URL
+		if (isNaN(lat) || isNaN(lon)) {
+		  lat = DEFAULT_LAT;
+		  lon = DEFAULT_LON;
+		}
+
+		// Define the default location for the map
+		var defaultLocation = [lat, lon];
+
+		// Create the map with the default location
+		//console.log(defaultLocation);
+		map.setView(defaultLocation, zoom_now);
+
 		  
     </script>
 </body>
