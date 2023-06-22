@@ -359,7 +359,7 @@
 			  sidebar.setContent('<h2>Baan Noorg Collaborative Arts and Culture</h2><p>Baan Noorg is a non-profit artist-run initiative, a fundament strategy for community development and an artistic practice service-providing program located in Nongpho district, Ratchaburi, found by jiandyin since 2011. Baan Noorg runs alternative interdisciplinary art program for developing contemporary art and cultural production for local and global community. It functions as an alternative learning platform for analyzing, discussing and debating theoretically and practically toward social condition and community as case study for exploring, researching and developing community engagement, social practice, cultural and contemporary art practice among artists, researchers, curators, educators from various fields.  The expected outcome is to find out the possibilities of living together and achieving better community. Baan Noorg’s programs and activities are partly funded by government/non-government institutions and self-fund.</p><img src="images/BaanNoorg_Atmosphere.jpg" alt="BaanNoorg">');
 			  sidebar.show();
 		  })
-		console.log("sidebar");
+		//console.log("sidebar");
 		
 		// Add markers
 		markerlist.forEach(function(markerlist) {
@@ -514,9 +514,10 @@
 				});
             },
             onEachFeature: function(feature, layer) {
-                layer.bindPopup("Device ID: " + feature.properties.device_id + "<br>" +
-                                "PM2.5: " + feature.properties.pm25 + "<br>" +
-                                "Time: " + feature.properties.time);
+                layer.bindPopup("<h3>" + feature.properties.pm25 + "</h3><br>" +
+								"Time: " + feature.properties.time + "<br>" +
+								"Device: " + feature.properties.device_id);
+                                
             }
         //}).addTo(map).addTo(subgroup_pm25point);
 		}).addTo(map).addTo(mcg).addTo(subgroup_pm25point);
@@ -528,9 +529,40 @@
 			//.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5])
 			//.range(["#00FF00", "#84ff00", "#FFFF00", "#FF0000", "#800080"]);
 		var pm25colorScale = d3.scaleLinear()
-		.domain([0, 12.1, 35.5, 55.5, 150.5, 250.5, 800])
-		.range(["#00FF00", "#84ff00", "#FFFF00", "#800080", "#A428B3", "#A428B3"]);
+		.domain([12.1, 35.5, 55.5, 150.5, 250.5, 800])
+		.range(['#00ffff', '#00FF00', '#FFFF00', '#ff3300', '#A428B3', '#660033', '#660033']);
+		//.range(["#00FF00", "#84ff00", "#FFFF00", "#800080", "#A428B3", "#A428B3"]);
 		
+		// Color-Scale legend
+		// Create a legend control
+		var legendControl = L.control({
+		  position: 'bottomright'
+		});
+
+		// Define the HTML content and CSS styles for the legend control
+		legendControl.onAdd = function (map) {
+		  var div = L.DomUtil.create('div', 'legend-control');
+
+		  // Define the legend labels and corresponding colors
+		  var labels = ['Good < 12.1', 'Moderate < 35.5', 'Senstive < 55.5', 'Unhealthy < 150.5', 'Very Unhealthy <250.5', 'Hazardous >= 250.5'];
+		  var colors = ['#00ffff', '#00FF00', '#FFFF00', '#ff3300', '#A428B3', '#660033'];
+
+		  // Add the legend title
+		  div.innerHTML = '<div class="legend-title">PM 2.5 in µg/m3</div>';
+
+		  // Add the legend labels and colors
+		  for (var i = 0; i < labels.length; i++) {
+			div.innerHTML += '<div class="legend-item">' +
+			  '<div class="legend-color" style="background-color:' + colors[i] + ';"></div>' +
+			  '<div class="legend-label">' + labels[i] + '</div>' +
+			  '</div>';
+		  }
+
+		  return div;
+		};
+
+		legendControl.addTo(map);
+
         // load GeoJSON data from file
         fetch("gj/pm25gps.geojson")
             .then(response => response.json())
