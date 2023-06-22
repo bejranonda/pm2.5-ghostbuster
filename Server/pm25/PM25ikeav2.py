@@ -9,6 +9,7 @@ import pytz
 
 ##### to start
 # pm2 start GetDataFromPM25ikea.py
+# pm2 start PM25ikeav2.py --interpreter python3
 
 utc_tz = pytz.timezone('UTC')
 bangkok_tz = pytz.timezone('Asia/Bangkok')
@@ -64,6 +65,15 @@ def on_message(client, userdata, message):
         
         print(data)
         
+        # Calculate the cutoff time for deleting old data
+        cutoff_time = datetime.utcnow() - timedelta(days=5)
+
+        ## Construct the InfluxDB query to delete data
+        #query = f'DELETE FROM your_measurement WHERE time < {cutoff_time}'
+        #influxdb_client.write_points(data)
+        #influxdb_client.query(query)
+        
+
         # write data to InfluxDB
         influxdb_client.write_points(data)
     except Exception as e:
