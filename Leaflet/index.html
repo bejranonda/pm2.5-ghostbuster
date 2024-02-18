@@ -635,6 +635,7 @@
 		}
 		
 		// Get latitude and longitude from URL parameters or set default values
+		// Sample URL parameter > https://map.thalay.eu/?lat=13.74252&lon=99.918696&zoom=19
 		var lat = parseFloat(getUrlParameter('lat')) || DEFAULT_LAT;
 		var lon = parseFloat(getUrlParameter('lon')) || DEFAULT_LON;
 		var zoom_now = parseFloat(getUrlParameter('zoom')) || DEFAULT_ZOOM;
