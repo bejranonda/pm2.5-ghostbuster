@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>BaanNoorg Map</title>
+    <title>PM2.5 thalay.eu</title>
     <link rel="stylesheet" href="/leaflet.css" />
     <script src="/leaflet.js"></script>
 	
@@ -64,18 +64,19 @@
     <div id="map" style="height: 100vh;"></div>
 	
 	<div id="sidebar">
-	<h3 style="color:red;">Current fire spots around Thailand since yesterday: </h3><h2 style="color:red;"><span id="firespot"></span> !</h2>
+	<h3 style="color:red;">จุดความร้อนปัจจุบันทั่วประเทศไทย (1 วันย้อนหลัง)</h3><h2 style="color:red;"><span id="firespot"></span> จุด !</h2>
 	<p></p>
 	<h1>PM2.5 เห็นและแบ่งปัน</h1>
-	<h3>Welcome to</h3><h2>Baan Noorg</h2><p>An independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development.</p>
-	<h2>บ้านนอก ความร่วมมือทางศิลปวัฒนธรรม</h2><p>ความร่วมมือระหว่างศิลปิน ผู้เชี่ยวชาญสาขาต่างๆ  กับชุมชนเพื่อส่งเสริมและสนับสนุนให้เกิดชุมชนทางปัญญา</p><img src="images/bng.png" alt="Baan Noorg">
+	<h3>Welcome to</h3>
+	<h2>Baan Noorg x thalay.eu</h2><p>An independent project is organized by artists with a trans-disciplinary background between art, theory & diverse sciences with the aim to support and boost artistic experience and community development.</p>
+	<h2>บ้านนอก x ทะเล</h2><p>ความร่วมมือระหว่างศิลปิน ผู้เชี่ยวชาญสาขาต่างๆ  กับชุมชนเพื่อส่งเสริมและสนับสนุนให้เกิดชุมชนทางปัญญา</p><a href="https://www.baannoorg.org/"><img src="images/bng.png" alt="Baan Noorg"></a><a href="https://thalay.eu/"><img src="images/Thalay Logo 50.png" alt="thalay.eu"></a>
 	</div>
 	
     <script>
 		
 		const DEFAULT_LAT = 13.7412626882716;
 		const DEFAULT_LON = 99.9145298426986;
-		const DEFAULT_ZOOM = 17;
+		const DEFAULT_ZOOM = 11;
 		/////////////////
 		// MAP //
 		
@@ -524,7 +525,7 @@
 				});
             },
             onEachFeature: function(feature, layer) {
-                layer.bindPopup("<h3>" + feature.properties.pm25 + "</h3><br>" +
+                layer.bindPopup("<h4>PM2.5</h4><h3>" + feature.properties.pm25 + " ppm </h3>" +
 								"Time: " + feature.properties.time + "<br>" +
 								"Device: " + feature.properties.device_id);
                                 
@@ -554,7 +555,7 @@
 		  var div = L.DomUtil.create('div', 'legend-control');
 
 		  // Define the legend labels and corresponding colors
-		  var labels = ['Good < 12.1', 'Moderate < 35.5', 'Senstive < 55.5', 'Unhealthy < 150.5', 'Very Unhealthy <250.5', 'Hazardous >= 250.5'];
+		  var labels = ['ดี-Good < 12.1', 'ปานกลาง-Moderate < 35.5', 'ระวัง-Senstive < 55.5', 'แย่-Unhealthy < 150.5', 'แย่มาก-Very Unhealthy <250.5', 'อันตราย-Hazardous >= 250.5'];
 		  var colors = ['#00ffff', '#00FF00', '#FFFF00', '#ff3300', '#A428B3', '#660033'];
 
 		  // Add the legend title
