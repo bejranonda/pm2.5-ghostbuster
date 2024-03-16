@@ -10,7 +10,7 @@ import pytz
 ##### to start
 # pm2 start GetDataFromPM25ikea.py
 # pm2 start PM25ikeav2.py --interpreter python3
-
+pm25_hours = 720# historic value of last xxx hours, Standard 168 hrs
 utc_tz = pytz.timezone('UTC')
 bangkok_tz = pytz.timezone('Asia/Bangkok')
 
@@ -66,7 +66,7 @@ def on_message(client, userdata, message):
         print(data)
         
         # Calculate the cutoff time for deleting old data
-        cutoff_time = datetime.utcnow() - timedelta(days=5)
+        #cutoff_time = datetime.utcnow() - timedelta(days=5)
 
         ## Construct the InfluxDB query to delete data
         #query = f'DELETE FROM your_measurement WHERE time < {cutoff_time}'
@@ -98,7 +98,7 @@ def create_geojson_file():
         print("Start create_geojson_file")
         # get data from InfluxDB
         end_time = datetime.utcnow()
-        start_time = end_time - timedelta(hours=168)
+        start_time = end_time - timedelta(hours=pm25_hours)
         start_time_str = start_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         end_time_str = end_time.strftime('%Y-%m-%dT%H:%M:%SZ')
         query = 'SELECT * FROM "air_quality" WHERE time >= $start_time AND time <= $end_time AND pm25 > 0'
