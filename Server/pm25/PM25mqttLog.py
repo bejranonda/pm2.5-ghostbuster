@@ -13,6 +13,8 @@ import pytz
 
 utc_tz = pytz.timezone('UTC')
 bangkok_tz = pytz.timezone('Asia/Bangkok')
+# Get current time in Bangkok
+now_bangkok = datetime.now(pytz.timezone('Asia/Bangkok'))
 
 # MQTT settings
 MQTT_BROKER_ADDRESS = "mqtt.thalay.eu"
@@ -24,9 +26,12 @@ MQTT_TOPIC = "pm25/#"  # the + will be replaced by the device ID
 # define callback for MQTT messages
 def on_message(client, userdata, message):
     try:
-        print("Topic: ",message.topic)
+        # Print current time in Bangkok
+        print(f"#BKK:{now_bangkok.strftime('%Y-%m-%d %H:%M:%S')}")
+
+        print("-Topic: ",message.topic)
         #print(message.topic)
-        print("Payload: ",message.payload)
+        print("-Payload: ",message.payload, end=" UTC@")
         #print(message.payload)
         payload = json.loads(message.payload)
         timestamp = datetime.utcfromtimestamp(payload['tst']).strftime('%Y-%m-%dT%H:%M:%SZ')
