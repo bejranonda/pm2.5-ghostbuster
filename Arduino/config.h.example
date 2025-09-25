@@ -1,0 +1,49 @@
+/*
+ * PM2.5 Ghostbuster Arduino Configuration Template
+ * Copy this file to config.h and fill in your actual credentials
+ */
+
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// WiFi Configuration
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+#define WIFI_CONNECT_TIMEOUT 20000  // 20 seconds
+
+// MQTT Configuration
+#define MQTT_BROKER "mqtt.thalay.eu"
+#define MQTT_PORT 1883
+#define MQTT_USERNAME "pm25"
+#define MQTT_PASSWORD "your_mqtt_password"
+#define MQTT_CLIENT_ID_PREFIX "pm25-sensor-"
+#define MQTT_KEEPALIVE 60
+#define MQTT_RECONNECT_INTERVAL 60000  // 60 seconds
+
+// Topic Configuration
+#define MQTT_TOPIC_PREFIX "pm25"
+#define MQTT_TOPIC_GPS "gps"
+#define MQTT_TOPIC_AIR "air"
+#define MQTT_TOPIC_SERIAL "serial"
+#define MQTT_TOPIC_LWT "LWT"
+
+// Hardware Configuration
+#define LED_STATUS_PIN D5
+#define GPS_RX_PIN D2
+#define GPS_TX_PIN D1
+#define GPS_BAUD_RATE 9600
+
+// Sensor Configuration
+#define PM25_SENSOR_BAUD 9600
+#define MIN_DISTANCE_METERS 10
+#define PING_INTERVAL 3600000  // 1 hour in milliseconds
+
+// Data Publishing
+#define PUBLISH_INTERVAL 30000  // 30 seconds
+#define GPS_DATA_AGE_THRESHOLD 2000  // 2 seconds
+
+// Debug Configuration
+#define ENABLE_SERIAL_DEBUG true
+#define SERIAL_BAUD_RATE 115200
+
+#endif // CONFIG_H
