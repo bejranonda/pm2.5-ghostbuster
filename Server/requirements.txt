@@ -1,4 +1,5 @@
-# PM2.5 Ghostbuster Python Dependencies
+# PM2.5 Ghostbuster Python Dependencies v2.1.0
+# Enhanced by Claude Code Assistant
 
 # Core dependencies
 paho-mqtt>=1.6.1
@@ -6,6 +7,20 @@ influxdb>=5.3.1
 geojson>=3.0.1
 pytz>=2023.3
 python-dotenv>=1.0.0
+
+# Web framework and API (v2.1.0)
+flask>=2.3.2
+flask-restx>=1.1.0
+flask-cors>=4.0.0
+
+# HTTP client for health checks
+requests>=2.31.0
+
+# System monitoring
+psutil>=5.9.5
+
+# Email alerts
+smtplib-ssl>=1.0.0
 
 # Logging and monitoring
 structlog>=23.1.0
@@ -15,19 +30,35 @@ colorlog>=6.7.0
 pandas>=2.0.3
 numpy>=1.24.3
 
-# Web framework (optional for API)
-flask>=2.3.2
-flask-restx>=1.1.0
+# Data validation and serialization
+marshmallow>=3.20.1
+dataclasses-json>=0.5.14
+
+# Date and time handling
+python-dateutil>=2.8.2
+
+# Configuration management
+pydantic>=2.3.0
 
 # Testing
 pytest>=7.4.0
 pytest-cov>=4.1.0
 pytest-mock>=3.11.1
+pytest-flask>=1.2.0
 
 # Development tools
 black>=23.7.0
 flake8>=6.0.0
 mypy>=1.5.1
+isort>=5.12.0
 
 # Security
 cryptography>=41.0.3
+
+# Production server (optional)
+gunicorn>=21.2.0
+waitress>=2.1.2
+
+# Documentation generation (optional)
+sphinx>=7.1.2
+sphinx-rtd-theme>=1.3.0

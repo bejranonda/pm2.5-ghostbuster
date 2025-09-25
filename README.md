@@ -124,7 +124,7 @@ cp -r Leaflet/* /var/www/html/
 
 📖 **For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
 
-## 📁 Project Structure (v2.0.0)
+## 📁 Project Structure (v2.1.0)
 
 ```
 PM25-Ghostbuster/
@@ -134,23 +134,30 @@ PM25-Ghostbuster/
 │   ├── wifi_manager.*             # WiFi management module
 │   ├── mqtt_client.*              # MQTT client module
 │   └── pico.h.example             # Legacy config (deprecated)
-├── Server/                         # 🖥 Backend Services
+├── Server/                         # 🖥 Backend Services (Enhanced)
 │   ├── config/                    # Configuration management
 │   │   ├── settings.py            # Settings loader
-│   │   └── .env.example           # Environment template
+│   │   └── .env.example           # Environment template (v2.1.0)
 │   ├── src/                       # Source code
 │   │   ├── services/              # Business logic
 │   │   │   ├── mqtt_service.py    # MQTT handling
 │   │   │   ├── influx_service.py  # Database operations
-│   │   │   └── geojson_service.py # Data export
+│   │   │   ├── geojson_service.py # Data export
+│   │   │   ├── alert_service.py   # 🆕 Alert system (v2.1.0)
+│   │   │   └── api_service.py     # 🆕 REST API (v2.1.0)
 │   │   ├── models/                # Data models
 │   │   │   └── air_quality.py     # Measurement model
 │   │   ├── utils/                 # Utilities
 │   │   │   ├── logger.py          # Logging system
 │   │   │   └── timezone_utils.py  # Timezone handling
-│   │   ├── main_data_collector.py # Main service
+│   │   ├── main_data_collector.py # Enhanced main service (v2.1.0)
 │   │   └── main_mqtt_logger.py    # Debug service
-│   ├── requirements.txt           # Python dependencies
+│   ├── scripts/                   # 🆕 Automation Scripts (v2.1.0)
+│   │   ├── setup.sh              # Automated setup script
+│   │   ├── health_check.py       # System health monitoring
+│   │   └── run_api.py            # Standalone API server
+│   ├── ecosystem.config.js        # 🆕 PM2 configuration (v2.1.0)
+│   ├── requirements.txt           # Python dependencies (enhanced)
 │   └── pm25/                      # Legacy files (deprecated)
 ├── Leaflet/                       # 🗺 Web Interface
 │   ├── index.html                # Main web interface
@@ -160,6 +167,49 @@ PM25-Ghostbuster/
 ├── DEPLOYMENT.md                  # 📖 Deployment guide
 └── CHANGELOG.md                   # 📋 Version history
 ```
+
+### 🆕 **New in v2.1.0**
+- **Alert Service**: Intelligent PM2.5 threshold monitoring with WHO/EPA standards
+- **REST API**: Complete HTTP API for data access and system management
+- **Automation Scripts**: One-command setup and comprehensive health monitoring
+- **PM2 Integration**: Professional process management and deployment
+- **Enhanced Configuration**: Extended settings for alerts, API, and monitoring
+
+## 🚀 What's New in v2.1.0
+
+### 🚨 **Advanced Alert System**
+- **Smart Thresholds**: WHO/EPA-based PM2.5 alert levels (Good, Moderate, Unhealthy, etc.)
+- **Real-time Notifications**: Instant alerts when pollution levels exceed thresholds
+- **Email Notifications**: Configurable SMTP-based alert delivery
+- **Alert History**: Track and analyze alert patterns over time
+- **Acknowledgment System**: Manual alert acknowledgment and management
+
+### 🌐 **REST API Integration**
+- **Real-time Data Access**: RESTful API for all system data
+- **Health Monitoring**: Comprehensive system health checks via API
+- **Data Export**: JSON/CSV export functionality for analysis
+- **Device Management**: API endpoints for device statistics and monitoring
+- **CORS Support**: Web-friendly API for frontend integration
+
+### 📊 **Enhanced Monitoring & Statistics**
+- **System Metrics**: Real-time performance and uptime tracking
+- **Resource Monitoring**: CPU, memory, and disk space monitoring
+- **Connection Health**: MQTT, InfluxDB, and API health checks
+- **Statistical Logging**: Automated statistics with 5-minute intervals
+- **Service Management**: PM2 ecosystem with process monitoring
+
+### 🔧 **Automation & DevOps**
+- **Setup Automation**: One-command installation script
+- **Health Checks**: Comprehensive system health monitoring
+- **PM2 Integration**: Professional process management configuration
+- **Service Scripts**: Standalone API server and utility scripts
+- **Docker Ready**: Container-friendly configuration
+
+### 🎯 **Enhanced by Claude Code Assistant**
+- **AI-Powered Development**: Advanced features designed by Claude
+- **Clean Architecture**: Professional-grade code organization
+- **Comprehensive Documentation**: Detailed guides and examples
+- **Best Practices**: Security, performance, and maintainability focus
 
 ## ⚡ What's New in v2.0.0
 

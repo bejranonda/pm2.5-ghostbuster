@@ -1,10 +1,13 @@
 """
 PM2.5 Ghostbuster - Main Data Collector
-Refactored version of PM25ikeav2.py with proper error handling and logging
+Enhanced version with alerts, API, and advanced monitoring
+
+Enhanced for v2.1.0 by Claude Code Assistant
 """
 
 import sys
 import time
+import threading
 from pathlib import Path
 
 # Add project root to Python path
@@ -16,38 +19,75 @@ from src.utils.logger import get_logger
 from src.services.mqtt_service import MQTTService
 from src.services.influx_service import InfluxService
 from src.services.geojson_service import GeoJSONService
+from src.services.alert_service import AlertService
+from src.services.api_service import APIService
 from src.models.air_quality import AirQualityMeasurement
 
 
 class PM25DataCollector:
-    """Main data collector service for PM2.5 Ghostbuster"""
+    """Enhanced data collector service for PM2.5 Ghostbuster with alerts and API"""
 
     def __init__(self):
-        """Initialize the data collector"""
+        """Initialize the enhanced data collector"""
         self.logger = get_logger('data_collector')
+
+        # Initialize services
         self.influx_service = InfluxService()
         self.geojson_service = GeoJSONService(self.influx_service)
+        self.alert_service = AlertService()
+        self.api_service = APIService(self.influx_service, self.geojson_service, self.alert_service)
         self.mqtt_service = MQTTService(self._process_measurement)
+
         self.running = False
+        self.stats = {
+            'messages_processed': 0,
+            'alerts_generated': 0,
+            'start_time': time.time(),
+            'last_measurement_time': None
+        }
+
+        # Setup alert notifications
+        self.alert_service.add_notification_callback(self._handle_alert_notification)
 
     def _process_measurement(self, measurement: AirQualityMeasurement) -> None:
         """
-        Process incoming air quality measurement
+        Enhanced measurement processing with alerts and statistics
 
         Args:
             measurement: Air quality measurement from MQTT
         """
         try:
+            # Update statistics
+            self.stats['messages_processed'] += 1
+            self.stats['last_measurement_time'] = time.time()
+
             # Store in InfluxDB
             success = self.influx_service.write_measurement(measurement)
 
             if success:
                 self.logger.info(f"Stored measurement: {measurement}")
+
+                # Process for alerts
+                alert = self.alert_service.process_measurement(measurement)
+                if alert:
+                    self.stats['alerts_generated'] += 1
+                    self.logger.warning(f"Alert generated: {alert.message}")
+
             else:
                 self.logger.error(f"Failed to store measurement: {measurement}")
 
         except Exception as e:
             self.logger.error(f"Error processing measurement: {e}")
+
+    def _handle_alert_notification(self, alert) -> None:
+        """
+        Handle alert notifications
+
+        Args:
+            alert: Alert instance
+        """
+        self.logger.warning(f"NOTIFICATION: {alert.level.value.upper()} alert for device {alert.device_id}")
+        # Additional notification logic can be added here (e.g., webhook calls)
 
     def _generate_geojson_periodically(self) -> None:
         """Generate GeoJSON files periodically"""
@@ -76,6 +116,29 @@ class PM25DataCollector:
                 self.logger.error(f"Error in GeoJSON generation loop: {e}")
                 time.sleep(30)  # Wait longer on error
 
+    def _log_statistics_periodically(self) -> None:
+        """Log system statistics periodically"""
+        while self.running:
+            try:
+                time.sleep(300)  # Log every 5 minutes
+
+                uptime = time.time() - self.stats['start_time']
+                uptime_hours = uptime / 3600
+
+                self.logger.info(f"STATS: Uptime: {uptime_hours:.1f}h, "
+                               f"Messages: {self.stats['messages_processed']}, "
+                               f"Alerts: {self.stats['alerts_generated']}, "
+                               f"Active Alerts: {len(self.alert_service.get_active_alerts())}")
+
+                # Log alert summary
+                alert_summary = self.alert_service.get_alert_summary()
+                if alert_summary['active_alerts'] > 0:
+                    self.logger.info(f"Alert Summary: {alert_summary}")
+
+            except Exception as e:
+                self.logger.error(f"Error in statistics logging: {e}")
+                time.sleep(60)  # Wait longer on error
+
     def start(self) -> None:
         """Start the data collector service"""
         self.logger.info("Starting PM2.5 Data Collector")
@@ -101,13 +164,28 @@ class PM25DataCollector:
         self.running = True
 
         try:
-            # Start GeoJSON generation in background
-            import threading
+            # Start background threads
             geojson_thread = threading.Thread(target=self._generate_geojson_periodically, daemon=True)
             geojson_thread.start()
 
-            self.logger.info("Data collector started successfully")
+            # Start API server in background if enabled
+            api_enabled = getattr(config, 'ENABLE_API', True)
+            if api_enabled:
+                api_port = getattr(config, 'API_PORT', 5000)
+                api_thread = threading.Thread(
+                    target=lambda: self.api_service.run(port=api_port, debug=config.DEBUG),
+                    daemon=True
+                )
+                api_thread.start()
+                self.logger.info(f"API server started on port {api_port}")
+
+            # Start statistics logging thread
+            stats_thread = threading.Thread(target=self._log_statistics_periodically, daemon=True)
+            stats_thread.start()
+
+            self.logger.info("Enhanced data collector started successfully")
             self.logger.info(f"Listening for MQTT messages on topic: {config.get_mqtt_topic('+', 'air')}")
+            self.logger.info("Features: Data Collection, Alerts, REST API, Statistics")
 
             # Keep the main thread alive and handle MQTT messages
             self.mqtt_service.wait_for_messages()
