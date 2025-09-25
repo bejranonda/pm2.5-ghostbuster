@@ -1,0 +1,17 @@
+// Configuration file for PM2.5 Ghostbuster Arduino device
+// Copy this file to pico.h and fill in your actual credentials
+
+#ifndef PICO_H
+#define PICO_H
+
+// WiFi Configuration
+#define WIFISSID     "your_wifi_ssid"
+#define WIFIPASSWORD "your_wifi_password"
+
+// MQTT Configuration
+#define MQTTHOST "mqtt.thalay.eu"
+#define MQTTPORT 1883
+#define MQTTUSER "pm25"
+#define MQTTPASS "your_mqtt_password"
+
+#endif
