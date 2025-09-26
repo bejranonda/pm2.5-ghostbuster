@@ -1,27 +1,41 @@
 # PM2.5 Ghostbuster - Deployment Guide
 
-This guide covers the deployment of the refactored PM2.5 Ghostbuster system v2.0.0.
+This guide covers the deployment of the enhanced PM2.5 Ghostbuster system v2.1.0 with advanced features, alerts, and automation.
 
-## 🏗 Architecture Overview
+## 🏗 Architecture Overview (v2.1.0)
 
-The refactored system follows a modular architecture:
+The enhanced system features advanced monitoring, alerting, and automation:
 
 ```
 PM25-Ghostbuster/
-├── Arduino/                    # ESP8266 sensor firmware
-│   ├── pm25_ghostbuster.ino   # Main sketch
-│   ├── config.h.example       # Configuration template
-│   ├── wifi_manager.*         # WiFi management
-│   └── mqtt_client.*          # MQTT client
-├── Server/
-│   ├── config/                # Configuration management
-│   ├── src/                   # Source code
+├── Arduino/                    # IKEA VINDRIKTNING-based sensors
+│   ├── pm25_ghostbuster.ino   # Enhanced main sketch
+│   ├── config.h.example       # Secure configuration template
+│   ├── wifi_manager.*         # WiFi management with auto-recovery
+│   └── mqtt_client.*          # MQTT client with guaranteed delivery
+├── Server/                     # Enterprise-grade backend (v2.1.0)
+│   ├── config/                # Enhanced configuration management
+│   ├── src/                   # Modular source code
 │   │   ├── services/          # Business logic services
-│   │   ├── models/            # Data models
-│   │   └── utils/             # Utilities
-│   └── requirements.txt       # Python dependencies
-└── Leaflet/                   # Web interface
+│   │   │   ├── alert_service.py    # 🆕 WHO/EPA alert system
+│   │   │   └── api_service.py      # 🆕 REST API
+│   │   ├── models/            # Data models with validation
+│   │   └── utils/             # Enhanced utilities
+│   ├── scripts/               # 🆕 Automation tools
+│   │   ├── setup.sh          # One-command setup
+│   │   ├── health_check.py   # System monitoring
+│   │   └── run_api.py        # Standalone API server
+│   ├── ecosystem.config.js    # 🆕 PM2 configuration
+│   └── requirements.txt       # Enhanced dependencies
+└── Leaflet/                   # Web interface with API integration
 ```
+
+### 🆕 **New Features in v2.1.0**
+- **Advanced Alert System**: WHO/EPA PM2.5 thresholds with email notifications
+- **REST API**: Complete HTTP API for system integration
+- **Automation Tools**: One-command setup and health monitoring
+- **Enhanced Monitoring**: System resource and performance tracking
+- **Professional Deployment**: PM2 ecosystem with process management
 
 ## 🔧 Server Deployment
 
@@ -131,25 +145,41 @@ For Apache:
 
 ## 📟 Arduino Deployment
 
-### Step 1: Hardware Setup
+### Step 1: IKEA VINDRIKTNING Hardware Setup
 
-Required components:
-- ESP8266 development board (NodeMCU, Wemos D1 Mini)
-- GPS module (Neo-6M recommended)
-- PM2.5 sensor
-- Status LED
-- Breadboard and jumper wires
+#### Required Components
+- **IKEA VINDRIKTNING** Air Quality Sensor (Product ID: 804.982.46)
+  - Available at [India IKEA](https://www.ikea.com/in/en/p/vindriktning-air-quality-sensor-80498246/)
+  - Alternative sources: eBay, Amazon, local electronics stores
+- **ESP8266 development board** (NodeMCU, Wemos D1 Mini)
+- **GPS module** (Neo-6M recommended)
+- **Status LED** and resistor
+- **Breadboard and jumper wires**
+- **USB-C cable and power adapter** (for VINDRIKTNING)
 
-Wiring:
+#### VINDRIKTNING Modification
+The IKEA VINDRIKTNING sensor needs to be opened to access the PM2.5 data:
+
+1. **Disassemble** the VINDRIKTNING housing (4 screws on the back)
+2. **Locate** the sensor board inside
+3. **Identify** the data pins for PM2.5 readings
+4. **Connect** ESP8266 to read sensor data
+5. **Maintain** original USB-C power connection
+
+#### Enhanced Wiring (v2.1.0)
 ```
 ESP8266 Pin    Component
 -----------    ---------
 D1 (TX)     -> GPS RX
 D2 (RX)     -> GPS TX
 D5          -> Status LED (+ resistor)
-VIN         -> PM2.5 sensor power
-GND         -> Common ground
+A0          -> VINDRIKTNING data pin
+VIN         -> External components power
+GND         -> Common ground (including VINDRIKTNING)
+3.3V        -> GPS module power
 ```
+
+> **💡 Pro Tip**: The VINDRIKTNING's original functionality remains intact - it will continue to show green/yellow/red indicators while also transmitting data via our ESP8266 enhancement.
 
 ### Step 2: Software Setup
 

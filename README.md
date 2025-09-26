@@ -2,7 +2,9 @@
 
 > *"PM2.5 is like ghost. It exists even if it is invisible."*
 
-A collaborative art-science project making invisible air pollution visible through DIY sensors, real-time data visualization, and community engagement.
+A collaborative art-science project making invisible air pollution visible through IKEA-hacked sensors, real-time data visualization, and community engagement.
+
+**Built on IKEA VINDRIKTNING** - Transforming consumer air quality sensors into a powerful environmental monitoring network.
 
 ## 🌍 About
 
@@ -16,11 +18,23 @@ The project bridges the gap between hard science and public understanding by usi
 
 This project transforms complex environmental science into understandable, actionable information for civilians. By treating PM2.5 pollution as an invisible "ghost" that needs to be detected and understood, we empower communities to monitor and respond to their air quality.
 
-## 🛠 Technical Architecture (v2.0.0 - Refactored)
+## 🛠 Technical Architecture (v2.1.0 - AI Enhanced)
 
-### 🔧 Arduino Sensor Device (`Arduino/`)
-**Modular ESP8266-based sensor with enhanced reliability**
-- **Main Sketch**: `pm25_ghostbuster.ino` - Refactored main application
+### 🏭 **IKEA VINDRIKTNING Foundation**
+**Hacked consumer air quality sensor transformed into IoT monitoring device**
+
+The project ingeniously repurposes IKEA's VINDRIKTNING air quality sensor, designed by David Wahl, which originally provides:
+- **PM2.5 Detection**: Particle monitoring for indoor air quality
+- **Visual Indicators**: Green (good), Yellow (ok), Red (not good) air quality levels
+- **Consumer Friendly**: USB-C powered, small form factor for any room
+- **Professional Accuracy**: Suitable for both small and large spaces
+
+**Our Enhancement**: By adding ESP8266 microcontroller and GPS module, we transform this consumer device into a powerful IoT sensor capable of real-time data transmission and location tracking.
+
+### 🔧 **Enhanced Arduino Sensor Device (`Arduino/`)**
+**Modular ESP8266-based enhancement with professional reliability**
+- **Hardware Base**: IKEA VINDRIKTNING PM2.5 sensor (hacked for data access)
+- **Main Sketch**: `pm25_ghostbuster.ino` - Professional IoT implementation
 - **Modules**:
   - `wifi_manager.*` - WiFi connection management with auto-recovery
   - `mqtt_client.*` - MQTT publishing with guaranteed delivery
@@ -30,7 +44,8 @@ This project transforms complex environmental science into understandable, actio
   - 🔄 **Auto-Recovery**: Automatic WiFi and MQTT reconnection
   - 📍 **Smart GPS**: Location-based publishing with distance thresholds
   - 🚨 **Status Indicators**: LED patterns show connection status
-  - ⚡ **Power Efficient**: Optimized for battery operation
+  - ⚡ **Power Efficient**: Optimized for continuous operation
+  - 🏭 **Consumer Hardware**: Built on proven IKEA sensor technology
 
 ### 🖥 Server Backend (`Server/`)
 **Enterprise-grade Python services with proper error handling**
@@ -79,16 +94,39 @@ This project transforms complex environmental science into understandable, actio
 4. **Processing**: Python scripts generate GeoJSON files every minute
 5. **Visualization**: Web interface displays real-time and historical data
 
-## 🚀 Getting Started (v2.0.0)
+## 🚀 Getting Started (v2.1.0)
 
-### Prerequisites
-- ESP8266 development board (NodeMCU, Wemos D1 Mini)
-- PM2.5 sensor module
-- GPS module (Neo-6M recommended)
-- InfluxDB 1.x database
-- MQTT broker (Mosquitto recommended)
-- Python 3.8+
-- Web server (Apache/Nginx)
+### Hardware Requirements
+
+#### IKEA VINDRIKTNING Air Quality Sensor
+**The heart of PM2.5 Ghostbuster** - Professional PM2.5 detection at consumer prices
+
+- **Product**: IKEA VINDRIKTNING Air Quality Sensor (Product ID: 804.982.46)
+- **Designer**: David Wahl
+- **Availability**: Available at IKEA stores globally
+  - ✅ **Available**: [India IKEA](https://www.ikea.com/in/en/p/vindriktning-air-quality-sensor-80498246/)
+  - ⚠️ **Limited**: Germany IKEA (discontinued - check online marketplaces)
+  - 🔍 **Alternative sources**: eBay, Amazon, local electronics stores
+- **Features**:
+  - Professional PM2.5 particle detection
+  - Visual indicators: Green (good), Yellow (ok), Red (not good)
+  - USB-C powered (cable and adapter included)
+  - Compact design (6×15×6 cm) suitable for any room
+  - Works effectively in both small and large spaces
+
+#### Additional Components
+- **ESP8266 development board** (NodeMCU, Wemos D1 Mini)
+- **GPS module** (Neo-6M recommended for location tracking)
+- **Jumper wires and breadboard** (for sensor connections)
+
+#### Software & Infrastructure
+- **InfluxDB 1.x** database
+- **MQTT broker** (Mosquitto recommended)
+- **Python 3.8+**
+- **Arduino IDE** with ESP8266 board package
+- **Web server** (Apache/Nginx for frontend)
+
+> **💡 Why VINDRIKTNING?** This ingenious hack transforms an affordable €12 consumer air quality sensor into a professional IoT monitoring device, democratizing environmental monitoring for communities worldwide.
 
 ### Quick Start
 
@@ -122,7 +160,10 @@ pm2 start src/main_mqtt_logger.py --name pm25-logger --interpreter python3
 cp -r Leaflet/* /var/www/html/
 ```
 
-📖 **For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)**
+📖 **For detailed information, see:**
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Complete deployment guide
+- [API.md](API.md) - REST API documentation
+- [CONFIGURATION.md](CONFIGURATION.md) - Configuration guide
 
 ## 📁 Project Structure (v2.1.0)
 
@@ -164,6 +205,8 @@ PM25-Ghostbuster/
 │   ├── css/                      # Stylesheets
 │   ├── js/                       # JavaScript libraries
 │   └── images/                   # Images and assets
+├── API.md                         # 🌐 REST API documentation
+├── CONFIGURATION.md               # ⚙️ Configuration guide
 ├── DEPLOYMENT.md                  # 📖 Deployment guide
 └── CHANGELOG.md                   # 📋 Version history
 ```
@@ -205,9 +248,9 @@ PM25-Ghostbuster/
 - **Service Scripts**: Standalone API server and utility scripts
 - **Docker Ready**: Container-friendly configuration
 
-### 🎯 **Enhanced by Claude Code Assistant**
-- **AI-Powered Development**: Advanced features designed by Claude
-- **Clean Architecture**: Professional-grade code organization
+### 🎯 **Professional Development**
+- **Advanced Features**: Enterprise-grade monitoring and alerting
+- **Clean Architecture**: Professional code organization and patterns
 - **Comprehensive Documentation**: Detailed guides and examples
 - **Best Practices**: Security, performance, and maintainability focus
 
@@ -244,7 +287,7 @@ This project demonstrates how technology can be made accessible through creative
 - **Community Focus**: Empowering locals with their own monitoring capabilities
 - **Visual Storytelling**: Interactive maps tell the story of air quality over time
 - **Cultural Bridge**: Connecting scientific data with cultural understanding
-- **Technical Accessibility**: Clean, documented code enables community contributions
+- **Technical Excellence**: Clean, documented code enables community contributions
 
 ## 🌱 Community Impact
 
