@@ -342,6 +342,27 @@ This project is open source and available for community use and adaptation.
 ### Community
 - **Local Communities** in Rajabura province for participation and testing
 
+### AI Development Support
+This project has evolved through different phases of AI-assisted development:
+
+#### **Phase 1: Original Development (2023)**
+The initial scripts and core functionality were **composed using suggestions from ChatGPT and Google Gemini**:
+- Core data collection and MQTT communication scripts
+- Basic InfluxDB integration and data processing
+- Initial web visualization interface
+- Arduino sensor firmware foundation
+
+#### **Phase 2: Professional Refactoring (2025)**
+**Two years later**, the entire system was **comprehensively refactored by Claude (Anthropic)**:
+- Complete architectural redesign with modular structure
+- Security improvements and credential management
+- Advanced alert system with WHO/EPA standards
+- Professional REST API development
+- Automation tools and deployment scripts
+- Enhanced documentation and best practices implementation
+
+This development timeline demonstrates the evolution from AI-suggested prototype scripts to a production-ready, professionally architected system through iterative AI assistance spanning multiple years.
+
 ---
 
 *Making the invisible visible, one sensor at a time.* 👻
