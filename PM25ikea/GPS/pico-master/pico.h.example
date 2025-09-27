@@ -1,9 +1,0 @@
-
-#define WIFISSID "...."
-#define WIFIPASSWORD "..."
-
-#define MQTTHOST "..."
-#define MQTTPORT 1883
-#define MQTTUSER NULL
-#define MQTTPASS NULL
-
