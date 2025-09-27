@@ -2,6 +2,12 @@
 
 > *"PM2.5 is like ghost. It exists even if it is invisible."*
 
+<img width="614" height="690" alt="image" src="https://github.com/user-attachments/assets/4195d37e-1199-4a4c-8236-67b77a9f35be" />
+
+*Mobile PM2.5 Detector Device in service*
+
+ 
+
 A collaborative art-science project making invisible air pollution visible through IKEA-hacked sensors, real-time data visualization, and community engagement.
 
 **Built on IKEA VINDRIKTNING** - Transforming consumer air quality sensors into a powerful environmental monitoring network.
@@ -45,7 +51,7 @@ This project demonstrates how community innovation can create sophisticated envi
 
 #### **The Complete Data Lifecycle**
 ```
-🏠 IKEA VINDRIKTNING → 📱 Mobile Enhancement → 🌐 Cloud Processing → 🗺 Global Visualization
+🏠 IKEA VINDRIKTNING   📱 Mobile Enhancement   🌐 Cloud Processing   🗺 Global Visualization
         ↓                      ↓                     ↓                    ↓
    €12 Consumer Device → GPS+WiFi Mobile Sensor → MQTT+Database → Real-time Map
 ```
@@ -60,6 +66,12 @@ This project demonstrates how community innovation can create sophisticated envi
 - **Capability**: Real-time mobile PM2.5 monitoring with location tracking
 - **Intelligence**: Offline storage with automatic cloud synchronization
 - **Connectivity**: Works with WiFi networks or mobile phone hotspots
+
+![353419788_645801610907611_7092949055069026121_n](https://github.com/user-attachments/assets/72173833-a505-4313-9137-12b720856811)
+
+*Hardware schematic by Chiara Giardi*
+
+
 
 ##### **☁️ Cloud Infrastructure (Server/)**
 **The Data Brain**: Processes and stores all sensor data for global access
@@ -93,12 +105,21 @@ This unified approach creates a **complete environmental monitoring ecosystem**:
 
 The `PM25ikea/` folder contains the complete implementation for building a **mobile PM2.5 detector device** that revolutionizes environmental monitoring by combining portability, intelligence, and connectivity:
 
+<img width="797" height="345" alt="image" src="https://github.com/user-attachments/assets/972bc5c3-930e-4784-afdb-d421a56c59b3" />
+
+*Mobile PM2.5 Detector Device in a box with batter-pack inside (powerbank)*
+
+
 #### **🏗 Device Construction**
 - **Base**: Hacked IKEA VINDRIKTNING housing (maintains original compact design)
 - **Brain**: ESP8266 D1 Mini WiFi microcontroller
 - **Location**: GPS module (Neo-6M) for real-time positioning
 - **Power**: USB-C powered with power bank support for mobile operation
 - **Status**: LED indicators for connection and operation status
+
+<img width="602" height="578" alt="image" src="https://github.com/user-attachments/assets/3ce0eb01-d379-40ea-821c-2233dbe41414" />
+
+*Inside the mobile PM2.5 detector device*
 
 #### **🌐 Intelligent Connectivity Features**
 
@@ -236,6 +257,11 @@ Internal PM2.5 → Process → Location → Cache → Phone/WiFi → Broker → 
   - GPS location services
   - Google Analytics integration
 
+<img width="398" height="820" alt="image" src="https://github.com/user-attachments/assets/d527273f-41f9-4cb3-95e9-1d0747295254" />
+
+*Flower of pollution measured in Rachburi Province".
+
+
 ## 📊 Data Flow & System Integration
 
 ### 🔗 **Arduino ↔ Server Connection Architecture**
@@ -312,6 +338,11 @@ Database Query → GeoJSON Generation → Leaflet Map → Real-time Display
 - **Server Scripts**: `geojson_service.py`
 - **Web Interface**: `Leaflet/` folder
 - **Live Map**: [map.thalay.eu](https://map.thalay.eu/)
+
+
+<img width="413" height="818" alt="image" src="https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc" />
+
+*The high density of measurments of bad air quality*
 
 ### 📡 **MQTT Communication Protocol**
 
@@ -839,6 +870,11 @@ This project is open source and available for community use and adaptation.
 - **Ploy**
 - **Im**
 - **Boss**
+
+<img width="906" height="425" alt="image" src="https://github.com/user-attachments/assets/a1335e2e-155a-48e6-ab0a-547eb582a91e" />
+
+*Workshop for building the mobile PM2.5 detector as artist in residence an Baan Noorg Collaborative Arts & Culture* 
+
 
 ### Community
 - **Local Communities** in Rajabura province for participation and testing
