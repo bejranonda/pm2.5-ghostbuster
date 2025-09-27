@@ -22,6 +22,20 @@ The project bridges the gap between hard science and public understanding by usi
 
 **Live Data**: [map.thalay.eu](https://map.thalay.eu/)
 
+## 📄 License
+
+This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+
+### Third-Party Attributions
+
+**Arduino implementations are enhanced from:**
+- **[esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor)** by [Hypfer](https://github.com/Hypfer)
+- **License**: Apache-2.0
+- **Innovation**: Original MQTT connectivity for IKEA VINDRIKTNING
+- **Location**: `Arduino/esp8266-vindriktning-particle-sensor/`
+
+**PM2.5 Ghostbuster enhancements include GPS integration, offline storage, smart publishing algorithms, and mobile optimization while maintaining the original Apache-2.0 license.**
+
 ## 🎯 Project Philosophy
 
 This project transforms complex environmental science into understandable, actionable information for civilians. By treating PM2.5 pollution as an invisible "ghost" that needs to be detected and understood, we empower communities to monitor and respond to their air quality.
@@ -43,7 +57,7 @@ PM2.5 Ghostbuster is a **unified environmental monitoring system** that transfor
 **The Complete Journey**: IKEA Sensor → Mobile Device → Cloud Network → Global Access
 
 This project demonstrates how community innovation can create sophisticated environmental monitoring infrastructure by connecting:
-1. **📱 Mobile Hardware** (PM25ikea/) - Hacked VINDRIKTNING sensors with GPS and WiFi
+1. **📱 Mobile Hardware** (Arduino/) - Hacked VINDRIKTNING sensors with GPS and WiFi
 2. **☁️ Cloud Backend** (Server/) - Professional data processing and storage
 3. **🌐 Web Visualization** (Leaflet/) - Real-time global mapping interface
 
@@ -58,7 +72,7 @@ This project demonstrates how community innovation can create sophisticated envi
 
 #### **Single Project Components Working Together**
 
-##### **📱 Mobile PM2.5 Detector (PM25ikea/)**
+##### **📱 Mobile PM2.5 Detector (Arduino/)**
 **The Physical Device**: Transforms IKEA's VINDRIKTNING into a mobile environmental sensor
 
 - **Base Hardware**: IKEA VINDRIKTNING air quality sensor (designed by David Wahl)
@@ -100,10 +114,10 @@ This unified approach creates a **complete environmental monitoring ecosystem**:
 - **🌍 Global Understanding**: Worldwide PM2.5 patterns become visible
 - **💡 Democratic Technology**: €12 devices democratize environmental monitoring
 
-### 📱 **Mobile PM2.5 Detector Device (`PM25ikea/`)**
+### 📱 **Mobile PM2.5 Detector Device (`Arduino/`)**
 **Portable air quality monitoring with intelligent connectivity**
 
-The `PM25ikea/` folder contains the complete implementation for building a **mobile PM2.5 detector device** that revolutionizes environmental monitoring by combining portability, intelligence, and connectivity:
+The `Arduino/` folder contains the complete implementation for building a **mobile PM2.5 detector device** that revolutionizes environmental monitoring by combining portability, intelligence, and connectivity:
 
 <img width="797" height="345" alt="image" src="https://github.com/user-attachments/assets/972bc5c3-930e-4784-afdb-d421a56c59b3" />
 
@@ -268,11 +282,11 @@ Internal PM2.5 → Process → Location → Cache → Phone/WiFi → Broker → 
 
 The PM2.5 Ghostbuster system creates a seamless connection between mobile hardware and cloud infrastructure:
 
-#### **📱 Arduino Device (PM25ikea/) → 🖥 Server Backend (Server/)**
+#### **📱 Arduino Device (Arduino/) → 🖥 Server Backend (Server/)**
 
 ##### **1. Data Collection & Transmission**
 ```cpp
-// Arduino (PM25ikea/picoPM25v4.ino)
+// Arduino (Arduino/picoPM25v4/picoPM25v4.ino)
 void serialize(TinyGPSPlus &gps, char t) {
     DynamicJsonDocument doc(1024);
     doc["_type"] = "location";
@@ -310,7 +324,7 @@ def on_message(client, userdata, msg):
 ```
 VINDRIKTNING Sensor → ESP8266 Processing → GPS Location → JSON Formatting
 ```
-- **Arduino Scripts**: `PM25gps.ino`, `picoPM25v4.ino`
+- **Arduino Scripts**: `picoPM25bFixedCoord/picoPM25bFixedCoord.ino`, `picoPM25v4/picoPM25v4.ino`
 - **Function**: Read PM2.5 values, combine with GPS coordinates
 - **Output**: JSON data packets with location and air quality
 
@@ -372,7 +386,7 @@ MQTT_BROKER = "mqtt.thalay.eu"
 MQTT_PORT = 1883
 MQTT_TOPICS = ["pm25/+/air"]  # Subscribe to all device data
 
-# Arduino (PM25ikea/pico.h)
+# Arduino (Arduino/picoPM25v4/pico.h)
 #define MQTTHOST "mqtt.thalay.eu"
 #define BASETOPIC "pm25"
 ```
@@ -534,20 +548,18 @@ PM25-Ghostbuster/
 │   ├── wifi_manager.*             # WiFi management module
 │   ├── mqtt_client.*              # MQTT client module
 │   └── pico.h.example             # Legacy config (deprecated)
-├── PM25ikea/                       # 📱 Mobile PM2.5 Detector (2023)
-│   ├── README_PM25ikea.md         # Complete mobile device documentation
-│   ├── PM25ikea/                  # Mobile device Arduino implementations
-│   │   ├── PM25gps/               # 🚗 Vehicle/mobile GPS+PM2.5 monitoring
-│   │   │   └── PM25gps.ino        # Original mobile detector script
-│   │   ├── picoPM25v4/            # 📱 Advanced mobile version with WiFiManager
-│   │   │   └── picoPM25v4.ino     # Enhanced mobile sensor implementation
-│   │   ├── picoPM25b*/            # 🔬 Development versions for mobile device
-│   │   └── PicoPM25/              # 📍 Location-based sensor prototypes
-│   ├── GPS/                       # 🗺 GPS module implementations for mobility
-│   ├── AMG8833-Thermal-Camera/    # 🌡 Thermal imaging integration
-│   ├── CO2/                       # 💨 CO2 sensor modules
-│   ├── LEDws2812b/                # 💡 LED status indicators
-│   └── Library/                   # 📚 Arduino libraries and dependencies
+├── Arduino/                        # 📱 Mobile PM2.5 Detector Implementations
+│   ├── picoPM25bFixedCoord/       # 🏠 Final: Hardware WITHOUT GPS module
+│   │   ├── picoPM25bFixedCoord.ino # Fixed location sensor implementation
+│   │   ├── SerialCom.h            # VINDRIKTNING serial communication
+│   │   ├── Types.h                # Data structures and types
+│   │   └── pico.h                 # Configuration header
+│   ├── picoPM25v4/                # 📱 Final: Hardware WITH GPS module
+│   │   ├── picoPM25v4.ino         # Mobile GPS+PM2.5 sensor implementation
+│   │   ├── SerialCom.h            # VINDRIKTNING serial communication
+│   │   ├── Types.h                # Data structures and types
+│   │   └── pico.h                 # Configuration header
+│   └── esp8266-vindriktning-particle-sensor/  # 🏭 Original source (Hypfer)
 ├── Server/                         # 🖥 Backend Services (Enhanced)
 │   ├── config/                    # Configuration management
 │   │   ├── settings.py            # Settings loader
@@ -606,21 +618,52 @@ PM25-Ghostbuster/
 
 PM2.5 Ghostbuster represents a **single, evolving project** that has grown from prototype to professional system while maintaining its core vision of democratizing environmental monitoring:
 
-#### **2023: Innovation Foundation (PM25ikea/)**
-**Original Mobile Device Implementation**
+#### **2023: Innovation Foundation (Arduino/)**
+**Mobile Device Implementation Evolution**
 
-The project began with the innovative concept of transforming IKEA's VINDRIKTNING into a mobile environmental monitoring device:
+The project began with the innovative concept of transforming IKEA's VINDRIKTNING into a mobile environmental monitoring device, building upon **Hypfer's esp8266-vindriktning-particle-sensor** foundation:
 
-- **Core Innovation**: Direct UART access to consumer device internals
-- **Mobile Capability**: GPS tracking + WiFi connectivity for real-time mapping
-- **Offline Intelligence**: Local data storage with automatic cloud synchronization
-- **User Accessibility**: Mobile hotspot support for immediate real-time tracking
-- **Community Focus**: Affordable technology for grassroots environmental monitoring
+##### **🏗 Development Evolution Timeline**
 
-**Key Implementation Scripts:**
-- `PM25gps.ino` - Original mobile GPS+PM2.5 monitoring
-- `picoPM25v4.ino` - Advanced WiFiManager integration
-- Complete Arduino library ecosystem for mobile sensors
+**Phase 1**: **Foundation** (Based on Hypfer's work)
+- **Source**: [esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor) by Hypfer
+- **Innovation**: MQTT connectivity for IKEA VINDRIKTNING sensor
+- **Location**: `Arduino/esp8266-vindriktning-particle-sensor/` (preserved original)
+
+**Phase 2**: **Initial Mobile Development** (PM25gps) ❌ *Removed*
+- Added GPS functionality for location tracking
+- Basic mobile sensor implementation
+
+**Phase 3**: **Enhanced Development** (picoPM25, picoPM25b) ❌ *Removed*
+- Improved mobile sensor algorithms
+- Enhanced WiFi management
+
+**Phase 4**: **Final Production Versions** ✅ *Current*
+- **`picoPM25bFixedCoord/`** - **Hardware WITHOUT GPS module**
+  - Fixed location sensor implementation
+  - Optimized for static monitoring
+  - Enhanced MQTT connectivity and WiFiManager
+- **`picoPM25v4/`** - **Hardware WITH GPS module**
+  - Mobile GPS+PM2.5 sensor implementation
+  - Movement-based intelligent publishing
+  - Offline storage with automatic synchronization
+  - OwnTracks protocol compatibility
+
+##### **🙏 Attribution & Credits**
+
+**Primary Foundation:**
+- **Original MQTT Implementation**: [Hypfer's esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor)
+- **License**: Apache-2.0
+- **Innovation**: UART access to IKEA VINDRIKTNING internal sensor data
+- **Contribution**: Provided the technical foundation for MQTT connectivity
+
+**PM2.5 Ghostbuster Enhancements:**
+- **GPS Integration**: Real-time location tracking for mobile sensors
+- **Offline Resilience**: SPIFFS storage for data persistence during connectivity loss
+- **Smart Publishing**: Movement-based algorithms for efficient data transmission
+- **Enhanced WiFiManager**: Captive portal configuration with auto-recovery
+- **OwnTracks Protocol**: Professional GPS tracking integration
+- **Mobile Optimization**: Battery-powered operation with power management
 
 #### **2025: Professional Evolution (Arduino/ + Server/ + Leaflet/)**
 **Enterprise-Grade System Architecture**
@@ -651,7 +694,7 @@ This is **one integrated system** where each component serves the unified vision
 #### **🔄 Complete System Workflow**
 
 ##### **User Journey: From Device to Global Impact**
-1. **🔨 Build Mobile Device** (PM25ikea/) - Hack IKEA VINDRIKTNING sensor
+1. **🔨 Build Mobile Device** (Arduino/) - Hack IKEA VINDRIKTNING sensor
 2. **📱 Carry & Monitor** - Mobile PM2.5 detection with phone hotspot
 3. **☁️ Automatic Upload** - Data flows to cloud infrastructure
 4. **🌍 Global Visibility** - Measurements appear on live world map
@@ -659,7 +702,7 @@ This is **one integrated system** where each component serves the unified vision
 
 ##### **Technical Integration Flow**
 ```
-📱 Mobile Device (PM25ikea/)
+📱 Mobile Device (Arduino/)
     ↓ WiFi/MQTT
 ☁️ Cloud Backend (Server/)
     ↓ Real-time Processing
@@ -673,7 +716,7 @@ This is **one integrated system** where each component serves the unified vision
 **Single Goal**: Transform €12 consumer devices into a global environmental monitoring network
 
 **Three Integrated Components**:
-- **Hardware Innovation** (PM25ikea/) - Mobile sensor technology
+- **Hardware Innovation** (Arduino/) - Mobile sensor technology
 - **Infrastructure Intelligence** (Server/) - Cloud data processing
 - **Community Access** (Leaflet/) - Global visualization platform
 
@@ -694,7 +737,7 @@ This is **one integrated system** where each component serves the unified vision
 
 ##### **Technical Coordination**
 ```cpp
-// Mobile Device (PM25ikea/picoPM25v4.ino)
+// Mobile Device (Arduino/picoPM25v4/picoPM25v4.ino)
 serialize(gps, 'v');  // Format data for transmission
 client.publish(pubtopic, payload, true);  // Send to cloud
 
@@ -712,7 +755,7 @@ This **single, integrated project** demonstrates how community innovation can cr
 ### 📚 **Historical Code Integration**
 **Preserving Innovation Heritage**: For the first time, the complete original 2023 codebase has been integrated into the main repository, providing:
 
-- **`PM25ikea/` Folder**: Complete original Arduino implementations from 2023
+- **`Arduino/` Folder**: Complete original mobile device implementations from 2023
 - **Technical Documentation**: Detailed analysis of pioneering VINDRIKTNING hacking techniques
 - **Evolution Story**: Clear documentation showing the progression from prototype to enterprise system
 - **Educational Value**: Historical code serves as learning resource for IoT development and sensor hacking
