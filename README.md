@@ -1,156 +1,350 @@
 # PM2.5 Ghostbuster
 
+*Making invisible air pollution visible through hacked IKEA sensors and community-powered data*
+
+![Mobile PM2.5 Detector Device in service](https://github.com/user-attachments/assets/4195d37e-1199-4a4c-8236-67b77a9f35be)
+*A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
+
 > *"PM2.5 is like ghost. It exists even if it is invisible."*
 
-<img width="614" height="690" alt="image" src="https://github.com/user-attachments/assets/4195d37e-1199-4a4c-8236-67b77a9f35be" />
 
-*Mobile PM2.5 Detector Device in service*
+## 📍 Exhibition Context
 
- 
+- **Project Name:** PM2.5 Ghostbuster
+- **Medium:** Interactive Environmental Monitoring Installation / Community Intervention
+- **Exhibition/Activity:** Artist-in-Residence Program & Community Workshop
+- **Development Period:** May 24-28, 2023 (Artist Residency) | Active Monitoring: May 2023 - November 2023
+- **Venue:** Baan Noorg Collaborative Arts & Culture, Nong Pho, Ratchaburi Province, Thailand
+- **Type:** Workshop / Public Intervention / Online Platform
+- **Geographic Coverage:** Ratchaburi, Kanchanaburi, Bangkok, Samut Prakan (Thailand), Kassel (Germany)
+- **Archive:** [map.thalay.eu](https://map.thalay.eu/) (system archived due to funding constraints)
 
-A collaborative art-science project making invisible air pollution visible through IKEA-hacked sensors, real-time data visualization, and community engagement.
+This collaborative art-science project emerged from a five-day artist residency in rural Thailand, where community members built mobile air quality sensors together. The monitoring network operated for six months across four provinces, making invisible air pollution visible to local communities before being archived in November 2023.
 
-**Built on IKEA VINDRIKTNING** - Transforming consumer air quality sensors into a powerful environmental monitoring network.
 
-**Complete Development Journey**: From prototype hacking in 2023 to enterprise-grade monitoring system in 2025, showcasing the evolution of community-driven environmental technology.
+## 🔍 The Experience: Revealing Invisible Threats
 
-## 🌍 About
+**Imagine carrying a device** no bigger than a smartphone that reveals the invisible—microscopic particles floating in the air around you, potentially harming your health with every breath.
 
-PM2.5 Ghostbuster is a joint initiative between **Werapol Bejranonda** (Engineer - Germany) and **Baan Noorg Collaborative Arts and Culture** (Artist Collective - Thailand) focused on raising awareness about PM2.5 air pollution in Rajabura province, Thailand.
+**PM2.5 Ghostbuster transforms** affordable €12 IKEA air quality sensors into mobile environmental detectives that track pollution as you move through your city, your neighborhood, your daily commute.
 
-The project bridges the gap between hard science and public understanding by using art and cultural approaches to make environmental data accessible to local communities.
+### 📱 How People Used It
 
-**Live Data**: [map.thalay.eu](https://map.thalay.eu/)
+**🏍️ On the Move**
+Mount the sensor on your motorcycle or carry it while walking. The device continuously measures air quality and plots data on a live map accessible to anyone with internet.
 
-## 📄 License
+**🗺️ Seeing the Invisible**
+Streets glow red with dangerous pollution levels. Neighborhoods breathe clean and green. Patterns emerge showing how pollution moves through communities.
 
-This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
+**📶 Instant Sharing**
+Connect the device to your phone's hotspot → data appears on the global map within seconds. No internet? The device remembers everything locally and syncs automatically when connection returns.
 
-### Third-Party Attributions
+### 💡 What Made It Powerful
 
-**Arduino implementations are enhanced from:**
-- **[esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor)** by [Hypfer](https://github.com/Hypfer)
-- **License**: Apache-2.0
-- **Innovation**: Original MQTT connectivity for IKEA VINDRIKTNING
-- **Location**: `Arduino/esp8266-vindriktning-particle-sensor/`
+**💰 Accessible Technology** — €12 IKEA VINDRIKTNING sensor (designed by David Wahl) + GPS tracking + WiFi connectivity
 
-**PM2.5 Ghostbuster enhancements include GPS integration, offline storage, smart publishing algorithms, and mobile optimization while maintaining the original Apache-2.0 license.**
+**🌍 Environmental Democracy** — Professional-grade air quality tracking in the hands of anyone who wants to understand the air they breathe
 
-## 🎯 Project Philosophy
+**📊 Community Data** — Six months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide
 
-This project transforms complex environmental science into understandable, actionable information for civilians. By treating PM2.5 pollution as an invisible "ghost" that needs to be detected and understood, we empower communities to monitor and respond to their air quality.
 
-### 🕰 **Development Timeline & Evolution**
+## 🌫️ The Problem: When Air Becomes Invisible Danger
 
-**2023**: **Pioneer Phase** - Original VINDRIKTNING hacking and mobile sensor prototypes
-**2025**: **Professional Phase** - Enterprise-grade architecture with AI-assisted development
-**2025**: **Integration Phase** - Complete historical documentation and unified codebase
+**In Ratchaburi Province, Thailand**, like many communities worldwide, air pollution is a silent crisis.
 
-This timeline represents the natural evolution from grassroots innovation to professional environmental monitoring infrastructure, demonstrating how community-driven projects can scale into significant technological contributions.
+**PM2.5 particles** — so small they penetrate deep into lungs and bloodstreams — remain invisible to human eyes while causing serious health impacts.
 
-## 🛠 Complete System Architecture (v3.0.0)
+**Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure.
 
-PM2.5 Ghostbuster is a **unified environmental monitoring system** that transforms a €12 consumer device into a professional-grade mobile air quality monitoring network. The system consists of three integrated components working together as one cohesive solution:
+### 🎨 Our Solution: Art Meets Science
 
-### 🏗 **System Overview: From Device to Global Network**
+**We created PM2.5 Ghostbuster** to bridge the gap between hard science and public understanding.
 
-**The Complete Journey**: IKEA Sensor → Mobile Device → Cloud Network → Global Access
+**👻 The "Ghost" Metaphor** — By treating PM2.5 pollution as invisible "ghosts" that need detection, we use art and cultural approaches to make environmental data accessible and actionable.
 
-This project demonstrates how community innovation can create sophisticated environmental monitoring infrastructure by connecting:
-1. **📱 Mobile Hardware** (Arduino/) - Hacked VINDRIKTNING sensors with GPS and WiFi
-2. **☁️ Cloud Backend** (Server/) - Professional data processing and storage
-3. **🌐 Web Visualization** (Leaflet/) - Real-time global mapping interface
+**🤝 Cross-Cultural Collaboration** — This project represents a meeting of German engineering expertise and Thai community arts, demonstrating how maker culture and creative technology can empower communities to monitor and respond to environmental challenges on their own terms.
 
-### 🔄 **Unified System Operation**
+**🛠️ Built Together** — During the five-day artist residency, community members learned to hack consumer electronics, build sensors, and create their own environmental monitoring tools.
 
-#### **The Complete Data Lifecycle**
+
+## 🔧 The Magic: From €12 IKEA Sensor to Smart Detector
+
+### 🏠 Step 1: Hacking Consumer Hardware
+
+**The magic begins** with a clever hack of consumer hardware.
+
+**Inside each IKEA VINDRIKTNING** sits a professional-grade particle detector (Cubic PM1006) that IKEA uses to power its simple green-yellow-red indicator lights.
+
+**We tap into** the sensor's internal communication channel—called UART—to access the raw numerical data that the sensor produces every second.
+
+![Hardware schematic showing sensor modification](https://github.com/user-attachments/assets/72173833-a505-4313-9137-12b720856811)
+*Hardware schematic by Chiara Giardi showing the ESP8266 microcontroller and GPS integration*
+
+### 🧠 Step 2: Adding Intelligence
+
+**Into the original IKEA housing**, we install:
+- 🔌 **ESP8266 microcontroller** (about the size of a thumb) — the device's brain
+- 📍 **GPS module** — tracks location as you move
+- 📶 **WiFi connectivity** — sends data to the cloud or stores it locally
+
+![Inside the mobile PM2.5 detector device](https://github.com/user-attachments/assets/3ce0eb01-d379-40ea-821c-2233dbe41414)
+*The enhanced internals: ESP8266 brain, GPS eyes, and the original IKEA sensor*
+
+**The microcontroller:**
+1. Reads PM2.5 measurements every second
+2. Combines them with GPS coordinates
+3. Packages everything as structured data
+4. Transmits to cloud server using MQTT protocol (when WiFi available)
+5. Stores locally when offline, syncs automatically later
+
+### ☁️ Step 3: Cloud Infrastructure (The Network Brain)
+
+**A Python-based server** receives data from all active devices and:
+- ✅ Validates incoming measurements
+- 💾 Stores in a time-series database (InfluxDB)
+- 🗺️ Generates GeoJSON file every minute
+- 🌐 Feeds real-time web map (Leaflet.js)
+- 📊 Displays 30 days of historical air quality patterns
+
+### 🚀 Step 4: Smart Features for Mobile Monitoring
+
+**Movement Detection** 🏃
+Only publishes new data after traveling 30+ meters → conserves battery and data
+
+**Offline Resilience** 💾
+Device stores measurements in flash memory when no internet → auto-syncs when connection returns → no pollution data ever lost
+
+
+## Key Features
+
+- **🏠 Consumer Hardware Foundation** - Built on €12 IKEA VINDRIKTNING sensors, making professional environmental monitoring accessible
+- **📍 GPS-Enabled Mobile Monitoring** - Track air quality along routes, revealing pollution patterns across neighborhoods and cities
+- **💾 Intelligent Offline Operation** - Automatically stores data locally when offline, syncs when connection restores
+- **🌐 Real-Time Global Visualization** - Live web map shows all measurements from all devices with 30 days of historical data
+- **📱 Smartphone Integration** - Works with phone mobile hotspots for instant data sharing anywhere
+- **☁️ Professional Cloud Infrastructure** - Enterprise-grade Python backend with automated alerts and REST API
+- **🔓 Fully Open Source** - Complete hardware modifications, firmware, and server code available for replication
+- **🌍 Community-Powered Network** - Each device contributes to collective understanding of regional air quality
+
+## If you need to understand more
+
+### What It Does
+
+Imagine carrying a device no bigger than a smartphone that reveals the invisible—microscopic particles floating in the air around you, potentially harming your health with every breath. PM2.5 Ghostbuster transforms affordable IKEA air quality sensors into mobile environmental detectives that track pollution as you move through your city, your neighborhood, your daily commute.
+
+When you mount one of these modified sensors on your motorcycle or carry it while walking, it continuously measures the air quality and plots the data on a live map accessible to anyone with an internet connection. The invisible becomes visible: streets that glow red with dangerous pollution levels, neighborhoods where the air breathes clean and green, patterns that emerge showing how pollution moves through communities.
+
+What makes this system powerful is its accessibility. The heart of each device is a €12 IKEA VINDRIKTNING air quality sensor—designed by David Wahl for home use—that we've carefully enhanced with GPS tracking and WiFi connectivity. When you connect the device to your phone's hotspot, it instantly shares data to a global map. Even when internet isn't available, it remembers everything locally and syncs automatically when connection returns. This isn't just environmental monitoring—it's environmental democracy, putting professional-grade air quality tracking into the hands of anyone who wants to understand the air they breathe.
+
+
+### Why It Exists
+
+In Ratchaburi Province, Thailand, like many communities worldwide, air pollution is a silent crisis. PM2.5 particles—so small they penetrate deep into lungs and bloodstreams—remain invisible to human eyes while causing serious health impacts. Official monitoring stations are few and far between, leaving communities with little understanding of their daily exposure.
+
+We created PM2.5 Ghostbuster to bridge the gap between hard science and public understanding. By treating PM2.5 pollution as invisible "ghosts" that need detection, we use art and cultural approaches to make environmental data accessible and actionable. This project represents a collaboration between German engineering expertise and Thai community arts, demonstrating how maker culture and creative technology can empower communities to monitor and respond to environmental challenges on their own terms.
+
+
+### How It Works
+
+The magic begins with a clever hack of consumer hardware. Inside each IKEA VINDRIKTNING sensor sits a professional-grade particle detector (Cubic PM1006) that IKEA uses to power its simple green-yellow-red indicator lights. We've learned to tap into the sensor's internal communication channel—called UART—to access the raw numerical data that the sensor produces every second.
+
+Into the original IKEA housing, we install a tiny ESP8266 microcontroller (about the size of a thumb) and a GPS module. The microcontroller reads the PM2.5 measurements, combines them with GPS coordinates from the location module, and packages everything as structured data. When connected to WiFi—either from a home network or your phone's mobile hotspot—it transmits this data package to a cloud server using a lightweight protocol called MQTT.
+
+The cloud infrastructure acts as the system's memory and brain. A Python-based server receives data from all active devices, validates it, and stores it in a time-series database optimized for environmental measurements. Every minute, the server generates a GeoJSON file—a standardized geographic data format—that feeds a real-time web map built with Leaflet.js. This map becomes the public face of the project: an interactive visualization where anyone can see current and historical air quality patterns spanning 30 days of data.
+
+The system includes intelligent features that make mobile monitoring practical. Movement detection ensures the device only publishes new data when it has traveled a meaningful distance (typically 30 meters), conserving battery and data. When internet connectivity drops—common during mobile operation—the device stores measurements locally in its flash memory and automatically syncs them when connection returns. This resilience means no pollution data is ever lost, even in areas with spotty coverage.
+
+
+## Getting Started
+
+### For Community Members & Artists
+
+**What You Need:**
+- IKEA VINDRIKTNING Air Quality Sensor ([available at IKEA stores](https://www.ikea.com/in/en/p/vindriktning-air-quality-sensor-80498246/), Product ID: 804.982.46)
+- ESP8266 development board (Wemos D1 Mini or NodeMCU, ~$3-5)
+- GPS module (Neo-6M, ~$8-10)
+- USB-C cable and power bank for mobile operation
+- Basic soldering skills and jumper wires
+
+**Building Your Device:**
+1. Open the IKEA sensor housing (gentle prying, no damage to internals)
+2. Connect ESP8266 to the sensor's UART pins (detailed wiring diagrams available)
+3. Add GPS module for location tracking
+4. Upload pre-configured firmware via USB
+5. Power on and connect to WiFi using smartphone configuration portal
+
+**Using Your Device:**
+- Mount on motorcycle/bicycle or carry in backpack with power bank
+- Connect device to your phone's WiFi hotspot
+- Watch your measurements appear on the live map within seconds
+- Share the map link with your community
+
+**Workshop Opportunities:**
+We regularly conduct hands-on building workshops. Contact [Baan Noorg Collaborative Arts & Culture](https://www.baannoorg.com/) for upcoming sessions.
+
+![Workshop participants building mobile PM2.5 detectors](https://github.com/user-attachments/assets/a1335e2e-155a-48e6-ab0a-547eb582a91e)
+*Community workshop at Baan Noorg teaching sensor construction and environmental monitoring*
+
+
+## Key Results & Impact
+
+### Live Monitoring Network
+
+![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
+*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
+
+![Visualization showing pollution patterns](https://github.com/user-attachments/assets/d527273f-41f9-4cb3-95e9-1d0747295254)
+*"Flower of pollution"—radial patterns showing daily PM2.5 variations across monitoring routes*
+
+### Real-World Applications
+
+- **🏍️ Commuter Exposure Mapping** - Motorcycle riders track their daily pollution exposure
+- **🏘️ Neighborhood Awareness** - Communities identify local pollution sources and patterns
+- **📊 Citizen Science Data** - Distributed monitoring network provides data where official stations don't exist
+- **🎓 Educational Tool** - Schools use devices to teach environmental science hands-on
+- **🗣️ Advocacy Evidence** - Data supports community conversations with local authorities
+
+
+## Project Credits
+
+### Core Collaboration
+**Werapol Bejranonda** (Germany) - Engineering, System Architecture, Hardware Design
+**Baan Noorg Collaborative Arts and Culture** (Thailand) - Host Organization, Community Engagement, Cultural Translation
+
+### Key Collaborators
+**Chiara Giardi** - Curation, Project Interpretation, Continuator
+**Nisa Jewcharoen** - Coordination and Community Liaison
+
+### Local Team & Participants
+**JiandYin, Ploy, Im, Boss** - Workshop facilitation and device testing
+
+### Community
+Local residents of Ratchaburi Province for participation, testing, and ongoing monitoring
+
+### Technical Foundation
+This project builds upon [**Hypfer's esp8266-vindriktning-particle-sensor**](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor) (Apache-2.0), which pioneered MQTT connectivity for IKEA VINDRIKTNING sensors. Our enhancements add GPS integration, offline storage, intelligent publishing algorithms, and mobile optimization while maintaining the Apache-2.0 license.
+
+### Open Source Libraries
+- **TinyGPSPlus** (Mikal Hart) - GPS parsing
+- **WiFiManager** (tzapu) - Configuration portal
+- **PubSubClient** - MQTT communication
+- **Leaflet.js** - Interactive mapping
+- **InfluxDB & Paho-MQTT** - Backend infrastructure
+
+### Hardware Attribution
+**IKEA VINDRIKTNING** - Designed by David Wahl for IKEA (Product ID: 804.982.46)
+Internal sensor: Cubic PM1006 particulate matter detector
+
+
+## License & Usage
+
+This project is licensed under **Apache License 2.0** - see [LICENSE](LICENSE) for details.
+
+**What This Means:**
+- ✅ Free to use for personal, educational, or community projects
+- ✅ Modify and adapt the hardware/software for your needs
+- ✅ Use in art installations, exhibitions, or public interventions
+- ✅ Create commercial applications (with proper attribution)
+- ⚖️ Patent protection provided for all contributors
+- 📄 Must preserve copyright notices and license information
+
+**We Encourage:**
+- Replicating this system in your community
+- Teaching workshops using our designs
+- Contributing improvements back to the project
+- Documenting your local environmental findings
+- Sharing your story with us
+
+
+## For Developers
+
+<!-- TECHNICAL DETAIL -->
+
+<details>
+<summary><strong>🏗️ Complete System Architecture (v3.0.0)</strong></summary>
+
+### System Overview: Three Integrated Components
+
+PM2.5 Ghostbuster is a unified environmental monitoring ecosystem consisting of:
+
+1. **📱 Mobile Hardware** (Arduino/) - ESP8266-based sensors with GPS
+2. **☁️ Cloud Backend** (Server/) - Python services with MQTT, InfluxDB, REST API
+3. **🌐 Web Visualization** (Leaflet/) - Real-time mapping interface
+
+### Data Flow Architecture
+
 ```
-🏠 IKEA VINDRIKTNING   📱 Mobile Enhancement   🌐 Cloud Processing   🗺 Global Visualization
-        ↓                      ↓                     ↓                    ↓
-   €12 Consumer Device → GPS+WiFi Mobile Sensor → MQTT+Database → Real-time Map
+IKEA VINDRIKTNING → ESP8266 → GPS → Local Storage ⟷ WiFi → MQTT → Cloud → Leaflet Map
+     ↓                 ↓        ↓         ↓           ↓       ↓       ↓         ↓
+Internal PM2.5 → Process → Location → Cache → Phone/WiFi → Broker → Server → Real-time Web
 ```
 
-#### **Single Project Components Working Together**
+### MQTT Communication Protocol
 
-##### **📱 Mobile PM2.5 Detector (Arduino/)**
-**The Physical Device**: Transforms IKEA's VINDRIKTNING into a mobile environmental sensor
+**Topic Structure:**
+```
+pm25/{deviceID}/air          # Main data stream
+pm25/{deviceID}/CMND         # Commands to device
+pm25/{deviceID}/LWT          # Last Will Testament (offline status)
+```
 
-- **Base Hardware**: IKEA VINDRIKTNING air quality sensor (designed by David Wahl)
-- **Enhancement**: ESP8266 microcontroller + GPS module + WiFi connectivity
-- **Capability**: Real-time mobile PM2.5 monitoring with location tracking
-- **Intelligence**: Offline storage with automatic cloud synchronization
-- **Connectivity**: Works with WiFi networks or mobile phone hotspots
+**Message Format (JSON):**
+```json
+{
+  "_type": "location",
+  "lat": 13.7563,          // GPS latitude
+  "lon": 100.5018,         // GPS longitude
+  "pm25": 35,              // PM2.5 reading (μg/m³)
+  "tst": 1640995200,       // Unix timestamp
+  "tid": "AB",             // Device ID (last 2 chars)
+  "t": "v"                 // Type: 'v'=vehicle, 'p'=ping, 'f'=first_fix
+}
+```
 
-![353419788_645801610907611_7092949055069026121_n](https://github.com/user-attachments/assets/72173833-a505-4313-9137-12b720856811)
+</details>
 
-*Hardware schematic by Chiara Giardi*
+<details>
+<summary><strong>📱 Arduino Firmware Implementation</strong></summary>
 
+### Production Implementations
 
+The `Arduino/` directory contains two production-ready implementations:
 
-##### **☁️ Cloud Infrastructure (Server/)**
-**The Data Brain**: Processes and stores all sensor data for global access
+#### **1. Fixed Location Sensors** (`picoPM25bFixedCoord/`)
+For stationary monitoring without GPS hardware:
+- Uses predefined coordinates in configuration
+- Optimized for static monitoring locations
+- WiFiManager captive portal for easy setup
+- Lower power consumption (no GPS)
 
-- **Data Reception**: MQTT services receive data from all mobile devices
-- **Storage**: InfluxDB time-series database for historical data
-- **Processing**: Real-time validation, alerts, and data transformation
-- **APIs**: REST endpoints for data access and system management
-- **Intelligence**: Automated health monitoring and alert systems
+#### **2. Mobile GPS Sensors** (`picoPM25v4/`)
+For mobile monitoring with location tracking:
+- Real-time GPS positioning (Neo-6M module)
+- Movement-based intelligent publishing (30m threshold)
+- Offline SPIFFS storage with auto-sync
+- OwnTracks protocol compatibility
+- Battery-powered mobile operation
 
-##### **🌐 Global Visualization (Leaflet/)**
-**The Public Interface**: Makes invisible air pollution visible to everyone
+### Key Firmware Modules
 
-- **Real-time Map**: Live display of PM2.5 data from all mobile devices
-- **Historical Data**: 720 hours of air quality history and trends
-- **Interactive Features**: Heat maps, clustering, and mobile-responsive design
-- **Global Access**: Available worldwide at [map.thalay.eu](https://map.thalay.eu/)
+**SerialCom.h** - VINDRIKTNING UART communication
+- Parses PM1006 sensor data stream
+- Handles serial timing and validation
+- Provides moving average calculations
 
-### 🎯 **Single Project Benefits**
+**Types.h** - Data structures and state management
+- Device state tracking
+- Measurement buffering
+- Connection status management
 
-This unified approach creates a **complete environmental monitoring ecosystem**:
+**pico.h** - Configuration header
+- WiFi credentials
+- MQTT broker settings
+- GPS configuration
+- Publishing thresholds
 
-- **🚶 Individual Impact**: Users can monitor their personal air quality exposure
-- **🌆 Community Awareness**: Neighborhoods can track local pollution patterns
-- **📊 Scientific Data**: Researchers gain access to distributed monitoring network
-- **🌍 Global Understanding**: Worldwide PM2.5 patterns become visible
-- **💡 Democratic Technology**: €12 devices democratize environmental monitoring
+### Offline Resilience
 
-### 📱 **Mobile PM2.5 Detector Device (`Arduino/`)**
-**Portable air quality monitoring with intelligent connectivity**
-
-The `Arduino/` folder contains the complete implementation for building a **mobile PM2.5 detector device** that revolutionizes environmental monitoring by combining portability, intelligence, and connectivity:
-
-<img width="797" height="345" alt="image" src="https://github.com/user-attachments/assets/972bc5c3-930e-4784-afdb-d421a56c59b3" />
-
-*Mobile PM2.5 Detector Device in a box with batter-pack inside (powerbank)*
-
-
-#### **🏗 Device Construction**
-- **Base**: Hacked IKEA VINDRIKTNING housing (maintains original compact design)
-- **Brain**: ESP8266 D1 Mini WiFi microcontroller
-- **Location**: GPS module (Neo-6M) for real-time positioning
-- **Power**: USB-C powered with power bank support for mobile operation
-- **Status**: LED indicators for connection and operation status
-
-<img width="602" height="578" alt="image" src="https://github.com/user-attachments/assets/3ce0eb01-d379-40ea-821c-2233dbe41414" />
-
-*Inside the mobile PM2.5 detector device*
-
-#### **🌐 Intelligent Connectivity Features**
-
-##### **📶 WiFi Management**
-- **Automatic Connection**: Connects to known WiFi networks automatically
-- **Mobile Hotspot Support**: Users can share internet from their smartphone
-- **Captive Portal**: WiFiManager creates setup portal for easy configuration
-- **Auto-Recovery**: Automatic reconnection when WiFi becomes available
-- **Connection Status**: Visual indicators show connectivity state
-
-##### **☁️ Cloud Data Transmission**
-- **Real-time Upload**: Sends PM2.5 + GPS + timestamp to cloud servers
-- **MQTT Protocol**: Efficient, lightweight data transmission
-- **Leaflet Integration**: Data appears on live web map immediately
-- **JSON Format**: Structured data for easy processing and visualization
-
-##### **💾 Offline Intelligence**
 ```cpp
 // Automatic offline storage when no internet
 if (!WiFi.connected()) {
@@ -161,788 +355,383 @@ if (!WiFi.connected()) {
 }
 ```
 
-#### **🚶 Mobile Operation Features**
+### Movement Detection Algorithm
 
-##### **📍 Movement Detection**
-- **Smart Publishing**: Only sends data when device moves significant distance
-- **Configurable Threshold**: Minimum movement distance (10-50m) before new reading
-- **Battery Optimization**: Reduces data usage and extends operation time
-- **Route Tracking**: Creates continuous air quality maps along travel paths
+```cpp
+// Smart publishing based on distance traveled
+float distance = TinyGPSPlus::distanceBetween(
+    last_lat, last_lon,
+    current_lat, current_lon
+);
 
-##### **⏱ Real-time Tracking**
-```json
-{
-  "_type": "location",
-  "lat": 13.7563,
-  "lon": 100.5018,
-  "pm25": 35,
-  "tst": 1640995200,
-  "tid": "AB",
-  "t": "v"
+if (distance >= PUBLISH_DISTANCE) {
+    serialize(gps, 'v');  // 'v' = vehicle/movement
+    client.publish(pubtopic, payload, true);
+    update_last_position();
 }
 ```
 
-#### **📱 Mobile Usage Scenarios**
+</details>
 
-##### **🏍 Motorcycle/Vehicle Mounting**
-- Mount device on vehicle for route-based monitoring
-- Power via vehicle USB or power bank
-- Connect to phone hotspot for real-time data
-- Monitor pollution exposure during commutes
+<details>
+<summary><strong>🖥️ Server Backend Architecture</strong></summary>
 
-##### **🚶 Pedestrian Monitoring**
-- Portable operation with power bank
-- Walking surveys of neighborhood air quality
-- Community engagement and awareness activities
-- Educational demonstrations
+### Modular Python Services
 
-##### **🏢 Temporary Monitoring**
-- Quick deployment for specific area monitoring
-- Event-based air quality assessment
-- Construction site pollution monitoring
-- Emergency response applications
-
-#### **🔄 Data Flow Architecture**
-```
-VINDRIKTNING → ESP8266 → GPS → Local Storage ⟷ WiFi → MQTT → Cloud → Leaflet Map
-     ↓             ↓        ↓         ↓           ↓       ↓       ↓         ↓
-Internal PM2.5 → Process → Location → Cache → Phone/WiFi → Broker → Server → Real-time Web
-```
-
-#### **📊 Offline Resilience**
-- **SPIFFS Storage**: Local filesystem for data persistence
-- **Automatic Queuing**: Stores readings when offline
-- **Smart Sync**: Uploads cached data when connection restored
-- **Data Integrity**: No data loss during connectivity interruptions
-- **Status Tracking**: LED patterns indicate storage/sync status
-
-### 🔧 **Enhanced Arduino Sensor Device (`Arduino/`)**
-**Modular ESP8266-based enhancement with professional reliability**
-- **Hardware Base**: IKEA VINDRIKTNING PM2.5 sensor (hacked for data access)
-- **Main Sketch**: `pm25_ghostbuster.ino` - Professional IoT implementation
-- **Modules**:
-  - `wifi_manager.*` - WiFi connection management with auto-recovery
-  - `mqtt_client.*` - MQTT publishing with guaranteed delivery
-  - `config.h.example` - Secure configuration template
-- **Features**:
-  - 🛡 **Secure Configuration**: Credentials separated from code
-  - 🔄 **Auto-Recovery**: Automatic WiFi and MQTT reconnection
-  - 📍 **Smart GPS**: Location-based publishing with distance thresholds
-  - 🚨 **Status Indicators**: LED patterns show connection status
-  - ⚡ **Power Efficient**: Optimized for continuous operation
-  - 🏭 **Consumer Hardware**: Built on proven IKEA sensor technology
-
-### 🖥 Server Backend (`Server/`)
-**Enterprise-grade Python services with proper error handling**
-
-#### Configuration (`config/`)
-- `settings.py` - Centralized configuration management
+**Configuration Management** (`config/`)
+- `settings.py` - Centralized configuration loader
 - `.env.example` - Secure environment variable template
-- Environment-based configuration with validation
+- Environment-based credentials (no hardcoded secrets)
 
-#### Services (`src/services/`)
-- `mqtt_service.py` - MQTT client with connection management
+**Core Services** (`src/services/`)
+- `mqtt_service.py` - MQTT client with auto-reconnection
 - `influx_service.py` - InfluxDB operations with batch processing
-- `geojson_service.py` - GeoJSON generation and caching
+- `geojson_service.py` - GeoJSON generation for map visualization
+- `alert_service.py` - WHO/EPA-based PM2.5 threshold alerting
+- `api_service.py` - Flask REST API endpoints
 
-#### Models (`src/models/`)
-- `air_quality.py` - Data models with validation and transformation
+**Data Models** (`src/models/`)
+- `air_quality.py` - Measurement validation and transformation
 
-#### Applications
-- `main_data_collector.py` - Main data processing service (replaces PM25ikeav2.py)
-- `main_mqtt_logger.py` - MQTT debugging service (replaces PM25mqttLog.py)
+**Applications**
+- `main_data_collector.py` - Primary service (MQTT subscriber + API server)
+- `main_mqtt_logger.py` - Debug logging service
 
-#### Features
-- 🔒 **Security First**: No hard-coded credentials, input validation
-- 🏗 **Modular Design**: Separation of concerns, testable components
-- 📊 **Robust Logging**: Structured logging with timezone awareness
-- 🔄 **Error Recovery**: Graceful handling of network and database issues
-- ⚡ **Performance**: Batch processing and connection pooling
+### Server Setup
 
-### 🗺 Web Visualization (`Leaflet/`)
-- Interactive web mapping interface built with Leaflet.js
-- **Enhanced Features**:
-  - Real-time PM2.5 data visualization
-  - Heat map overlays with color coding
-  - Marker clustering for dense data
-  - Historical data viewing (up to 720 hours)
-  - Mobile-responsive design
-  - Full-screen mapping capability
-  - GPS location services
-  - Google Analytics integration
-
-<img width="398" height="820" alt="image" src="https://github.com/user-attachments/assets/d527273f-41f9-4cb3-95e9-1d0747295254" />
-
-*Flower of pollution measured in Rachburi Province".
-
-
-## 📊 Data Flow & System Integration
-
-### 🔗 **Arduino ↔ Server Connection Architecture**
-
-The PM2.5 Ghostbuster system creates a seamless connection between mobile hardware and cloud infrastructure:
-
-#### **📱 Arduino Device (Arduino/) → 🖥 Server Backend (Server/)**
-
-##### **1. Data Collection & Transmission**
-```cpp
-// Arduino (Arduino/picoPM25v4/picoPM25v4.ino)
-void serialize(TinyGPSPlus &gps, char t) {
-    DynamicJsonDocument doc(1024);
-    doc["_type"] = "location";
-    doc["lat"] = gps.location.lat();
-    doc["lon"] = gps.location.lng();
-    doc["pm25"] = int(state.avgPM25);
-    doc["tst"] = now();
-
-    // Publish to MQTT broker
-    client.publish(pubtopic, payload, true);
-}
-```
-
-##### **2. Server Data Reception**
-```python
-# Server (Server/src/services/mqtt_service.py)
-def on_message(client, userdata, msg):
-    try:
-        data = json.loads(msg.payload.decode())
-        air_quality = AirQuality(
-            device_id=data.get('tid'),
-            pm25=data.get('pm25'),
-            latitude=data.get('lat'),
-            longitude=data.get('lon'),
-            timestamp=data.get('tst')
-        )
-        influx_service.write_measurement(air_quality)
-    except Exception as e:
-        logger.error(f"Failed to process message: {e}")
-```
-
-#### **🌐 Complete Data Pipeline**
-
-##### **Stage 1: Mobile Device Data Generation**
-```
-VINDRIKTNING Sensor → ESP8266 Processing → GPS Location → JSON Formatting
-```
-- **Arduino Scripts**: `picoPM25bFixedCoord/picoPM25bFixedCoord.ino`, `picoPM25v4/picoPM25v4.ino`
-- **Function**: Read PM2.5 values, combine with GPS coordinates
-- **Output**: JSON data packets with location and air quality
-
-##### **Stage 2: Intelligent Transmission**
-```
-WiFi Connection → MQTT Protocol → Cloud Broker → Server Reception
-```
-- **Arduino WiFi**: WiFiManager for automatic connection
-- **Mobile Hotspot**: Can use smartphone internet connection
-- **Offline Storage**: Local caching when no internet available
-- **Auto-Sync**: Uploads cached data when connection restored
-
-##### **Stage 3: Server Processing**
-```
-MQTT Subscriber → Data Validation → Database Storage → Real-time Processing
-```
-- **Server Scripts**: `main_data_collector.py`, `mqtt_service.py`
-- **Database**: InfluxDB time-series storage
-- **Processing**: Real-time data validation and transformation
-
-##### **Stage 4: Web Visualization**
-```
-Database Query → GeoJSON Generation → Leaflet Map → Real-time Display
-```
-- **Server Scripts**: `geojson_service.py`
-- **Web Interface**: `Leaflet/` folder
-- **Live Map**: [map.thalay.eu](https://map.thalay.eu/)
-
-
-<img width="413" height="818" alt="image" src="https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc" />
-
-*The high density of measurments of bad air quality*
-
-### 📡 **MQTT Communication Protocol**
-
-#### **Arduino → Server Communication**
-```
-Topic Structure:
-├── pm25/{deviceID}/air          # Main data stream
-├── pm25/{deviceID}/CMND         # Commands to device
-└── pm25/{deviceID}/LWT          # Last Will Testament (offline status)
-
-Message Format (JSON):
-{
-  "_type": "location",
-  "lat": 13.7563,          # GPS latitude
-  "lon": 100.5018,         # GPS longitude
-  "pm25": 35,              # PM2.5 reading (μg/m³)
-  "tst": 1640995200,       # Unix timestamp
-  "tid": "AB",             # Device ID (last 2 chars)
-  "t": "v"                 # Type: 'v'=vehicle, 'p'=ping, 'f'=first_fix
-}
-```
-
-#### **Server Configuration Matching**
-```python
-# Server (Server/config/.env)
-MQTT_BROKER = "mqtt.thalay.eu"
-MQTT_PORT = 1883
-MQTT_TOPICS = ["pm25/+/air"]  # Subscribe to all device data
-
-# Arduino (Arduino/picoPM25v4/pico.h)
-#define MQTTHOST "mqtt.thalay.eu"
-#define BASETOPIC "pm25"
-```
-
-### 🔄 **Offline Resilience & Synchronization**
-
-#### **Arduino Offline Handling**
-```cpp
-// Store data locally when offline
-if (!is_online) {
-    store(payload);  // Save to SPIFFS filesystem
-} else {
-    client.publish(pubtopic, payload, true);
-    unload_store();  // Upload any cached data
-}
-```
-
-#### **Server Robust Reception**
-```python
-# Handle intermittent connections gracefully
-def on_disconnect(client, userdata, rc):
-    logger.warning("MQTT disconnected, attempting reconnection...")
-    reconnect_with_backoff()
-
-def on_connect(client, userdata, flags, rc):
-    logger.info("MQTT connected, subscribing to topics...")
-    client.subscribe("pm25/+/air")
-```
-
-### 📱 **Mobile Device → Cloud Workflow**
-
-#### **Real-time Operation**
-1. **Arduino reads** PM2.5 from VINDRIKTNING sensor via UART
-2. **GPS module provides** location coordinates
-3. **ESP8266 combines** data into JSON format
-4. **WiFi transmits** to MQTT broker (direct or via mobile hotspot)
-5. **Server receives** and validates data
-6. **InfluxDB stores** time-series measurements
-7. **Leaflet map updates** in real-time
-
-#### **Offline Operation**
-1. **Arduino continues** collecting PM2.5 and GPS data
-2. **Local storage** saves data to SPIFFS filesystem
-3. **WiFi monitoring** checks for connection restoration
-4. **Automatic sync** uploads all cached measurements
-5. **Server processing** handles bulk data upload
-6. **Map visualization** shows complete route history
-
-### 🎯 **System Integration Benefits**
-
-- **🔄 Seamless Operation**: Mobile device works online or offline
-- **📱 User Flexibility**: Can use phone hotspot for immediate results
-- **☁️ Cloud Integration**: Real-time data appears on live web map
-- **💾 Data Persistence**: No measurements lost during connectivity issues
-- **🌍 Community Access**: Data available globally via web interface
-- **📊 Historical Analysis**: Complete route and temporal data preservation
-
-This architecture enables users to carry the mobile PM2.5 detector anywhere, see real-time results on their phone, and contribute to a global environmental monitoring network.
-
-## 🚀 Getting Started (v3.0.0)
-
-### Hardware Requirements
-
-#### IKEA VINDRIKTNING Air Quality Sensor
-**The heart of PM2.5 Ghostbuster** - Professional PM2.5 detection at consumer prices
-
-- **Product**: IKEA VINDRIKTNING Air Quality Sensor (Product ID: 804.982.46)
-- **Designer**: David Wahl
-- **Original Purpose**: Consumer air quality monitoring for homes
-- **Availability**: Available at IKEA stores globally
-  - ✅ **Available**: [India IKEA](https://www.ikea.com/in/en/p/vindriktning-air-quality-sensor-80498246/)
-  - ⚠️ **Limited**: Germany IKEA (discontinued - check online marketplaces)
-  - 🔍 **Alternative sources**: eBay, Amazon, local electronics stores
-- **Original Features**:
-  - Professional PM2.5 particle detection
-  - Visual indicators: Green (good), Yellow (ok), Red (not good)
-  - USB-C powered (cable and adapter included)
-  - Compact design (6×15×6 cm) suitable for any room
-  - Works effectively in both small and large spaces
-  - Designed to work with IKEA FÖRNUFTIG air purifier
-
-#### **The Hacking Process** 🔧
-**Transforming Consumer Device into Professional IoT Sensor**
-
-This project involves a sophisticated hardware hack of the VINDRIKTNING sensor to access its internal data stream:
-
-1. **Hardware Modification**: Opening the VINDRIKTNING housing and accessing internal components
-2. **UART Access**: Tapping into the sensor's UART communication protocol to read raw PM2.5 data
-3. **Microcontroller Integration**: Installing ESP8266 D1 Mini inside the original housing
-4. **GPS Module Addition**: Adding Neo-6M GPS module for location tracking
-5. **WiFi Connectivity**: Enabling wireless data transmission via built-in ESP8266 WiFi
-6. **Power Management**: Utilizing the original USB-C power supply (5V) with power bank support
-
-**Original Development (2023)**: The hacking concept was initially developed using Arduino scripts that combined:
-- PM2.5 sensor data reading via UART
-- GPS location tracking with movement detection
-- WiFi connectivity with automatic reconnection
-- MQTT publishing for real-time data transmission
-- Local data storage with offline caching capabilities
-
-#### Additional Components
-- **ESP8266 development board** (NodeMCU, Wemos D1 Mini)
-- **GPS module** (Neo-6M recommended for location tracking)
-- **Jumper wires and breadboard** (for sensor connections)
-
-#### Software & Infrastructure
-- **InfluxDB 1.x** database
-- **MQTT broker** (Mosquitto recommended)
-- **Python 3.8+**
-- **Arduino IDE** with ESP8266 board package
-- **Web server** (Apache/Nginx for frontend)
-
-> **💡 Why VINDRIKTNING?** This ingenious hack transforms an affordable €12 consumer air quality sensor into a professional IoT monitoring device, democratizing environmental monitoring for communities worldwide.
-
-### Quick Start
-
-#### 1. Arduino Sensor Setup
 ```bash
-# Copy configuration template
-cp Arduino/config.h.example Arduino/config.h
-
-# Edit config.h with your WiFi and MQTT credentials
-# Upload pm25_ghostbuster.ino to ESP8266
-```
-
-#### 2. Server Setup
-```bash
-# Install Python dependencies
 cd Server
+
+# Install dependencies
 pip install -r requirements.txt
 
 # Configure environment
 cp config/.env.example config/.env
-# Edit .env with your database and MQTT settings
+# Edit .env with your credentials
 
-# Start services with PM2
-pm2 start src/main_data_collector.py --name pm25-collector --interpreter python3
-pm2 start src/main_mqtt_logger.py --name pm25-logger --interpreter python3
+# Run main data collector (includes API)
+python3 src/main_data_collector.py
+
+# Or use PM2 for process management
+pm2 start ecosystem.config.js
 ```
 
-#### 3. Web Interface
+### Database Schema
+
+**InfluxDB 1.x Configuration:**
+- Database: `pm25gps`
+- Measurement: `air_quality`
+- Fields: PM2.5 values, GPS coordinates, timestamps, device IDs
+- Retention: 720 hours (30 days)
+
+**Query Example:**
+```python
+query = '''
+SELECT mean("pm25") as pm25, "lat", "lon", "device_id"
+FROM "air_quality"
+WHERE time > now() - 720h
+GROUP BY time(5m), "device_id"
+'''
+```
+
+### REST API Endpoints
+
 ```bash
-# Deploy to web server
-cp -r Leaflet/* /var/www/html/
+# Health check
+GET /api/v1/health
+
+# Latest readings from all devices
+GET /api/v1/readings/latest
+
+# Historical data for specific device
+GET /api/v1/readings/device/{device_id}?hours=24
+
+# System statistics
+GET /api/v1/stats
 ```
 
-📖 **For detailed information, see:**
-- [DEPLOYMENT.md](DEPLOYMENT.md) - Complete deployment guide
-- [API.md](API.md) - REST API documentation
-- [CONFIGURATION.md](CONFIGURATION.md) - Configuration guide
+### Alert System
 
-## 📁 Project Structure (v3.0.0)
+**WHO/EPA PM2.5 Thresholds:**
+```python
+PM25_THRESHOLDS = {
+    'good': (0, 12),
+    'moderate': (12, 35),
+    'unhealthy': (35, 55),
+    'very_unhealthy': (55, 150),
+    'hazardous': (150, 500)
+}
+```
+
+Configurable notifications via SMTP when readings exceed thresholds.
+
+</details>
+
+<details>
+<summary><strong>🗺️ Web Visualization Frontend</strong></summary>
+
+### Leaflet.js Implementation
+
+**Features:**
+- Real-time GeoJSON data updates (60-second refresh)
+- Marker clustering for dense data visualization
+- Heat map overlays with color coding by PM2.5 levels
+- Historical data slider (720 hours)
+- Mobile-responsive design
+- Full-screen mapping capability
+- GPS location services for user positioning
+
+**Data Source:**
+```javascript
+// Auto-updating GeoJSON feed
+const dataUrl = '/gj/pm25gps.geojson';
+setInterval(() => {
+    fetch(dataUrl)
+        .then(response => response.json())
+        .then(data => updateMap(data));
+}, 60000); // Update every 60 seconds
+```
+
+**Color Coding:**
+```javascript
+function getColor(pm25) {
+    return pm25 > 150 ? '#7e0023' :    // Hazardous
+           pm25 > 55  ? '#8f3f97' :    // Very Unhealthy
+           pm25 > 35  ? '#ff0000' :    // Unhealthy
+           pm25 > 12  ? '#ff7e00' :    // Moderate
+                        '#00e400';     // Good
+}
+```
+
+</details>
+
+<details>
+<summary><strong>🔧 Development & Deployment</strong></summary>
+
+### Hardware Setup
+
+**Required Components:**
+- IKEA VINDRIKTNING (€12)
+- ESP8266 D1 Mini / NodeMCU ($3-5)
+- GPS Module Neo-6M ($8-10, optional for mobile version)
+- Jumper wires, USB-C cable
+- Power bank for mobile operation
+
+**Wiring Connections:**
+```
+VINDRIKTNING → ESP8266
+    REST (UART TX) → D2 (GPIO4)
+    5V → 5V
+    GND → GND
+
+GPS Module → ESP8266 (picoPM25v4 only)
+    TX → D4 (GPIO2)
+    RX → D3 (GPIO0)
+    VCC → 3.3V
+    GND → GND
+```
+
+### Software Requirements
+
+**Arduino Environment:**
+- Arduino IDE 1.8+ or PlatformIO
+- ESP8266 board package (3.0+)
+- Libraries: TinyGPSPlus, WiFiManager, PubSubClient, ArduinoJson
+
+**Server Infrastructure:**
+- Python 3.8+
+- InfluxDB 1.x
+- MQTT broker (Mosquitto)
+- Web server (Apache/Nginx)
+
+### Deployment Commands
+
+**Arduino Upload:**
+```bash
+# Configure credentials
+cp Arduino/picoPM25v4/pico.h.example Arduino/picoPM25v4/pico.h
+# Edit pico.h with WiFi/MQTT settings
+
+# Upload via Arduino IDE or:
+arduino-cli compile --fqbn esp8266:esp8266:d1_mini Arduino/picoPM25v4
+arduino-cli upload -p /dev/ttyUSB0 --fqbn esp8266:esp8266:d1_mini
+```
+
+**Server Deployment:**
+```bash
+cd Server
+
+# Automated setup
+./scripts/setup.sh
+
+# Manual setup
+pip install -r requirements.txt
+cp config/.env.example config/.env
+# Edit .env file
+
+# Start with PM2
+pm2 start ecosystem.config.js
+pm2 save
+pm2 startup
+```
+
+**Web Interface:**
+```bash
+# Copy to web root
+cp -r Leaflet/* /var/www/html/
+
+# Ensure GeoJSON output path is writable
+mkdir -p /var/www/html/gj
+chown www-data:www-data /var/www/html/gj
+```
+
+### Testing & Debugging
+
+**Verify MQTT Connection:**
+```bash
+# Subscribe to all device messages
+mosquitto_sub -h mqtt.thalay.eu -t "pm25/+/air" -u pm25 -P <password>
+```
+
+**Query InfluxDB:**
+```bash
+influx -database pm25gps
+> SELECT * FROM air_quality ORDER BY time DESC LIMIT 10
+> SELECT COUNT(*) FROM air_quality WHERE time > now() - 24h
+```
+
+**API Health Check:**
+```bash
+curl http://localhost:5000/api/v1/health
+```
+
+</details>
+
+<details>
+<summary><strong>📚 Project Structure & Version History</strong></summary>
+
+### Repository Organization
 
 ```
 PM25-Ghostbuster/
-├── Arduino/                        # 🔧 Sensor Firmware (Current)
-│   ├── pm25_ghostbuster.ino       # Main sketch (refactored)
-│   ├── config.h.example           # Configuration template
-│   ├── wifi_manager.*             # WiFi management module
-│   ├── mqtt_client.*              # MQTT client module
-│   └── pico.h.example             # Legacy config (deprecated)
-├── Arduino/                        # 📱 Mobile PM2.5 Detector Implementations
-│   ├── picoPM25bFixedCoord/       # 🏠 Final: Hardware WITHOUT GPS module
-│   │   ├── picoPM25bFixedCoord.ino # Fixed location sensor implementation
-│   │   ├── SerialCom.h            # VINDRIKTNING serial communication
-│   │   ├── Types.h                # Data structures and types
-│   │   └── pico.h                 # Configuration header
-│   ├── picoPM25v4/                # 📱 Final: Hardware WITH GPS module
-│   │   ├── picoPM25v4.ino         # Mobile GPS+PM2.5 sensor implementation
-│   │   ├── SerialCom.h            # VINDRIKTNING serial communication
-│   │   ├── Types.h                # Data structures and types
-│   │   └── pico.h                 # Configuration header
-│   └── esp8266-vindriktning-particle-sensor/  # 🏭 Original source (Hypfer)
-├── Server/                         # 🖥 Backend Services (Enhanced)
+├── Arduino/                        # Mobile sensor firmware
+│   ├── picoPM25bFixedCoord/       # Fixed location sensors
+│   ├── picoPM25v4/                # Mobile GPS sensors
+│   └── esp8266-vindriktning-particle-sensor/  # Original Hypfer implementation
+├── Server/                         # Backend services
 │   ├── config/                    # Configuration management
-│   │   ├── settings.py            # Settings loader
-│   │   └── .env.example           # Environment template (v2.1.0)
 │   ├── src/                       # Source code
-│   │   ├── services/              # Business logic
-│   │   │   ├── mqtt_service.py    # MQTT handling
-│   │   │   ├── influx_service.py  # Database operations
-│   │   │   ├── geojson_service.py # Data export
-│   │   │   ├── alert_service.py   # 🆕 Alert system (v2.1.0)
-│   │   │   └── api_service.py     # 🆕 REST API (v2.1.0)
+│   │   ├── services/              # Business logic layer
 │   │   ├── models/                # Data models
-│   │   │   └── air_quality.py     # Measurement model
-│   │   ├── utils/                 # Utilities
-│   │   │   ├── logger.py          # Logging system
-│   │   │   └── timezone_utils.py  # Timezone handling
-│   │   ├── main_data_collector.py # Enhanced main service (v2.1.0)
-│   │   └── main_mqtt_logger.py    # Debug service
-│   ├── scripts/                   # 🆕 Automation Scripts (v2.1.0)
-│   │   ├── setup.sh              # Automated setup script
-│   │   ├── health_check.py       # System health monitoring
-│   │   └── run_api.py            # Standalone API server
-│   ├── ecosystem.config.js        # 🆕 PM2 configuration (v2.1.0)
-│   ├── requirements.txt           # Python dependencies (enhanced)
-│   └── pm25/                      # Legacy files (deprecated)
-├── Leaflet/                       # 🗺 Web Interface
-│   ├── index.html                # Main web interface
-│   ├── css/                      # Stylesheets
-│   ├── js/                       # JavaScript libraries
-│   └── images/                   # Images and assets
-├── API.md                         # 🌐 REST API documentation
-├── CONFIGURATION.md               # ⚙️ Configuration guide
-├── DEPLOYMENT.md                  # 📖 Deployment guide
-└── CHANGELOG.md                   # 📋 Version history
+│   │   └── utils/                 # Utilities
+│   ├── scripts/                   # Automation tools
+│   └── ecosystem.config.js        # PM2 configuration
+├── Leaflet/                       # Web visualization
+│   ├── index.html                 # Main interface
+│   ├── css/                       # Stylesheets
+│   └── js/                        # JavaScript
+├── API.md                         # API documentation
+├── CONFIGURATION.md               # Configuration guide
+└── DEPLOYMENT.md                  # Deployment guide
 ```
 
-### 🆕 **New in v3.0.0 - Historical Integration & Complete Documentation**
-- **Complete Historical Integration**: Full integration of original 2023 PM25ikea implementation
-- **Development Timeline Documentation**: Comprehensive documentation of project evolution
-- **Legacy Script Preservation**: Complete original Arduino scripts with detailed documentation
-- **Technical Heritage**: Documentation of innovative VINDRIKTNING hacking techniques
-- **Project Story Completion**: Unified narrative from prototype to enterprise system
-- **Educational Resources**: Historical implementations for learning and research
-- **Community Impact Documentation**: Complete story of collaborative art-science project
-
-### 🎯 **Previous Major Releases**
-
-#### **v2.1.0 Features (2025)**
-- **Alert Service**: Intelligent PM2.5 threshold monitoring with WHO/EPA standards
-- **REST API**: Complete HTTP API for data access and system management
-- **Automation Scripts**: One-command setup and comprehensive health monitoring
-- **PM2 Integration**: Professional process management and deployment
-- **Enhanced Configuration**: Extended settings for alerts, API, and monitoring
-
-### 📚 **Project Evolution: Single Vision, Multiple Phases**
-
-PM2.5 Ghostbuster represents a **single, evolving project** that has grown from prototype to professional system while maintaining its core vision of democratizing environmental monitoring:
-
-#### **2023: Innovation Foundation (Arduino/)**
-**Mobile Device Implementation Evolution**
-
-The project began with the innovative concept of transforming IKEA's VINDRIKTNING into a mobile environmental monitoring device, building upon **Hypfer's esp8266-vindriktning-particle-sensor** foundation:
-
-##### **🏗 Development Evolution Timeline**
-
-**Phase 1**: **Foundation** (Based on Hypfer's work)
-- **Source**: [esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor) by Hypfer
-- **Innovation**: MQTT connectivity for IKEA VINDRIKTNING sensor
-- **Location**: `Arduino/esp8266-vindriktning-particle-sensor/` (preserved original)
-
-**Phase 2**: **Initial Mobile Development** (PM25gps) ❌ *Removed*
-- Added GPS functionality for location tracking
-- Basic mobile sensor implementation
-
-**Phase 3**: **Enhanced Development** (picoPM25, picoPM25b) ❌ *Removed*
-- Improved mobile sensor algorithms
-- Enhanced WiFi management
-
-**Phase 4**: **Final Production Versions** ✅ *Current*
-- **`picoPM25bFixedCoord/`** - **Hardware WITHOUT GPS module**
-  - Fixed location sensor implementation
-  - Optimized for static monitoring
-  - Enhanced MQTT connectivity and WiFiManager
-- **`picoPM25v4/`** - **Hardware WITH GPS module**
-  - Mobile GPS+PM2.5 sensor implementation
-  - Movement-based intelligent publishing
-  - Offline storage with automatic synchronization
-  - OwnTracks protocol compatibility
-
-##### **🙏 Attribution & Credits**
-
-**Primary Foundation:**
-- **Original MQTT Implementation**: [Hypfer's esp8266-vindriktning-particle-sensor](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor)
-- **License**: Apache-2.0
-- **Innovation**: UART access to IKEA VINDRIKTNING internal sensor data
-- **Contribution**: Provided the technical foundation for MQTT connectivity
-
-**PM2.5 Ghostbuster Enhancements:**
-- **GPS Integration**: Real-time location tracking for mobile sensors
-- **Offline Resilience**: SPIFFS storage for data persistence during connectivity loss
-- **Smart Publishing**: Movement-based algorithms for efficient data transmission
-- **Enhanced WiFiManager**: Captive portal configuration with auto-recovery
-- **OwnTracks Protocol**: Professional GPS tracking integration
-- **Mobile Optimization**: Battery-powered operation with power management
-
-#### **2025: Professional Evolution (Arduino/ + Server/ + Leaflet/)**
-**Enterprise-Grade System Architecture**
-
-The same core vision expanded into a complete environmental monitoring platform:
-
-- **Enhanced Mobile Device**: Professional-grade Arduino implementation
-- **Cloud Infrastructure**: Enterprise server architecture with APIs and alerts
-- **Global Visualization**: Real-time web mapping for worldwide access
-- **Scalable Network**: Support for multiple devices and communities
-- **Professional Standards**: Security, reliability, and operational excellence
-
-#### **2025: Complete Integration (v3.0.0)**
-**Unified Project Documentation**
-
-The final phase brings together the complete project story:
-
-- **Historical Preservation**: Original innovation techniques documented
-- **Educational Value**: Complete learning resource for IoT sensor hacking
-- **Community Legacy**: Full documentation of collaborative art-science success
-- **Technical Evolution**: Clear progression from prototype to production
-- **Global Impact**: Demonstration of community-driven technology scaling
-
-### 🔗 **Single Project Architecture: All Components Connected**
-
-This is **one integrated system** where each component serves the unified vision of making invisible air pollution visible through accessible technology:
-
-#### **🔄 Complete System Workflow**
-
-##### **User Journey: From Device to Global Impact**
-1. **🔨 Build Mobile Device** (Arduino/) - Hack IKEA VINDRIKTNING sensor
-2. **📱 Carry & Monitor** - Mobile PM2.5 detection with phone hotspot
-3. **☁️ Automatic Upload** - Data flows to cloud infrastructure
-4. **🌍 Global Visibility** - Measurements appear on live world map
-5. **🏘 Community Impact** - Local patterns become visible to everyone
-
-##### **Technical Integration Flow**
-```
-📱 Mobile Device (Arduino/)
-    ↓ WiFi/MQTT
-☁️ Cloud Backend (Server/)
-    ↓ Real-time Processing
-🌐 Global Map (Leaflet/)
-    ↓ Public Access
-🌍 Community Awareness & Action
-```
-
-#### **🎯 Unified Project Vision**
-
-**Single Goal**: Transform €12 consumer devices into a global environmental monitoring network
-
-**Three Integrated Components**:
-- **Hardware Innovation** (Arduino/) - Mobile sensor technology
-- **Infrastructure Intelligence** (Server/) - Cloud data processing
-- **Community Access** (Leaflet/) - Global visualization platform
-
-**One Complete Solution**: Users build mobile devices, carry them anywhere, and contribute to global environmental awareness through real-time data sharing.
-
-#### **📊 System Integration Examples**
-
-##### **Real-world Usage Scenario**
-```
-🏍 User mounts mobile device on motorcycle
-📱 Connects device to phone hotspot
-🚗 Rides through different neighborhoods
-☁️ PM2.5 data automatically uploads to cloud
-🗺 Route appears on live map in real-time
-🏘 Community sees pollution patterns
-📈 Data informs local environmental decisions
-```
-
-##### **Technical Coordination**
-```cpp
-// Mobile Device (Arduino/picoPM25v4/picoPM25v4.ino)
-serialize(gps, 'v');  // Format data for transmission
-client.publish(pubtopic, payload, true);  // Send to cloud
-
-// Server (Server/src/services/mqtt_service.py)
-influx_service.write_measurement(air_quality);  // Store data
-
-// Web Interface (Leaflet/js/)
-updateMap(realTimeData);  // Display on global map
-```
-
-This **single, integrated project** demonstrates how community innovation can create sophisticated environmental monitoring infrastructure that serves individual users while building collective environmental awareness.
-
-## 🎉 **What's New in v3.0.0 - Complete Project Integration**
-
-### 📚 **Historical Code Integration**
-**Preserving Innovation Heritage**: For the first time, the complete original 2023 codebase has been integrated into the main repository, providing:
-
-- **`Arduino/` Folder**: Complete original mobile device implementations from 2023
-- **Technical Documentation**: Detailed analysis of pioneering VINDRIKTNING hacking techniques
-- **Evolution Story**: Clear documentation showing the progression from prototype to enterprise system
-- **Educational Value**: Historical code serves as learning resource for IoT development and sensor hacking
-
-### 🔗 **Unified Development Narrative**
-**From Hack to Enterprise**: v3.0.0 completes the story by showing the complete journey:
-
-**2023 Innovation** → **2025 Professional** → **2025 Integration**
-- Original hacking concepts → Enterprise architecture → Complete documentation
-- Prototype scripts → Production systems → Historical preservation
-- Community proof-of-concept → Professional deployment → Educational resource
-
-### 🏛 **Technical Heritage Documentation**
-**Preserving Pioneering Techniques**: The original PM25ikea scripts documented innovative approaches:
-
-- **UART Communication**: Direct access to consumer device internals
-- **Dual Serial Management**: Simultaneous GPS and sensor data handling
-- **Movement-based Publishing**: Intelligent data transmission optimization
-- **Offline Storage**: Resilient data handling during connectivity issues
-- **OwnTracks Integration**: Professional GPS tracking protocol implementation
-
-### 🌍 **Community Impact Recognition**
-**Art-Science Collaboration Success**: v3.0.0 fully documents the collaborative achievement:
-
-- **Thai-German Partnership**: International cooperation in environmental technology
-- **Community Empowerment**: Transforming €12 devices into professional monitoring tools
-- **Cultural Bridge**: Making environmental science accessible through art and technology
-- **Open Source Impact**: Complete codebase available for global community replication
-
-### 📖 **Documentation Excellence**
-**Complete Project Story**: Comprehensive documentation now includes:
-
-- **Technical Evolution**: From prototype scripts to enterprise architecture
-- **Hardware Hacking Guide**: Detailed VINDRIKTNING modification process
-- **Development Timeline**: Clear progression through different phases
-- **Legacy Value**: Preserving original innovation for future generations
-
-## 🚀 What's New in v2.1.0
-
-### 🚨 **Advanced Alert System**
-- **Smart Thresholds**: WHO/EPA-based PM2.5 alert levels (Good, Moderate, Unhealthy, etc.)
-- **Real-time Notifications**: Instant alerts when pollution levels exceed thresholds
-- **Email Notifications**: Configurable SMTP-based alert delivery
-- **Alert History**: Track and analyze alert patterns over time
-- **Acknowledgment System**: Manual alert acknowledgment and management
-
-### 🌐 **REST API Integration**
-- **Real-time Data Access**: RESTful API for all system data
-- **Health Monitoring**: Comprehensive system health checks via API
-- **Data Export**: JSON/CSV export functionality for analysis
-- **Device Management**: API endpoints for device statistics and monitoring
-- **CORS Support**: Web-friendly API for frontend integration
-
-### 📊 **Enhanced Monitoring & Statistics**
-- **System Metrics**: Real-time performance and uptime tracking
-- **Resource Monitoring**: CPU, memory, and disk space monitoring
-- **Connection Health**: MQTT, InfluxDB, and API health checks
-- **Statistical Logging**: Automated statistics with 5-minute intervals
-- **Service Management**: PM2 ecosystem with process monitoring
-
-### 🔧 **Automation & DevOps**
-- **Setup Automation**: One-command installation script
-- **Health Checks**: Comprehensive system health monitoring
-- **PM2 Integration**: Professional process management configuration
-- **Service Scripts**: Standalone API server and utility scripts
-- **Docker Ready**: Container-friendly configuration
-
-### 🎯 **Professional Development**
-- **Advanced Features**: Enterprise-grade monitoring and alerting
-- **Clean Architecture**: Professional code organization and patterns
-- **Comprehensive Documentation**: Detailed guides and examples
-- **Best Practices**: Security, performance, and maintainability focus
-
-## ⚡ What's New in v2.0.0
-
-### 🔒 **Security & Reliability**
-- **Eliminated Hard-coded Credentials**: All sensitive data moved to secure environment files
-- **Input Validation**: Robust data validation and sanitization
-- **Error Recovery**: Automatic reconnection and graceful error handling
-- **Secure Configuration**: Template-based config with credential separation
-
-### 🏗 **Architecture Improvements**
-- **Modular Design**: Separation of concerns with dedicated services
-- **Professional Logging**: Structured logging with timezone awareness
-- **Performance Optimizations**: Batch processing and connection pooling
-- **Health Monitoring**: Built-in health checks and monitoring capabilities
-
-### 🛠 **Developer Experience**
-- **Clean Code Structure**: Well-organized, maintainable, and testable code
-- **Comprehensive Documentation**: Detailed deployment and setup guides
-- **Environment Management**: Easy configuration with `.env` files
-- **Dependency Management**: Proper requirements and version control
-
-### 📊 **Operational Excellence**
-- **Process Management**: PM2-based service management
-- **Log Management**: Centralized logging with rotation
-- **Database Optimization**: Improved InfluxDB queries and retention policies
-- **Monitoring**: Built-in health checks and performance metrics
-
-## 🎨 Art-Science Integration
-
-This project demonstrates how technology can be made accessible through creative approaches:
-- **Metaphor**: Treating PM2.5 as invisible "ghosts" that need detection
-- **Community Focus**: Empowering locals with their own monitoring capabilities
-- **Visual Storytelling**: Interactive maps tell the story of air quality over time
-- **Cultural Bridge**: Connecting scientific data with cultural understanding
-- **Technical Excellence**: Clean, documented code enables community contributions
-
-## 🌱 Community Impact
-
-- **Education**: Helps communities understand air pollution patterns
-- **Awareness**: Makes invisible environmental threats visible
-- **Empowerment**: Provides tools for community-led monitoring
-- **Action**: Enables data-driven environmental advocacy
-
-## 🤝 Collaboration
-
-This project represents a successful collaboration between:
-- **Technical Expertise** (Werapol Bejranonda, Germany)
-- **Local Cultural Knowledge** (Baan Noorg Collaborative Arts and Culture, Thailand)
-- **Community Engagement** (Rajabura province residents)
-
-## 📈 Data Specifications
-
-- **Measurement Range**: PM2.5 particulate matter (μg/m³)
-- **Update Frequency**: Real-time (configurable intervals)
-- **Data Retention**: 720 hours (30 days) of historical data
-- **Geographic Coverage**: GPS-tracked mobile measurements
-- **Time Zone**: Bangkok Time (UTC+7)
-
-## 🔧 Configuration
-
-Key configuration parameters:
-- **MQTT Topics**: `pm25/{device_id}/air` for sensor data
-- **Database**: InfluxDB measurement `air_quality`
-- **Update Interval**: 60 seconds for GeoJSON generation
-- **Data Retention**: 720 hours configurable in `PM25ikeav2.py`
-
-## 📄 License
-
-This project is open source and available for community use and adaptation.
-
-## 🙏 Acknowledgments
-
-### Core Collaboration Team
-- **Werapol Bejranonda** - Thai Engineer/Project Lead (based in Kassel, Germany)
-- **Baan Noorg Collaborative Arts and Culture** - Host Organization/Collaborative Partner (Nong Pho, Thailand)
-
-### Key Collaborators
-- **Chiara Giardi** - Curator, Interpreter, Continuator
-- **Nisa Jewcharoen** - Coordinator
-
-### Baan Noorg Team Members and Local Participants in Nong Pho
-- **JiandYin**
-- **Ploy**
-- **Im**
-- **Boss**
-
-<img width="906" height="425" alt="image" src="https://github.com/user-attachments/assets/a1335e2e-155a-48e6-ab0a-547eb582a91e" />
-
-*Workshop for building the mobile PM2.5 detector as artist in residence an Baan Noorg Collaborative Arts & Culture* 
-
-
-### Community
-- **Local Communities** in Rajabura province for participation and testing
-
-### AI Development Support
-This project has evolved through different phases of AI-assisted development:
-
-#### **Phase 1: Original Development (2023)**
-The initial scripts and core functionality were **composed using suggestions from ChatGPT and Google Gemini**:
-- Core data collection and MQTT communication scripts
-- Basic InfluxDB integration and data processing
-- Initial web visualization interface
-- Arduino sensor firmware foundation
-
-#### **Phase 2: Professional Refactoring (2025)**
-**Two years later**, the entire system was **comprehensively refactored by Claude (Anthropic)**:
-- Complete architectural redesign with modular structure
-- Security improvements and credential management
+### Version History
+
+**v3.0.0 (2025)** - Historical Integration & Complete Documentation
+- Complete integration of original 2023 implementation
+- Unified development narrative from prototype to enterprise
+- Educational documentation of IoT sensor hacking techniques
+- Community impact recognition and attribution
+
+**v2.1.0 (2025)** - Professional Features
 - Advanced alert system with WHO/EPA standards
-- Professional REST API development
-- Automation tools and deployment scripts
-- Enhanced documentation and best practices implementation
+- REST API for data access and system management
+- Automation scripts and health monitoring
+- PM2 process management integration
 
-This development timeline demonstrates the evolution from AI-suggested prototype scripts to a production-ready, professionally architected system through iterative AI assistance spanning multiple years.
+**v2.0.0 (2025)** - Modular Architecture
+- Security improvements (no hardcoded credentials)
+- Modular service-based architecture
+- Enhanced error handling and auto-recovery
+- Professional logging and monitoring
+
+**v1.x (2023)** - Original Prototype
+- VINDRIKTNING hacking and UART access
+- GPS integration for mobile monitoring
+- MQTT connectivity and real-time mapping
+- Community workshops and initial deployment
+
+</details>
+
+<details>
+<summary><strong>🤝 Contributing & Replication</strong></summary>
+
+### How to Contribute
+
+We welcome contributions from:
+- **Hardware hackers** - Improve sensor modifications and power management
+- **Software developers** - Enhance backend services and data processing
+- **Data scientists** - Develop analysis tools and visualization improvements
+- **Community organizers** - Document deployment experiences and workshop curricula
+- **Artists** - Create new ways to visualize and interpret environmental data
+
+**Contribution Process:**
+1. Fork the repository
+2. Create a feature branch
+3. Make your improvements with clear documentation
+4. Test thoroughly (hardware/software)
+5. Submit pull request with detailed description
+
+### Replicating in Your Community
+
+**Step 1: Assess Your Context**
+- Identify local air quality concerns
+- Find community partners (schools, arts spaces, environmental groups)
+- Estimate budget (~€30-50 per device)
+
+**Step 2: Build Pilot Devices**
+- Order components (IKEA sensor + ESP8266 + GPS)
+- Follow hardware modification guides
+- Test in controlled environment
+
+**Step 3: Infrastructure Setup**
+- Deploy server backend (cloud or local)
+- Configure MQTT broker and database
+- Set up public web map
+
+**Step 4: Community Engagement**
+- Organize building workshops
+- Train community members in device use
+- Establish data sharing protocols
+- Plan ongoing maintenance
+
+**Step 5: Data Action**
+- Share findings with local authorities
+- Use data for community advocacy
+- Integrate with existing environmental initiatives
+- Document and share your story
+
+### Support & Resources
+
+- **Technical Documentation:** See [DEPLOYMENT.md](DEPLOYMENT.md) and [CONFIGURATION.md](CONFIGURATION.md)
+- **Hardware Guides:** Detailed wiring diagrams in Arduino directories
+- **Community Forum:** GitHub Discussions for questions and sharing
+- **Workshop Materials:** Contact Baan Noorg for curricula and facilitation guides
+
+</details>
+
+---
+
+## Related Projects
+
+This project is part of a broader practice exploring the intersection of art, technology, and community engagement. Explore other works:
+
+- **[The Not-So-Modern Dictionary](https://github.com/bejranonda/the-not-so-modern-dictionary)** - Interactive language installation
+- **[Code of the Sea](https://github.com/bejranonda/code-of-the-sea)** - Raspberry Pi performance control system
+- **[Heating DJ](https://github.com/bejranonda/Heating-DJ)** - Thermal imaging music system
 
 ---
 
 *Making the invisible visible, one sensor at a time.* 👻
+
+**Questions or collaboration?** Open an issue or reach out through [Baan Noorg](https://www.baannoorg.com/)
