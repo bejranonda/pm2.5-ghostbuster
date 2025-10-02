@@ -1,11 +1,12 @@
 # PM2.5 Ghostbuster
 
+> *"PM2.5 is like ghost. It exists even if it is invisible."*
+
 *Making invisible air pollution visible through hacked IKEA sensors and community-powered data*
 
 ![Mobile PM2.5 Detector Device in service](https://github.com/user-attachments/assets/4195d37e-1199-4a4c-8236-67b77a9f35be)
-*A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
-
-> *"PM2.5 is like ghost. It exists even if it is invisible."*
+ 
+ *A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
 
 
 ## 📍 Exhibition Context
@@ -13,11 +14,11 @@
 - **Project Name:** PM2.5 Ghostbuster
 - **Medium:** Interactive Environmental Monitoring Installation / Community Intervention
 - **Exhibition/Activity:** Artist-in-Residence Program & Community Workshop
-- **Development Period:** May 24-28, 2023 (Artist Residency) | Active Monitoring: May 2023 - November 2023
+- **Development Period:** May 24-28, 2023 (Artist Residency) | Active Monitoring: May 2023 - April 2024
 - **Venue:** Baan Noorg Collaborative Arts & Culture, Nong Pho, Ratchaburi Province, Thailand
 - **Type:** Workshop / Public Intervention / Online Platform
 - **Geographic Coverage:** Ratchaburi, Kanchanaburi, Bangkok, Samut Prakan (Thailand), Kassel (Germany)
-- **Archive:** [map.thalay.eu](https://map.thalay.eu/) (system archived due to funding constraints)
+- **Web-App:** [map.thalay.eu](https://map.thalay.eu/) (system archived due to funding constraints)
 
 This collaborative art-science project emerged from a five-day artist residency in rural Thailand, where community members built mobile air quality sensors together. The monitoring network operated for six months across four provinces, making invisible air pollution visible to local communities before being archived in November 2023.
 
@@ -28,7 +29,7 @@ This collaborative art-science project emerged from a five-day artist residency 
 
 **PM2.5 Ghostbuster transforms** affordable €12 IKEA air quality sensors into mobile environmental detectives that track pollution as you move through your city, your neighborhood, your daily commute.
 
-### 📱 How People Used It
+### How People Used It
 
 **🏍️ On the Move**
 Mount the sensor on your motorcycle or carry it while walking. The device continuously measures air quality and plots data on a live map accessible to anyone with internet.
@@ -39,20 +40,24 @@ Streets glow red with dangerous pollution levels. Neighborhoods breathe clean an
 **📶 Instant Sharing**
 Connect the device to your phone's hotspot → data appears on the global map within seconds. No internet? The device remembers everything locally and syncs automatically when connection returns.
 
-### 💡 What Made It Powerful
+### What Made It Powerful
 
 **💰 Accessible Technology** — €12 IKEA VINDRIKTNING sensor (designed by David Wahl) + GPS tracking + WiFi connectivity
 
 **🌍 Environmental Democracy** — Professional-grade air quality tracking in the hands of anyone who wants to understand the air they breathe
 
-**📊 Community Data** — Six months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide
+**📊 Community Data** — Twelve months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide
 
 
 ## 🌫️ The Problem: When Air Becomes Invisible Danger
 
-**In Ratchaburi Province, Thailand**, like many communities worldwide, air pollution is a silent crisis.
+![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
 
-**PM2.5 particles** — so small they penetrate deep into lungs and bloodstreams — remain invisible to human eyes while causing serious health impacts.
+*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
+
+- **In Ratchaburi Province, Thailand**, like many communities worldwide, air pollution is a silent crisis.
+
+- **PM2.5 particles** — so small they penetrate deep into lungs and bloodstreams — remain invisible to human eyes while causing serious health impacts.
 
 **Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure.
 
@@ -78,9 +83,10 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 **We tap into** the sensor's internal communication channel—called UART—to access the raw numerical data that the sensor produces every second.
 
 ![Hardware schematic showing sensor modification](https://github.com/user-attachments/assets/72173833-a505-4313-9137-12b720856811)
+
 *Hardware schematic by Chiara Giardi showing the ESP8266 microcontroller and GPS integration*
 
-### 🧠 Step 2: Adding Intelligence
+### Step 2: Adding Intelligence
 
 **Into the original IKEA housing**, we install:
 - 🔌 **ESP8266 microcontroller** (about the size of a thumb) — the device's brain
@@ -88,6 +94,7 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 - 📶 **WiFi connectivity** — sends data to the cloud or stores it locally
 
 ![Inside the mobile PM2.5 detector device](https://github.com/user-attachments/assets/3ce0eb01-d379-40ea-821c-2233dbe41414)
+
 *The enhanced internals: ESP8266 brain, GPS eyes, and the original IKEA sensor*
 
 **The microcontroller:**
@@ -143,6 +150,10 @@ In Ratchaburi Province, Thailand, like many communities worldwide, air pollution
 
 We created PM2.5 Ghostbuster to bridge the gap between hard science and public understanding. By treating PM2.5 pollution as invisible "ghosts" that need detection, we use art and cultural approaches to make environmental data accessible and actionable. This project represents a collaboration between German engineering expertise and Thai community arts, demonstrating how maker culture and creative technology can empower communities to monitor and respond to environmental challenges on their own terms.
 
+![349018209_946426160008440_2158539357010701521_n](https://github.com/user-attachments/assets/802d6cce-bbd2-4526-b83a-f1f857d2e3d6)
+
+*Bringing the Mobile PM2.5 Detector to the Local Community*
+
 
 ### How It Works
 
@@ -182,19 +193,24 @@ The system includes intelligent features that make mobile monitoring practical. 
 **Workshop Opportunities:**
 We regularly conduct hands-on building workshops. Contact [Baan Noorg Collaborative Arts & Culture](https://www.baannoorg.com/) for upcoming sessions.
 
-![Workshop participants building mobile PM2.5 detectors](https://github.com/user-attachments/assets/a1335e2e-155a-48e6-ab0a-547eb582a91e)
-*Community workshop at Baan Noorg teaching sensor construction and environmental monitoring*
 
 
 ## Key Results & Impact
 
 ### Live Monitoring Network
 
-![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
-*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
+![516838813_10171998375205074_9010611628466192082_n](https://github.com/user-attachments/assets/2fbb14e4-5dd6-4da1-8b86-ba49c21ff693)
+
+*DIY Air-Quality Workshop: Building a PM2.5 Detector at Baan Noorg community in Ratchaburi Province - May 2023*
+
+![Hotspot+PM25plot](https://github.com/user-attachments/assets/771f9c1c-860d-4a40-9879-c0ff2a622690)
+
+*PM 2.5 and Fires in Central Thailand – March 2024*
 
 ![Visualization showing pollution patterns](https://github.com/user-attachments/assets/d527273f-41f9-4cb3-95e9-1d0747295254)
+
 *"Flower of pollution"—radial patterns showing daily PM2.5 variations across monitoring routes*
+
 
 ### Real-World Applications
 
@@ -208,18 +224,25 @@ We regularly conduct hands-on building workshops. Contact [Baan Noorg Collaborat
 ## Project Credits
 
 ### Core Collaboration
-**Werapol Bejranonda** (Germany) - Engineering, System Architecture, Hardware Design
-**Baan Noorg Collaborative Arts and Culture** (Thailand) - Host Organization, Community Engagement, Cultural Translation
+- **Werapol Bejranonda** (Germany) - Engineering, System Architecture, Hardware Design
+- **Baan Noorg Collaborative Arts and Culture** (Thailand) - Host Organization, Community Engagement, Cultural Translation
 
 ### Key Collaborators
-**Chiara Giardi** - Curation, Project Interpretation, Continuator
-**Nisa Jewcharoen** - Coordination and Community Liaison
+- **Chiara Giardi** - Curation, Project Interpretation, Continuator
+- **Nisa Jewcharoen** - Coordination and Community Liaison
+
+![349743525_787367736076461_4508559546060926412_n](https://github.com/user-attachments/assets/4803fc9a-251d-4cfb-8939-b13086559576)
+*Workshop planning with curator Chiara Giardi and engineer Werapol Bejranonda*
 
 ### Local Team & Participants
-**JiandYin, Ploy, Im, Boss** - Workshop facilitation and device testing
+- **JiandYin, Ploy, Im, Boss** - Workshop facilitation and device testing
 
 ### Community
 Local residents of Ratchaburi Province for participation, testing, and ongoing monitoring
+
+![Workshop participants building mobile PM2.5 detectors](https://github.com/user-attachments/assets/a1335e2e-155a-48e6-ab0a-547eb582a91e)
+
+*Community workshop at Baan Noorg teaching sensor construction and environmental monitoring*
 
 ### Technical Foundation
 This project builds upon [**Hypfer's esp8266-vindriktning-particle-sensor**](https://github.com/Hypfer/esp8266-vindriktning-particle-sensor) (Apache-2.0), which pioneered MQTT connectivity for IKEA VINDRIKTNING sensors. Our enhancements add GPS integration, offline storage, intelligent publishing algorithms, and mobile optimization while maintaining the Apache-2.0 license.
