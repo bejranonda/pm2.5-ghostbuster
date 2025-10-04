@@ -46,6 +46,12 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 
 **Perfect for mobile vendors, ice cream bike-shops, or motorcycle commuters:** Collect PM2.5 measurements, timestamps, and GPS coordinates throughout the day while offline. When you return home or pass a public WiFi hotspot, all accumulated data automatically transfers to the server and appears on the public map—revealing pollution patterns across your community without requiring constant connectivity.
 
+
+![349018209_946426160008440_2158539357010701521_n](https://github.com/user-attachments/assets/802d6cce-bbd2-4526-b83a-f1f857d2e3d6)
+
+*Bringing the Mobile PM2.5 Detector to the Local Community*
+
+
 ### What Made It Powerful
 
 **💰 Accessible Technology** — €12 IKEA VINDRIKTNING sensor (designed by David Wahl) + GPS tracking + WiFi connectivity
@@ -54,18 +60,17 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 
 **📊 Community Data Network** — Twelve months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide. Each mobile device acts as a moving sensor, collectively mapping pollution hotspots across entire communities at a fraction of the cost of fixed monitoring stations
 
-
 ## 🌫️ The Problem: When Air Becomes Invisible Danger
-
-![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
-
-*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
 
 - **In Ratchaburi Province, Thailand**, like many communities worldwide, air pollution is a silent crisis.
 
 - **PM2.5 particles** — so small they penetrate deep into lungs and bloodstreams — remain invisible to human eyes while causing serious health impacts.
 
 **Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure. Installing professional monitoring networks is prohibitively expensive, often costing thousands per station.
+
+![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
+
+*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
 
 ### 🎨 Our Solution: Art Meets Science & Mobile Community Monitoring
 
@@ -161,10 +166,6 @@ What makes this system powerful is its accessibility. The heart of each device i
 In Ratchaburi Province, Thailand, like many communities worldwide, air pollution is a silent crisis. PM2.5 particles—so small they penetrate deep into lungs and bloodstreams—remain invisible to human eyes while causing serious health impacts. Official monitoring stations are few and far between, leaving communities with little understanding of their daily exposure.
 
 We created PM2.5 Ghostbuster to bridge the gap between hard science and public understanding. By treating PM2.5 pollution as invisible "ghosts" that need detection, we use art and cultural approaches to make environmental data accessible and actionable. This project represents a collaboration between German engineering expertise and Thai community arts, demonstrating how maker culture and creative technology can empower communities to monitor and respond to environmental challenges on their own terms.
-
-![349018209_946426160008440_2158539357010701521_n](https://github.com/user-attachments/assets/802d6cce-bbd2-4526-b83a-f1f857d2e3d6)
-
-*Bringing the Mobile PM2.5 Detector to the Local Community*
 
 
 ### How It Works
