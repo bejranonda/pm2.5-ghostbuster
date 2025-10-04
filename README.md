@@ -39,8 +39,10 @@ Mount the sensor on your motorcycle or carry it while walking. The device contin
 **🗺️ Seeing the Invisible**
 Streets glow red with dangerous pollution levels. Neighborhoods breathe clean and green. Patterns emerge showing how pollution moves through communities.
 
-**📶 Instant Sharing**
+**📶 Works Anywhere—Internet or Not**
 Connect the device to your phone's hotspot → data appears on the global map within seconds. No internet? The device remembers everything locally and syncs automatically when connection returns.
+
+**Perfect for mobile vendors, ice cream bike-shops, or motorcycle commuters:** Collect PM2.5 measurements, timestamps, and GPS coordinates throughout the day while offline. When you return home or pass a public WiFi hotspot, all accumulated data automatically transfers to the server and appears on the public map—revealing pollution patterns across your community without requiring constant connectivity.
 
 ### What Made It Powerful
 
@@ -48,7 +50,7 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 
 **🌍 Environmental Democracy** — Professional-grade air quality tracking in the hands of anyone who wants to understand the air they breathe
 
-**📊 Community Data** — Twelve months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide
+**📊 Community Data Network** — Twelve months of active monitoring across Ratchaburi, Kanchanaburi, Bangkok, and Samut Prakan provinces generated rich environmental data that official monitoring stations couldn't provide. Each mobile device acts as a moving sensor, collectively mapping pollution hotspots across entire communities at a fraction of the cost of fixed monitoring stations
 
 
 ## 🌫️ The Problem: When Air Becomes Invisible Danger
@@ -61,9 +63,9 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 
 - **PM2.5 particles** — so small they penetrate deep into lungs and bloodstreams — remain invisible to human eyes while causing serious health impacts.
 
-**Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure.
+**Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure. Installing professional monitoring networks is prohibitively expensive, often costing thousands per station.
 
-### 🎨 Our Solution: Art Meets Science
+### 🎨 Our Solution: Art Meets Science & Mobile Community Monitoring
 
 **We created PM2.5 Ghostbuster** to bridge the gap between hard science and public understanding.
 
@@ -72,6 +74,8 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 **🤝 Cross-Cultural Collaboration** — This project represents a meeting of German engineering expertise and Thai community arts, demonstrating how maker culture and creative technology can empower communities to monitor and respond to environmental challenges on their own terms.
 
 **🛠️ Built Together** — During the five-day artist residency, community members learned to hack consumer electronics, build sensors, and create their own environmental monitoring tools.
+
+**💡 Smart Economics** — Instead of expensive fixed monitoring stations, mobile sensors carried by community members (vendors, commuters, delivery riders) map pollution across entire neighborhoods. Offline data collection means anyone can contribute—even without continuous internet access. When devices sync at home or public hotspots, the entire community gains visibility into local air quality patterns.
 
 
 ## 🔧 The Magic: From €12 IKEA Sensor to Smart Detector
@@ -123,17 +127,21 @@ Only publishes new data after traveling 30+ meters → conserves battery and dat
 **Offline Resilience** 💾
 Device stores measurements in flash memory when no internet → auto-syncs when connection returns → no pollution data ever lost
 
+**Community-Powered Coverage** 🏘️
+Mobile vendors, ice cream bike-shops, and commuters become environmental sensors → collect data across neighborhoods while offline → sync at home/public WiFi → entire community sees pollution hotspots on shared map → replaces need for expensive fixed monitoring stations
+
 
 ## Key Features
 
 - **🏠 Consumer Hardware Foundation** - Built on €12 IKEA VINDRIKTNING sensors, making professional environmental monitoring accessible
 - **📍 GPS-Enabled Mobile Monitoring** - Track air quality along routes, revealing pollution patterns across neighborhoods and cities
-- **💾 Intelligent Offline Operation** - Automatically stores data locally when offline, syncs when connection restores
-- **🌐 Real-Time Global Visualization** - Live web map shows all measurements from all devices with 30 days of historical data
-- **📱 Smartphone Integration** - Works with phone mobile hotspots for instant data sharing anywhere
+- **💾 Intelligent Offline Operation** - Automatically stores PM2.5 data, timestamps, and GPS coordinates locally when offline, syncs when connection restores—perfect for mobile vendors and commuters without constant internet
+- **🌐 Real-Time Global Visualization** - Live web map shows all measurements from all devices with 30 days of historical data, publicly accessible to entire community
+- **📱 Smartphone Integration** - Works with phone mobile hotspots for instant data sharing, or operates fully offline until reaching WiFi
 - **☁️ Professional Cloud Infrastructure** - Enterprise-grade Python backend with automated alerts and REST API
 - **🔓 Fully Open Source** - Complete hardware modifications, firmware, and server code available for replication
-- **🌍 Community-Powered Network** - Each device contributes to collective understanding of regional air quality
+- **🌍 Community-Powered Network** - Mobile sensors carried by community members map pollution hotspots across entire neighborhoods, eliminating need for expensive fixed monitoring stations
+- **💰 Cost-Effective Coverage** - One €30 mobile device can cover areas requiring thousands of dollars in traditional fixed sensors
 
 ## If you need to understand more
 
@@ -216,11 +224,12 @@ We regularly conduct hands-on building workshops. Contact [Baan Noorg Collaborat
 
 ### Real-World Applications
 
-- **🏍️ Commuter Exposure Mapping** - Motorcycle riders track their daily pollution exposure
-- **🏘️ Neighborhood Awareness** - Communities identify local pollution sources and patterns
-- **📊 Citizen Science Data** - Distributed monitoring network provides data where official stations don't exist
+- **🏍️ Commuter Exposure Mapping** - Motorcycle riders track their daily pollution exposure while offline, data syncs at home
+- **🛒 Mobile Vendor Monitoring** - Ice cream bikes, food carts, and delivery riders collect pollution data across neighborhoods during work hours, contributing to community maps without needing constant internet
+- **🏘️ Neighborhood Coverage** - Communities identify local pollution sources and patterns without expensive fixed monitoring stations
+- **📊 Citizen Science Data** - Distributed mobile monitoring network provides comprehensive data where official stations don't exist
 - **🎓 Educational Tool** - Schools use devices to teach environmental science hands-on
-- **🗣️ Advocacy Evidence** - Data supports community conversations with local authorities
+- **🗣️ Advocacy Evidence** - Data supports community conversations with local authorities, showing pollution patterns across entire neighborhoods
 
 
 ## Project Credits
