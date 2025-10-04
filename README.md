@@ -4,6 +4,8 @@
 
 *Making invisible air pollution visible through hacked IKEA sensors and community-powered data*
 
+**PM2.5 Ghostbuster** transforms €12 IKEA VINDRIKTNING air quality sensors into GPS-enabled mobile pollution detectors that reveal invisible environmental threats. Like ghost-hunting equipment for microscopic particles, this open-source IoT system combines hardware hacking, real-time mapping, and community science—empowering anyone to track air quality as they move through neighborhoods, identify pollution hotspots, and make atmospheric data tangible. Born from a 2023 artist residency in rural Thailand, the project has generated 12 months of citizen-collected environmental data across four provinces.
+
 ![Mobile PM2.5 Detector Device in service](https://github.com/user-attachments/assets/4195d37e-1199-4a4c-8236-67b77a9f35be)
  
  *A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
