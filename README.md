@@ -68,9 +68,9 @@ Connect the device to your phone's hotspot → data appears on the global map wi
 
 **Official monitoring stations** are few and far between, leaving communities with little understanding of their daily exposure. Installing professional monitoring networks is prohibitively expensive, often costing thousands per station.
 
-![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
+![Hotspot+PM25plot](https://github.com/user-attachments/assets/771f9c1c-860d-4a40-9879-c0ff2a622690)
 
-*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
+*PM 2.5 and Fires in Central Thailand – March 2024*
 
 ### 🎨 Our Solution: Art Meets Science & Mobile Community Monitoring
 
@@ -216,13 +216,15 @@ We regularly conduct hands-on building workshops. Contact [Baan Noorg Collaborat
 
 *DIY Air-Quality Workshop: Building a PM2.5 Detector at Baan Noorg community in Ratchaburi Province - May 2023*
 
-![Hotspot+PM25plot](https://github.com/user-attachments/assets/771f9c1c-860d-4a40-9879-c0ff2a622690)
-
-*PM 2.5 and Fires in Central Thailand – March 2024*
 
 ![Visualization showing pollution patterns](https://github.com/user-attachments/assets/d527273f-41f9-4cb3-95e9-1d0747295254)
 
 *"Flower of pollution"—radial patterns showing daily PM2.5 variations across monitoring routes*
+
+
+![Dense measurement data showing air quality patterns](https://github.com/user-attachments/assets/ff23e490-b14a-48f6-bedd-2b305d3948cc)
+
+*High-density PM2.5 measurements revealing pollution hotspots in Ratchaburi Province*
 
 
 ### Real-World Applications
