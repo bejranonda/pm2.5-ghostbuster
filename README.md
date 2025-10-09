@@ -13,8 +13,8 @@ Like ghost-hunting equipment for microscopic particles, this open-source IoT sys
  *A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
 
 
-## 📍 Exhibition Context
-
+## 📍 Exhibition
+### Art Project
 - **Project Name:** PM2.5 Ghostbuster
 - **Medium:** Interactive Environmental Monitoring Installation / Community Intervention
 - **Exhibition/Activity:** Artist-in-Residence Program & Community Workshop
@@ -23,6 +23,10 @@ Like ghost-hunting equipment for microscopic particles, this open-source IoT sys
 - **Type:** Workshop / Public Intervention / Online Platform
 - **Geographic Coverage:** Ratchaburi, Kanchanaburi, Bangkok, Samut Prakan (Thailand), Kassel (Germany)
 - **Web-App:** [map.thalay.eu](https://map.thalay.eu/) (system archived due to funding constraints)
+
+### Collaboration
+- **Werapol Bejranonda** - Engineering
+- **Baan Noorg Collaborative Arts and Culture** - Host Organization
 
 This collaborative art-science project emerged from a five-day artist residency in rural Thailand, where community members built mobile air quality sensors together. The monitoring network operated for six months across four provinces, making invisible air pollution visible to local communities before being archived in November 2023.
 
@@ -152,7 +156,7 @@ Mobile vendors, ice cream bike-shops, and commuters become environmental sensors
 
 ## If you need to understand more
 
-### What It Does
+### What It Does (Value for different audiences)
 
 Imagine carrying a device no bigger than a smartphone that reveals the invisible—microscopic particles floating in the air around you, potentially harming your health with every breath. PM2.5 Ghostbuster transforms affordable IKEA air quality sensors into mobile environmental detectives that track pollution as you move through your city, your neighborhood, your daily commute.
 
@@ -161,7 +165,7 @@ When you mount one of these modified sensors on your motorcycle or carry it whil
 What makes this system powerful is its accessibility. The heart of each device is a €12 IKEA VINDRIKTNING air quality sensor—designed by David Wahl for home use—that we've carefully enhanced with GPS tracking and WiFi connectivity. When you connect the device to your phone's hotspot, it instantly shares data to a global map. Even when internet isn't available, it remembers everything locally and syncs automatically when connection returns. This isn't just environmental monitoring—it's environmental democracy, putting professional-grade air quality tracking into the hands of anyone who wants to understand the air they breathe.
 
 
-### Why It Exists
+### The Experience (What people encounter)
 
 In Ratchaburi Province, Thailand, like many communities worldwide, air pollution is a silent crisis. PM2.5 particles—so small they penetrate deep into lungs and bloodstreams—remain invisible to human eyes while causing serious health impacts. Official monitoring stations are few and far between, leaving communities with little understanding of their daily exposure.
 
