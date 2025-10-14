@@ -13,8 +13,8 @@ import time
 # MQTT settings
 MQTT_BROKER_ADDRESS = "mqtt.thalay.eu"
 MQTT_BROKER_PORT = 1883
-MQTT_USERNAME = "pm25"
-MQTT_PASSWORD = "FGsldku3ir"
+MQTT_USERNAME = os.getenv("MQTT_USERNAME", "pm25")
+MQTT_PASSWORD = os.getenv("MQTT_PASSWORD")
 MQTT_TOPIC = "pm25/+/air"  # the + will be replaced by the device ID
 
 # InfluxDB settings
