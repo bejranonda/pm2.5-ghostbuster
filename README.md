@@ -13,7 +13,7 @@ Like ghost-hunting equipment for microscopic particles, this open-source IoT sys
  *A transformed IKEA air quality sensor becomes a mobile environmental monitoring device*
 
 
-## 📍 Exhibition
+## 📍 Art-Science Collaboration
 ### Art Project
 - **Project Name:** PM2.5 Ghostbuster
 - **Medium:** Interactive Environmental Monitoring Installation / Community Intervention
