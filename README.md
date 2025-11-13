@@ -2,7 +2,7 @@
 
 > *"PM2.5 is like ghost. It exists even if it is invisible."*
 
-*Making invisible air pollution visible through hacked IKEA sensors and community-powered data*
+*Making invisible air pollution visible through hacked sensors and community-powered data, in low-internet environments*
 
 **PM2.5 Ghostbuster** transforms €12 IKEA VINDRIKTNING air quality sensors into GPS-enabled mobile pollution detectors that reveal invisible environmental threats.
 
